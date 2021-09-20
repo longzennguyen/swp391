@@ -10,6 +10,7 @@
             .tableStyle{
                 width: 100%;
                 height: 100%;
+                margin-top: 0px;
             }
             tableStyle.rightPage{
                 color: blue;
@@ -28,26 +29,29 @@
                 border: 1px solid black;
                 /*background-size: 50% 100%;*/
             }
+            .style1{
+                 width: 100%; height: 100%; background-color: blue;
+            }
         </style>
     </head>
 
     <body>
-        <table action="servlet1" method="post" class =tableStyle  >  
-            <td width=100 height=900 bgcolor="white" align="center">
-                <h1>Đăng nhập</h1>
+        <table action="servlet1" method="post" class =style1  >  
+            <td width=100 height=400 bgcolor="white" align="center"> <!--width=100 height=400 bgcolor="white" align="center"-->
+                <h1 style="margin-top: -50px">Đăng nhập</h1>
                 <a>Chưa có tài khoản?</a>
                 <a href="http://google.com.vn">Đăng ký</a>
                 <h1></h1>
-                <table >
+                <table>
                     <tr>
                         <td>
-                            <input type="email" id="email" name="checkUser" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">
-                            
+                            <input type="email" id="email" name="checkUser" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Email" 
+                                   onkeyup="onChangeEmail()" >
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="password">
+                            <input type="password"  placeholder="Password" id="password">
                         </td>
                     </tr>
                     <tr>
@@ -61,11 +65,18 @@
             </td>
             <td width=100 height=900 bgcolor="blue"></td>
         </table>  
-         <p id="GFG" style="font-size:20px;color:green;"></p> 
+        <p id="GFG"></p> 
         <script>
             function checkUser() {
+                window.alert("hi");
                 var status = document.getElementById("email").pattern;
+                System.out.printl("hahahahah: " + status);
                 document.getElementById("GFG").innerHTML = status;
+                
+            }
+            function onChangeEmail() {
+                var textGet = document.getElementById("email").value;
+                alert("change...: "+textGet);
             }
         </script>
     </body>
