@@ -30,8 +30,11 @@
                 /*background-size: 50% 100%;*/
             }
             .style1{
-                 width: 100%; height: 100%; background-color: blue;
+                width: 100%; height: 100%; background-color: blue;
             }
+
+            /*test*/
+            /*end test*/
         </style>
     </head>
 
@@ -45,19 +48,20 @@
                 <table>
                     <tr>
                         <td>
-                            <input type="email" id="email" name="checkUser" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Email" 
-                                   onkeyup="onChangeEmail()" >
+                            <input style="border-radius: 5px; height: 30px; border: 1px solid #000" type="email" id="email" name="checkUser" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Email" 
+                                   onkeyup="" onblur="" >
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="password"  placeholder="Password" id="password">
+                            <input  style="border-radius: 5px ; height: 30px; margin-top: 10px;border: 1px solid #000" type="password"  placeholder="Password" id="password">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button onclick="checkUser()"> 
-                                Click Here! 
+                            <button onclick="checkUser()" style="margin-top: 10px; background-color: orange; padding: 20px 16px; border-radius: 8px; 
+                                    height: 20px; align-content: center; align-items: center; align-self: center; flex: 1"> 
+                                <p>Đăng nhập</p>
                             </button> 
                         </td>
                     </tr> 
@@ -72,11 +76,6 @@
                 var status = document.getElementById("email").pattern;
                 System.out.printl("hahahahah: " + status);
                 document.getElementById("GFG").innerHTML = status;
-                
-            }
-            function onChangeEmail() {
-                var textGet = document.getElementById("email").value;
-                alert("change...: "+textGet);
             }
         </script>
     </body>
