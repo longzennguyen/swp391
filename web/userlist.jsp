@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : userlist
     Created on : Sep 22, 2021, 10:56:13 AM
@@ -63,46 +64,27 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>mark@gmail.com</td>
-                <td>12343512312</td>
-                <td>Customer</td>
-                <td>Active</td>
+            <c:forEach var="o" items="${ulist}">
+                <tr>
+                <th scope="row">${o.uid}</th>
+                <td>${o.name}</td>
+                <td>${o.email}</td>
+                <td>${o.phone}</td>
+                <td>${o.role_id}</td>
+                <td>${o.status}</td>
                 <td>
                     <button>Edit</button>
                     <button>Delete</button>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Larry</td>
-                <td>larry@gmail.com</td>
-                <td>12343512312</td>
-                <td>Staff</td>
-                <td>Disable</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>larry@gmail.com</td>
-                <td>12343512312</td>
-                <td>Manager</td>
-                <td>Enable</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-              </tr>
+            </c:forEach>
             </tbody>
           </table>
     </div>  
 
+    
+    
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

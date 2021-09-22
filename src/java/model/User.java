@@ -17,11 +17,12 @@ public class User {
     private String phone;
     private String address;
     private int role_id;
+    private boolean status;
 
     public User() {
     }
 
-    public User(int uid, String name, String gender, String email, String phone, String address, int role_id) {
+    public User(int uid, String name, String gender, String email, String phone, String address, int role_id, boolean status) {
         this.uid = uid;
         this.name = name;
         this.gender = gender;
@@ -29,7 +30,10 @@ public class User {
         this.phone = phone;
         this.address = address;
         this.role_id = role_id;
+        this.status = status;
     }
+
+    
 
     public int getUid() {
         return uid;
@@ -86,5 +90,14 @@ public class User {
     public void setRole_id(int role_id) {
         this.role_id = role_id;
     }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+    
     
 }
