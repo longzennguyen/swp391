@@ -17,9 +17,9 @@
 </head>
 <body>
     <div class="sidebar">
-        <a class="active" href="admin.html">Children Care</a>
+        <a class="active" href="admin.jsp">Children Care</a>
         <a href="#general">General</a>
-        <a href="userlist.html">User List</a>
+        <a href="userlist.jsp">User List</a>
         <a href="#usercontrol">System Management</a>
     </div>
 

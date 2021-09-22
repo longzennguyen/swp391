@@ -17,19 +17,15 @@
 </head>
 <body>
     <div class="sidebar">
-        <a class="active" href="#home">Children Care</a>
-        <a href="#general">Quản lý chung</a>
-        <a href="#userlist">Danh sách người dùng</a>
-        <a href="#usercontrol">Quản lý người dùng</a>
-        <a href="#settings">Cài đặt</a>
-        <a href="#logout">Đăng xuất</a>
+        <a class="active" href="admin.jsp">Children Care</a>
+        <a href="#general">General</a>
+        <a href="userlist.jsp">User List</a>
+        <a href="#usercontrol">System Management</a>
       </div>
 
     <div class="content">
-        <h2>Responsive Sidebar Example</h2>
-        <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
-        <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
-        <h3>Resize the browser window to see the effect.</h3>
+        <h2>Test</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eaque molestias, fugit obcaecati labore repellat recusandae quod. Enim consequatur fuga temporibus optio aliquam molestiae dicta ullam cupiditate? Tempore, doloribus aliquam?</p>
     </div>  
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
