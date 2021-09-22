@@ -21,6 +21,7 @@ import model.User;
  * @author ROG STRIX
  */
 public class UserDAO {
+    
     private Connection conn;
     private PreparedStatement ps;
     private ResultSet rs;
