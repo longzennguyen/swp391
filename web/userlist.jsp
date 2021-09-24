@@ -64,20 +64,44 @@
               </tr>
             </thead>
             <tbody>
-            <c:forEach var="o" items="${ulist}">
                 <tr>
-                <th scope="row">${o.uid}</th>
-                <td>${o.name}</td>
-                <td>${o.email}</td>
-                <td>${o.phone}</td>
-                <td>${o.role_id}</td>
-                <td>${o.status}</td>
+                <th scope="row">1</th>
+                <td>Duc</td>
+                <td>duc@gmail.com</td>
+                <td>12343512312</td>
+                <td>Administrator</td>
+                <td>Active</td>
                 <td>
-                    <button>Edit</button>
+                    <button><a href="userprofile.jsp">Edit</a></button>
                     <button>Delete</button>
                 </td>
               </tr>
-            </c:forEach>
+              <tr>
+                <th scope="row">2</th>
+                <td>Larry</td>
+                <td>larry@gmail.com</td>
+                <td>12343512312</td>
+                <td>Staff</td>
+                <td>Disable</td>
+                <td>
+                    <button><a href="#">Edit</a></button>
+                    <button>Delete</button>
+                </td>
+              </tr>
+                <c:forEach var="o" items="${ulist}">
+                    <tr>
+                    <th scope="row">${o.uid}</th>
+                    <td>${o.name}</td>
+                    <td>${o.email}</td>
+                    <td>${o.phone}</td>
+                    <td>${o.role_id}</td>
+                    <td>${o.status}</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                  </tr>
+                </c:forEach>
             </tbody>
           </table>
     </div>  
