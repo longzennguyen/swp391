@@ -49,7 +49,6 @@
       </nav>
 
     <div class="content">
-        <form action="">
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row">
                 <div class="col-md-3 border-right">
@@ -61,33 +60,25 @@
                             <h4 class="text-right">User Profile Editing</h4>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="Nguyen Tien" value=""></div>
-                            <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" value="" placeholder="Duc"></div>
+                            <div class="col-md-6"><label class="labels">First Name: </label><h5>Nguyen Tien</h5></div>
+                            <div class="col-md-6"><label class="labels">Last Name: </label><h5>Duc</h5></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="0963974475" value=""></div>
-                            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="duc@gmail.com" value=""></div>
-                            <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="" value="viet nam, viet nam, viet nam"></div>                            
-                            <div class="col-md-12"><label class="labels">Birthday (yyyy-MM-dd)</label><input type="text" class="form-control" placeholder="31/07/2001" value=""></div>
-                            <div class="col-md-12"><label class="labels">Role</label><input type="text" class="form-control" placeholder="Administrator" value=""></div> 
-                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Gender</label>
-                                <input type="radio" name="gender" value="0" checked /> Male
-                                <input type="radio" name="gender" value="1" /> Female
-                            </div>
+                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Mobile Number: </label><h5>0963975575</h5></div>
+                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Email: </label><h5>duc@gmail.com</h5></div>
+                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Address: </label><h5>vietnam, vietnam, vietnam</h5></div>                            
+                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Birthday: </label><h5>31/07/2001</h5></div>
+                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Role: </label> <h5>Administrator</h5></div>                                                         
+                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Gender: </label> <h5>Male</h5></div>                             
+                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Status: </label><h5>Active</h5></div>                             
                         </div>                                                                    
                     </div>                  
                 </div>
-                <div class="col-md-4">
-                    <div class="p-3 py-5">
-                        <div class="d-flex justify-content-between align-items-center experience"><span>Account Edit</span></div><br>
-                        <div class="col-md-12"><label class="labels">Username</label><input type="text" class="form-control" placeholder="ducusername" value=""></div> <br>
-                        <div class="col-md-12"><label class="labels">Password</label><input type="text" class="form-control" placeholder="ducpassword" value=""></div>
-                    </div>
+                <div class="mt-5 text-center col-md-10">
+                    <a href="userlist.jsp"><button class="btn btn-primary profile-button" type="button">Back to List</button></a>
                 </div>
-                <div class="mt-5 text-center col-md-10"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
             </div>
         </div>
-    </form>
 </div>
 
 

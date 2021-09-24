@@ -72,8 +72,9 @@
                 <td>Administrator</td>
                 <td>Active</td>
                 <td>
-                    <button><a href="userprofile.jsp">Edit</a></button>
-                    <button>Delete</button>
+                    <button><a href="userprofile.jsp">Profile</a></button>
+                    <button>Active</button>
+                    <button>Disable</button>
                 </td>
               </tr>
               <tr>
@@ -84,8 +85,9 @@
                 <td>Staff</td>
                 <td>Disable</td>
                 <td>
-                    <button><a href="#">Edit</a></button>
-                    <button>Delete</button>
+                    <button><a href="userprofile.jsp">Profile</a></button>
+                    <button>Active</button>
+                    <button>Disable</button>
                 </td>
               </tr>
                 <c:forEach var="o" items="${ulist}">
@@ -97,13 +99,17 @@
                     <td>${o.role_id}</td>
                     <td>${o.status}</td>
                     <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <button><a href="userprofile.jsp">Profile</a></button>
+                        <button>Active</button>
+                        <button>Disable</button>
                     </td>
                   </tr>
                 </c:forEach>
             </tbody>
           </table>
+        <div class="mt-5 text-center col-md-10">
+            <a href="adduser.jsp"><button class="btn btn-primary profile-button" type="button" >Add New User</button></a>
+        </div>
     </div>  
 
     

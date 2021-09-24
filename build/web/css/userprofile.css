@@ -78,3 +78,6 @@ div.content {
     float: none;
   }
 }
+.content label{
+  text-decoration: underline;
+}
