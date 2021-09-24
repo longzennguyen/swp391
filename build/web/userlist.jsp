@@ -21,7 +21,7 @@
         <a class="active" href="admin.jsp">Children Care</a>
         <a href="#general">General</a>
         <a href="userlist.jsp">User List</a>
-        <a href="#usercontrol">System Management</a>
+        <a href="userprofile.jsp">System Management</a>
     </div>
 
     <nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color: #373B88;">
