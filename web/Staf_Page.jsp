@@ -1,6 +1,6 @@
 <%-- 
-    Document   : AdminDashboad
-    Created on : Sep 17, 2021, 1:43:20 PM
+    Document   : Staf_Page
+    Created on : Sep 26, 2021, 11:25:32 PM
     Author     : Admin
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>This is Staff Page</h1>
     </body>
 </html>

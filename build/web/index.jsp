@@ -16,10 +16,12 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body style="background-image: url('https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); background-size: 100%;">
+
         <main class="page login-page">
             <section class="clean-block clean-form dark">
                 <div class="container" style="margin-top: 5%">
                     <div class="block-heading">
+                        <!--<h2 class="text-info">Dịch vụ chăm sóc sức khoẻ cho trẻ</h2>-->
                         <h2 class="text-info">Đăng nhập</h2>
                     </div>
                     <form action="LoginSvlet" method="POST">
@@ -45,21 +47,21 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" >Đăng ký</h5>
+                        <h5 class="modal-title">Đăng ký</h5>
                     </div>
                     <div class="modal-body">
-                        <form action="add" name="register" id="register" method="POST">
+                        <form action="RegisterAccount" method="POST">
                             <div>
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">First Name</label>
                                     <div class="col-10">
-                                        <input placeholder="First Name" class="form-control" type="text" name="fullname" required>
+                                        <input placeholder="First Name" class="form-control" type="text" name="first_name" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Last Name</label>
                                     <div class="col-10">
-                                        <input placeholder="Last Name" class="form-control" type="text" name="fullname" required>
+                                        <input placeholder="Last Name" class="form-control" type="text" name="last_name" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -123,42 +125,31 @@
                             </div>
                             <!--                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                         <button type="submit" class="btn btn-primary">Register</button>-->
+                            <div class="modal-footer" >
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                <button type="submit" class="btn btn-primary" name="action" value="test">Test</button>
+                                <button type="submit" class="btn btn-primary" name="action" value="submit" >Đăng ký</button>
+                            </div>
                         </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="checkDuplicateUser">Đóng</button>
-                        <button type="button" class="btncls" onclick="checkDuplicateUser()">Test</button>
-                        <button type="submit" class="btn btn-primary" onclick="submitRegister()">Đăng ký</button>
-                    </div>
+
                 </div>
             </div>
         </div>
 
         <script >
             function submitRegister() {
-            document.getElementById("register").submit();
+                document.getElementById("register").submit();
             }
 
             var validatePassword = function () {
-            if (document.getElementById('password').value == '' && document.getElementById('confirm_password').value == '') {
-            document.getElementById('validatePassword').innerHTML = '';
-            } else if (document.getElementById('password').value == document.getElementById('confirm_password').value) {
-            document.getElementById('validatePassword').innerHTML = 'Password Matching';
-            } else {
-            document.getElementById('validatePassword').innerHTML = 'Password Not Matching';
-            }
-            }
-
-            function  checkDuplicateUser(async) => {
-
-            let checkUser = await  axios.get('http://localhost:8086//api/v1/users')
-                    .then(res => {
-                    console.log("-----> ", res);
-                    return res.data;
-                    }).catch (err) {
-            console.log("Loi roi");
-            }
-            ;
+                if (document.getElementById('password').value == '' && document.getElementById('confirm_password').value == '') {
+                    document.getElementById('validatePassword').innerHTML = '';
+                } else if (document.getElementById('password').value == document.getElementById('confirm_password').value) {
+                    document.getElementById('validatePassword').innerHTML = 'Password Matching';
+                } else {
+                    document.getElementById('validatePassword').innerHTML = 'Password Not Matching';
+                }
             }
         </script>
     </body>

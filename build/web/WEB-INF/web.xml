@@ -20,6 +20,10 @@
         <servlet-name>HomePage</servlet-name>
         <servlet-class>controller.HomePage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterAccount</servlet-name>
+        <servlet-class>controller.RegisterAccount</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <!--<url-pattern>dispatcher</url-pattern>-->
@@ -32,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>HomePage</servlet-name>
         <url-pattern>/HomePage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterAccount</servlet-name>
+        <url-pattern>/RegisterAccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

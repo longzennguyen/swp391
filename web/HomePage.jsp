@@ -37,7 +37,7 @@
                         <!--                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                                                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                                                         <li class="nav-item active">-->
-                        <a class="navbar-brand" style="color: darkslategrey" href="#">Tin tức<span class="sr-only">(current)</span></a>
+                        <a class="navbar-brand" style="color: darkslategrey" href="#" onclick="">Tin tức<span class="sr-only">(current)</span></a>
                         <!--                                </li>
                                                         <li class="nav-item">-->
                         <a class="navbar-brand" style="color: darkslategrey" href="#">Thanh toán</a>

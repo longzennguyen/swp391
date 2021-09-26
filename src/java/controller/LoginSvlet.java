@@ -46,18 +46,6 @@ public class LoginSvlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginSvlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginSvlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -86,6 +74,8 @@ public class LoginSvlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
+        System.out.println("action get : " + request.getParameter("action"));
         System.out.println("Do Post Login");
         log("abcbcbc");
         UserModel user = new UserModel();
@@ -115,7 +105,6 @@ public class LoginSvlet extends HttpServlet {
                 rs = st.executeQuery();
                 while (rs.next()) {
                     System.out.println("Name of User: " + rs.getString("first_name") + " roleid: " + rs.getString("role_id"));
-
                     user.setUser_id(rs.getLong("users_id"));
                     user.setName(rs.getString("first_name") + " " + rs.getString("last_name"));
                     user.setRoleid(rs.getLong("role_id"));
@@ -139,22 +128,10 @@ public class LoginSvlet extends HttpServlet {
             String loginfail = "Tên đăng nhập hoặc mật khẩu không chính xác, vui lòng kiểm tra lại!";
             request.setAttribute("loginfail1", loginfail);
             System.out.println("url : " + request.getContextPath() + "/index.htm");
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher(request.getContextPath() + "/index.jsp").forward(request, response);
 //            response.sendRedirect(request.getContextPath()+"/index.htm");
             System.out.println("Attri bute>>>> " + request.getAttribute("loginfail1"));
         } else if (user.getRoleid() == 1) {
-
-            log("abababa2");
-            response.sendRedirect("/HomePage.jsp");
-        } else if (user.getRoleid() == 2) {
-
-            log("abababa3");
-            request.getSession().setAttribute("user", user);
-            request.getSession().setAttribute("userId", user.getUser_id());
-//            response.sendRedirect("login");
-            response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
-//            request.getRequestDispatcher("HomePage").forward(request, response);
-        } else if (user.getRoleid() == 3) {
             System.out.println("Name of user: " + user.getName());
             request.setAttribute("Name_of_User", user.getName());
             System.out.println("Username att: " + request.getAttribute("Name_of_User"));
@@ -164,6 +141,20 @@ public class LoginSvlet extends HttpServlet {
 //            response.sendRedirect("login");
             request.getRequestDispatcher("/HomePage.jsp").forward(request, response);
 //            response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+
+        } else if (user.getRoleid() == 2) {
+
+//            log("abababa3");
+//            request.getSession().setAttribute("user", user);
+//            request.getSession().setAttribute("userId", user.getUser_id());
+//            response.sendRedirect("login");
+            response.sendRedirect(request.getContextPath() + "/ManagementPage.jsp");
+//            request.getRequestDispatcher("HomePage").forward(request, response);
+        } else if (user.getRoleid() == 3) {
+            log("abababa2");
+            response.sendRedirect(request.getContextPath() + "/AdminDashboard.jsp");
+        } else if (user.getRoleid() == 4) {
+            response.sendRedirect(request.getContextPath() + "/Staf_Page.jsp");
         }
 
     }
