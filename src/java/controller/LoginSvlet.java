@@ -128,7 +128,7 @@ public class LoginSvlet extends HttpServlet {
             String loginfail = "Tên đăng nhập hoặc mật khẩu không chính xác, vui lòng kiểm tra lại!";
             request.setAttribute("loginfail1", loginfail);
             System.out.println("url : " + request.getContextPath() + "/index.htm");
-            request.getRequestDispatcher(request.getContextPath() + "/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
 //            response.sendRedirect(request.getContextPath()+"/index.htm");
             System.out.println("Attri bute>>>> " + request.getAttribute("loginfail1"));
         } else if (user.getRoleid() == 1) {

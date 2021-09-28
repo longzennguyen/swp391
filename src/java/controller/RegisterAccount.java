@@ -97,15 +97,15 @@ public class RegisterAccount extends HttpServlet {
                     } catch (Exception e) {
                         System.out.println("Not found user");
                     }
-                    System.out.println("yah");
+                   // System.out.println("yah");
                     response.setContentType("text/html");
 
-                    System.out.println("yah1");
+                   //// System.out.println("yah1");
                     PrintWriter pw = response.getWriter();
-                    System.out.println("yah2");
+                   // System.out.println("yah2");
                     pw.println("<script type=\"text/javascript\">");
-                    System.out.println("yah3");
-                    pw.println("alert('Tạo tài khoản thành công!');");
+                    //System.out.println("yah3");
+                    pw.println("alert('Tạo tài khoản thành công!');"); //show alert
                     System.out.println("yah4");
                     pw.println("</script>");
                     System.out.println("yah5");
