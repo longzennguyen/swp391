@@ -43,6 +43,7 @@ public final class reservationContact_jsp extends org.apache.jasper.runtime.Http
 
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -51,7 +52,7 @@ public final class reservationContact_jsp extends org.apache.jasper.runtime.Http
       out.write("        <link rel=\"stylesheet\" href=\"css/reservation.css\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("\n");
+      out.write("        <div class=\"header\" style=\"background-image: url(img/foot1_1.jpg)\"></div>\n");
       out.write("        <div class=\"bodyLayout1\">\n");
       out.write("            <button id=\"backToHomepage\">Về trang thanh toán </button>\n");
       out.write("            <table>\n");
@@ -64,7 +65,7 @@ public final class reservationContact_jsp extends org.apache.jasper.runtime.Http
       out.write("                <tr>\n");
       out.write("                    <td class=\"col-1\">1</td>\n");
       out.write("                    <td class=\"col-2\">\n");
-      out.write("                        <img src=\"img/service_image1.png\" style=\"width: 60%\">\n");
+      out.write("                        <img src=\"img/service-image1.png\" style=\"width: 60%\">\n");
       out.write("                        </br>\n");
       out.write("                        <p>Dịch vụ chăm sóc trẻ sơ sinh</p>\n");
       out.write("                    </td>\n");
@@ -78,7 +79,7 @@ public final class reservationContact_jsp extends org.apache.jasper.runtime.Http
       out.write("                <tr>\n");
       out.write("                    <td class=\"col-1\">2</td>\n");
       out.write("                    <td class=\"col-2\">\n");
-      out.write("                        <img src=\"img/service_image1.png\" style=\"width: 60%\">\n");
+      out.write("                        <img src=\"img/service-image2.jpg\" style=\"width: 60%\">\n");
       out.write("                        </br>\n");
       out.write("                        <p>Dịch vụ lấy mẫu xét nghiệm tại nhà</p></td>\n");
       out.write("                    <td class=\"col-3\">Nguyễn Văn B</td>\n");
@@ -116,11 +117,14 @@ public final class reservationContact_jsp extends org.apache.jasper.runtime.Http
       out.write("                    <option>Thanh toán COD</option>\n");
       out.write("                    <option>Chuyển khoản BIDV</option>\n");
       out.write("                </select>\n");
-      out.write("            </div></div>\n");
-      out.write("            <button id=\"confirm\" class=\"confirm\">Xác nhận</button>\n");
+      out.write("            </div>\n");
+      out.write("             <button id=\"confirm\" class=\"confirm\">Xác nhận</button>\n");
+      out.write("            </div>\n");
+      out.write("           \n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
+      out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
