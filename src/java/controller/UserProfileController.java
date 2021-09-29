@@ -10,7 +10,6 @@
 package controller;
 
 import dao.UserDAOImpl;
-import dao.impl.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import entity.User;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,7 +24,7 @@ import java.util.logging.Logger;
  *
  * @author ROG STRIX
  */
-public class UserController extends HttpServlet {
+public class UserProfileController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +43,10 @@ public class UserController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserController</title>");
+            out.println("<title>Servlet UserProfileController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UserController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UserProfileController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,15 +64,15 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserDAOImpl userDAO = new UserDAOImpl();
-        ArrayList<User> userList = null;
+        UserDAOImpl userDAO = new UserDAOImpl();        
+        int id = Integer.parseInt(request.getParameter("id"));
         try {
-            userList = userDAO.getAllUsers();
+            User user = userDAO.getUserDetail(id);
+            request.setAttribute("data", user);
+            request.getRequestDispatcher("userprofile.jsp").forward(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("userList", userList);
-        request.getRequestDispatcher("userlist.jsp").forward(request, response);
     }
 
     /**

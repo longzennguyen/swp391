@@ -4,9 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/userlist.jsp</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/META-INF/context.xml</file>
             <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/admin.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/css/userprofile.css</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/impl/UserDAO.java</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/redirect.jsp</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserController.java</file>
             <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/userprofile.jsp</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/adduser.jsp</file>
         </group>
     </open-files>
 </project-private>
