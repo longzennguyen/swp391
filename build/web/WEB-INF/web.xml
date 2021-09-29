@@ -37,6 +37,11 @@
             30
         </session-timeout>
     </session-config>
+    <env-entry>
+        <env-entry-name>imagePath</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>img/</env-entry-value>
+    </env-entry>
     <welcome-file-list>
         <welcome-file>redirect.jsp</welcome-file>
     </welcome-file-list>

@@ -36,4 +36,6 @@ public interface IUserDAO {
     * @throws Exception
     */
     public User getUserDetail(int id) throws Exception;
+    
+    public User getUserDetailImg(int id) throws Exception;
 }

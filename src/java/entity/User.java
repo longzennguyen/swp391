@@ -51,6 +51,10 @@ public class User {
     */
     private String dob;
     /**
+     * User's avatar
+    */
+    private String img;
+    /**
      * Constructor
     */
     public User() {
@@ -78,6 +82,19 @@ public class User {
         this.role = role;
         this.status = status;
         this.dob = dob;
+    }
+
+    public User(int user_id, String name, String gender, String email, String phone, String address, String role, String status, String dob, String img) {
+        this.user_id = user_id;
+        this.name = name;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.role = role;
+        this.status = status;
+        this.dob = dob;
+        this.img = img;
     }
 
     
@@ -152,6 +169,14 @@ public class User {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
     
     

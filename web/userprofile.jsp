@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-3 border-right">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                            <img class="rounded-circle mt-5" width="150px" src="img/avatar.JPEG">
+                            <img class="rounded-circle mt-5" style="width: 150px" src="${data.img}">
                             <span class="font-weight-bold">${data.name}</span>
                             <!--<span class="text-black-50">${data.name}</span>-->
                         </div>

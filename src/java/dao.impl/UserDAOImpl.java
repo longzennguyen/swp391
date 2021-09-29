@@ -63,7 +63,7 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
     
     @Override
     public User getUserDetail(int id) throws Exception {
-       Connection conn = null;
+        Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -114,5 +114,53 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         UserDAOImpl dao = new UserDAOImpl();
         User user = dao.getUserDetail(2);        
         System.out.println(user.getName() + ", " + user.getGender() + ", " + user.getRole() + ", " + user.getStatus() + ", " + user.getDob());
+    }
+
+    @Override
+    public User getUserDetailImg(int id) throws Exception {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "select * from \n" +
+                        "([User] \n" +
+                        "join [Role] on [User].role_id = [Role].role_id \n" +
+                        "join StatusData on [User].status_id = StatusData.status_id) \n" +
+                        "where [User].user_id = ?";
+        User user = null;
+
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String userName = rs.getString("first_name") + " " + rs.getString("last_name");
+                String phone = rs.getString("phone");
+                String dob = rs.getString("dob");
+                String gender = null;
+                if(rs.getString("gender").equals("1")){
+                    gender = "Male";
+                }
+                else{
+                    gender = "Female";
+                }
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                String role = rs.getString("role_name");
+                String status = rs.getString("status_name");
+                //String img = "img/" + rs.getString("avatar");
+                String img = getImagePath() + rs.getString("avatar");
+                user = new User(id, userName, gender, email, phone, address, role, status, dob,img);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(conn);
+        }
+        return user;
     }
 }

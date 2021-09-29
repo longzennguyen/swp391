@@ -14,10 +14,26 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 
 
 public class DBContext {
+    /**
+     * DBContext initial
+     */
+    private InitialContext initial;
+    /**
+     * DBContext context
+     */
+    private Context context;
+    /**
+     * DBContext dbName
+     */
     /**
      * DBContext host
      */
@@ -31,6 +47,11 @@ public class DBContext {
      */
     final private String DBName = "ChildrenCare";
     /**
+     * DBContext image
+     */
+    private String image;
+    /**
+    /**
      * DBContext host username
      */
     String username = "sa";
@@ -38,6 +59,21 @@ public class DBContext {
      * DBContext host password
      */
     String password = "123456";
+    
+    
+    /**
+     * Constructor
+     */
+    public DBContext() {
+        try {
+            this.initial = new InitialContext();
+            this.context = (Context) initial.lookup("java:comp/env");
+            this.image = context.lookup("imagePath").toString();
+        } catch (NamingException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     /**
      * Get connection of your database
      *
@@ -90,5 +126,13 @@ public class DBContext {
             rs.close();
         }
     }
-    
+    /**
+     * Get path of image store in file context
+     *
+     * @return path of image
+     * @throws Exception
+     */
+    public String getImagePath() throws Exception {
+        return image;
+    }
 }

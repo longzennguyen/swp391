@@ -67,7 +67,7 @@ public class UserProfileController extends HttpServlet {
         UserDAOImpl userDAO = new UserDAOImpl();        
         int id = Integer.parseInt(request.getParameter("id"));
         try {
-            User user = userDAO.getUserDetail(id);
+            User user = userDAO.getUserDetailImg(id);
             request.setAttribute("data", user);
             request.getRequestDispatcher("userprofile.jsp").forward(request, response);
         } catch (Exception ex) {
