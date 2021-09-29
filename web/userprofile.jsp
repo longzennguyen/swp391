@@ -19,7 +19,7 @@
     <div class="sidebar">
         <a class="active" href="admin.jsp">Children Care</a>
         <a href="#general">General</a>
-        <a href="userlist.jsp">User List</a>
+        <a href="userlist">User List</a>
         <a href="userprofile.jsp">System Management</a>
     </div>
 

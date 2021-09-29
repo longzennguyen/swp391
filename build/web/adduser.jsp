@@ -19,7 +19,7 @@
     <div class="sidebar">
         <a class="active" href="admin.jsp">Children Care</a>
         <a href="#general">General</a>
-        <a href="userlist.jsp">User List</a>
+        <a href="userlist">User List</a>
         <a href="#usercontrol">System Management</a>
     </div>
 
@@ -52,7 +52,7 @@
         <form action="">
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row">
-                <div class="col-md-5 border-right">
+                <div class="col-md-6 border-right">
                     <div class="p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">User Profile</h4>
@@ -83,12 +83,14 @@
                                 <input type="radio" name="status" value="0" checked /> Enable
                                 <input type="radio" name="status" value="1" /> Disable
                             </div>
-                            <div class="col-md-12" style="margin-top: 20px"><label class="labels">Avatar</label><input type="file" class="form-control" placeholder="" value=""></div>
+                            <div class="col-md-12" style="margin-top: 20px">
+                                <label class="labels">Avatar</label><input type="file" class="form-control" placeholder="" value="" accept="image/*">
+                            </div>
 
                         </div>                                                                    
                     </div>                  
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">User Account</h4>
@@ -98,7 +100,26 @@
                         <div class="col-md-12"><label class="labels">Re-enter Password</label><input type="password" class="form-control" placeholder="" value=""></div>
                     </div>
                 </div>
-                <div class="mt-5 text-center col-md-10"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+                <div class="mt-5 text-center col-md-12"><button class="btn btn-primary profile-button" type="button" data-toggle="modal" data-target="#exampleModalCenter">Save Profile</button></div>
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Do you want to add this user?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                          <button type="submit" class="btn btn-primary">Yes</button>
+                        </div>
+                      </div>
+                </div>
+              </div>
             </div>
         </div>
     </form>

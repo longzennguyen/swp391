@@ -20,7 +20,7 @@
     <div class="sidebar">
         <a class="active" href="admin.jsp">Children Care</a>
         <a href="#general">General</a>
-        <a href="userlist.jsp">User List</a>
+        <a href="userlist">User List</a>
         <a href="userprofile.jsp">System Management</a>
     </div>
 
@@ -63,41 +63,15 @@
                 <th scope="col"></th>
               </tr>
             </thead>
-            <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Duc</td>
-                <td>duc@gmail.com</td>
-                <td>12343512312</td>
-                <td>Administrator</td>
-                <td>Active</td>
-                <td>
-                    <button><a href="userprofile.jsp">Profile</a></button>
-                    <button>Active</button>
-                    <button>Disable</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Larry</td>
-                <td>larry@gmail.com</td>
-                <td>12343512312</td>
-                <td>Staff</td>
-                <td>Disable</td>
-                <td>
-                    <button><a href="userprofile.jsp">Profile</a></button>
-                    <button>Active</button>
-                    <button>Disable</button>
-                </td>
-              </tr>
+            <tbody>               
                 <c:forEach var="o" items="${ulist}">
                     <tr>
-                    <th scope="row">${o.uid}</th>
+                    <th scope="row">${o.user_id}</th>
                     <td>${o.name}</td>
                     <td>${o.email}</td>
                     <td>${o.phone}</td>
                     <td>${o.role_id}</td>
-                    <td>${o.status}</td>
+                    <td>${o.status_id}</td>
                     <td>
                         <button><a href="userprofile.jsp">Profile</a></button>
                         <button>Active</button>

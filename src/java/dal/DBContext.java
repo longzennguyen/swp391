@@ -20,7 +20,7 @@ public class DBContext {
             //Change the username password and url to connect your own database
             String username = "sa";
             String password = "123456";
-            String url = "jdbc:sqlserver://Duke:1433;databaseName=PRJ301_SP21";
+            String url = "jdbc:sqlserver://Duke:1433;databaseName=ChildrenCare";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");                        
             connection = DriverManager.getConnection(url, username, password);
             

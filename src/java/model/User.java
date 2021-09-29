@@ -10,37 +10,35 @@ package model;
  * @author ROG STRIX
  */
 public class User {
-    private int uid;
+    private int user_id;
     private String name;
     private String gender;
     private String email;
     private String phone;
     private String address;
     private int role_id;
-    private boolean status;
+    private int status_id;
 
     public User() {
     }
 
-    public User(int uid, String name, String gender, String email, String phone, String address, int role_id, boolean status) {
-        this.uid = uid;
+    public User(int user_id, String name, String gender, String email, String phone, String address, int role_id, int status_id) {
+        this.user_id = user_id;
         this.name = name;
         this.gender = gender;
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.role_id = role_id;
-        this.status = status;
+        this.status_id = status_id;
     }
 
-    
-
-    public int getUid() {
-        return uid;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getName() {
@@ -91,13 +89,16 @@ public class User {
         this.role_id = role_id;
     }
 
-    public boolean isStatus() {
-        return status;
+    public int getStatus_id() {
+        return status_id;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setStatus_id(int status_id) {
+        this.status_id = status_id;
     }
+    
+
+    
     
     
 }

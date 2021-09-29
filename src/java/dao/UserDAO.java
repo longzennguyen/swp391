@@ -35,17 +35,17 @@ public class UserDAO {
         User user = null;
             try {
                 conn = new DBContext().connection;               
-                ps = conn.prepareStatement("select * from User");
+                ps = conn.prepareStatement("select * from [User]");
                 rs = ps.executeQuery();
                 while(rs.next()){
                     user = new User();
-                    user.setUid(rs.getInt("user_id"));
-                    user.setName(rs.getString("first_name") + rs.getString("last_name"));
+                    user.setUser_id(rs.getInt("user_id"));
+                    user.setName(rs.getString("first_name") + " " +rs.getString("last_name"));
                     user.setPhone(rs.getString("phone"));
                     user.setEmail(rs.getString("email"));
                     user.setAddress(rs.getString("address"));
                     user.setRole_id(rs.getInt("role_id"));
-                    user.setStatus(rs.getBoolean("status"));
+                    user.setStatus_id(rs.getInt("status_id"));
                     users.add(user);
                 }
                 rs.close();
@@ -53,5 +53,12 @@ public class UserDAO {
                 Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
             } 
         return users;
+    }
+    public static void main(String[] args) {
+        UserDAO dao = new UserDAO();
+        List<User> users = dao.UserList();
+        for (int i = 0; i < users.size(); i++) {
+            System.out.println(users.get(i).getUser_id() + ", " + users.get(i).getName());
+        }
     }
 }

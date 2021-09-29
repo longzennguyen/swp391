@@ -22,7 +22,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
-        <url-pattern>/UserController</url-pattern>
+        <url-pattern>/userlist</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
