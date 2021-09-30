@@ -9,7 +9,7 @@
  */
 package controller;
 
-import dao.UserDAOImpl;
+import dao.impl.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

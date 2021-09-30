@@ -34,8 +34,25 @@ public interface IUserDAO {
     * @param id
     * @return a <code>User</code>
     * @throws Exception
-    */
-    public User getUserDetail(int id) throws Exception;
-    
+    */    
     public User getUserDetailImg(int id) throws Exception;
+    /**
+    * Get User list by name, email, phone in the database
+    *
+    * 
+    * @param word
+    * @return a <code>User</code>
+    * @throws Exception
+    */    
+    public ArrayList<User> getUserListByString(String word) throws Exception;
+    
+    /**
+    * Edit User Role and Status 
+    *
+    * 
+    * @param id
+    * @param role_id
+    * @param status_id
+    */    
+    public void editUserByID(int id, int role_id, int status_id);
 }

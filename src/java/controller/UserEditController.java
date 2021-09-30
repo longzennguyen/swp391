@@ -1,31 +1,27 @@
 /*
- * Copyright (C) 2021, FPT University<br>
- * SWP391<br>
- * ChildrenCareProject<br>
- *
- * Record of change:<br>
- * DATE          Version    Author           DESCRIPTION<br>
- * 2021-09-21    1.0        DucNT           First Version<br>
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
 import dao.impl.UserDAOImpl;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import entity.User;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author ROG STRIX
  */
-public class UserController extends HttpServlet {
+public class UserEditController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +40,10 @@ public class UserController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserController</title>");
+            out.println("<title>Servlet UserEditController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UserController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UserEditController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -65,15 +61,15 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserDAOImpl userDAO = new UserDAOImpl();
-        ArrayList<User> userList = null;
+        UserDAOImpl userDAO = new UserDAOImpl();        
+        int id = Integer.parseInt(request.getParameter("id"));
         try {
-            userList = userDAO.getAllUsers();
+            User user = userDAO.getUserDetailImg(id);
+            request.setAttribute("data", user);
+            request.getRequestDispatcher("useredit.jsp").forward(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("userList", userList);
-        request.getRequestDispatcher("userlist.jsp").forward(request, response);
     }
 
     /**
@@ -87,13 +83,13 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String word = request.getParameter("word");
+        int id = Integer.parseInt(request.getParameter("user_id"));
+        int role_id = Integer.parseInt(request.getParameter("role_id"));
+        int status_id = Integer.parseInt(request.getParameter("status_id"));
         UserDAOImpl userDAO = new UserDAOImpl();
-        ArrayList<User> userListSearch = null;
         try {
-            userListSearch = userDAO.getUserListByString(word);
-            request.setAttribute("userList", userListSearch);
-            request.getRequestDispatcher("userlist.jsp").forward(request, response);
+            userDAO.editUserByID(id, role_id, status_id);
+            response.sendRedirect("userlist");
         } catch (Exception ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }

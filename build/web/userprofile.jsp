@@ -24,39 +24,46 @@
                     <div class="col-md-3 border-right">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                             <img class="rounded-circle mt-5" style="width: 150px" src="${data.img}">
-                            <span class="font-weight-bold">${data.name}</span>
-                            <!--<span class="text-black-50">${data.name}</span>-->
+                            <span class="font-weight-bold" style="margin-top: 20px">${data.name}</span>
+                            <span class="text-black-50">${data.role}</span>
                         </div>
                     </div>
                     <div class="col-md-5 border-right">
                         <div class="p-3 py-5">
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="text-right">User Profile Editing</h4>
+                                <h4 class="text-right">User Profile Detail</h4>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-md-6" style="margin-top: 20px"><label class="labels">Full Name: </label><h5>${data.name}</h5></div>
                                 <!-- <div class="col-md-6"><label class="labels">Last Name: </label><h5>Duc</h5></div> -->
                             </div>
                             <div class="usercontent row mt-3">
-                                <div class="col-md-12" style="margin-top: 20px"><label class="labels" style="text-decoration: none">Mobile Number: </label>
+                                <div class="col-md-12" style="margin-top: 20px">
+                                    <label class="labels" style="text-decoration: none">Mobile Number: </label>
                                     <h5>${data.phone}</h5>
                                 </div>
-                                <div class="col-md-12" style="margin-top: 20px"><label class="labels" style="text-decoration: none">Email: </label>
+                                <div class="col-md-12" style="margin-top: 20px">
+                                    <label class="labels" style="text-decoration: none">Email: </label>
                                     <h5>${data.email}</h5>
                                 </div>
-                                <div class="col-md-12" style="margin-top: 20px"><label class="labels" style="text-decoration: none">Address: </label>
+                                <div class="col-md-12" style="margin-top: 20px">
+                                    <label class="labels" style="text-decoration: none">Address: </label>
                                     <h5>${data.address}</h5>
                                 </div>                            
-                                <div class="col-md-12" style="margin-top: 20px"><label class="labels" style="text-decoration: none">Birthday: </label>
+                                <div class="col-md-12" style="margin-top: 20px">
+                                    <label class="labels" style="text-decoration: none">Birthday: </label>
                                     <h5>${data.dob}</h5>
                                 </div>
-                                <div class="col-md-12" style="margin-top: 20px"><label class="labels" style="text-decoration: none">Role: </label>
+                                <div class="col-md-12" style="margin-top: 20px">
+                                    <label class="labels" style="text-decoration: none">Role: </label>
                                     <h5>${data.role}</h5>
                                 </div>                                                         
-                                <div class="col-md-12" style="margin-top: 20px"><label class="labels" style="text-decoration: none">Gender: </label>
+                                <div class="col-md-12" style="margin-top: 20px">
+                                    <label class="labels" style="text-decoration: none">Gender: </label>
                                     <h5>${data.gender}</h5>
                                 </div>                             
-                                <div class="col-md-12" style="margin-top: 20px"><label class="labels" style="text-decoration: none">Status: </label>
+                                <div class="col-md-12" style="margin-top: 20px">
+                                    <label class="labels" style="text-decoration: none">Status: </label>
                                     <h5>${data.status}</h5>
                                 </div>                             
                             </div>                                                                    

@@ -19,33 +19,44 @@
     <body>
         <%@include file="header.jsp"%>
 
-        <div class="content">       
+        <div class="content">
+            <form class="form-inline my-2 my-lg-0" style="float: right; padding-bottom: 20px;" action="userlist" method="POST"> 
+                <input class="form-control mr-sm-2" type="search" placeholder="Search name, email, phone" aria-label="Search" name="word">
+                <input class="btn  my-2 my-sm-0" type="submit" value="Search">
+            </form>
+            
             <caption>List of users</caption>
-            <table class="table">
+            <table class="table" style="margin-top: 10px">
                 <thead>
                     <tr>
                         <th scope="col">User ID</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Gender</th>
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Role</th>
+                        <th scope="col">Address</th>
                         <th scope="col">Status</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
+                <c:if test="${empty userList}">
+                    <td>User not found</td>
+                </c:if>
                 <tbody>               
                     <c:forEach var="o" items="${userList}">
                         <tr>
                             <th scope="row">${o.user_id}</th>
                             <td>${o.name}</td>
+                            <td>${o.gender}</td>
                             <td>${o.email}</td>
                             <td>${o.phone}</td>
                             <td>${o.role}</td>
+                            <td>${o.address}</td>
                             <td>${o.status}</td>
                             <td>
-                                <button><a href="userprofile?id=${o.user_id}">Profile</a></button>
-                                <button>Active</button>
-                                <button>Disable</button>
+                                <button><a href="userprofile?id=${o.user_id}">Detail</a></button>
+                                <button><a href="useredit?id=${o.user_id}">Edit</a></button>
                             </td>
                         </tr>
                     </c:forEach>
