@@ -1,0 +1,83 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 24, 2021, 9:27:13 AM
+    Author     : ROG STRIX
+*/
+
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+  }
+  
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #373B88;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+  
+.sidebar a {
+    display: block;
+    color: whitesmoke;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+.sidebar a .active {
+    background-color: #373B88;
+    color: white;
+    border-bottom: 1px whitesmoke;
+    font-size: xx-large;
+  }
+.sidebar .active{
+      font-size: x-large;
+}
+  
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+.navbar{
+  margin-left: 200px;
+  padding: 19px;
+}
+.navbar li a {
+  color: white !important;
+}
+.dropdown-menu{
+  background-color: #373B88;
+}
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+  
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+  .navbar{margin-left: 0;}
+}
+  
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+.content label{
+  text-decoration: underline;
+}

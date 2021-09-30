@@ -31,6 +31,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+<<<<<<< HEAD
                     <file>${file.reference.json-20210307.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
@@ -42,6 +43,11 @@
                     <file>${file.reference.javax.mail-1.5.0.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
+=======
+                    <file>${file.reference.postgresql-42.2.24.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+>>>>>>> 60592d80478eabcfbff5159f337997cf3e54afa3
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>

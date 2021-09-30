@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 27, 2021, 2:48:14 PM
+    Author     : Admin
+*/
+.bodyLayout1{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.bodyLayout1 table{
+    align-content: center;
+    margin-top: 2%;
+}
+.col-1{
+    width: 10%;
+}
+.col-2{
+    width: 30%;
+}
+.col-3{
+    width: 20%;
+}
+.col-4{
+    width: 20%;
+}
+.bodyLayout3{
+margin-top: 5%;
+margin-bottom: 5%;
+}
+.bodyLayout3 .pay{
+    margin-left: 38%;
+}
+.inputField{
+    width: 40%;
+    height: 30px;
+}
+.confirm{
+    margin-top: 5%;
+}
+.header{
+    width: 100%;
+    
+}

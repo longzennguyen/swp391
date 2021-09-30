@@ -5,10 +5,62 @@
  */
 package dao;
 
+<<<<<<< HEAD
 /**
  *
  * @author Admin
  */
 public class UserDAO {
     
+=======
+import dal.DBContext;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.User;
+
+/**
+ *
+ * @author ROG STRIX
+ */
+public class UserDAO {
+    
+    private Connection conn;
+    private PreparedStatement ps;
+    private ResultSet rs;
+    
+    public UserDAO(){
+
+    }
+
+    public List<User> UserList(){        
+        List<User> users= new ArrayList<>();
+        User user = null;
+            try {
+                conn = new DBContext().connection;               
+                ps = conn.prepareStatement("select * from User");
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    user = new User();
+                    user.setUid(rs.getInt("user_id"));
+                    user.setName(rs.getString("first_name") + rs.getString("last_name"));
+                    user.setPhone(rs.getString("phone"));
+                    user.setEmail(rs.getString("email"));
+                    user.setAddress(rs.getString("address"));
+                    user.setRole_id(rs.getInt("role_id"));
+                    user.setStatus(rs.getBoolean("status"));
+                    users.add(user);
+                }
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        return users;
+    }
+>>>>>>> 60592d80478eabcfbff5159f337997cf3e54afa3
 }
