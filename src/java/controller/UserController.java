@@ -22,8 +22,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * doGet:<br>
+ * - Get all User and paging <br>
+ * doPost <br>
+ * - Get all user by search Word <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class UserController extends HttpServlet {
 
@@ -65,10 +69,28 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int pageSize = 3;
+        // get page current
+        int page;
+        try {
+            page = Integer.parseInt(request.getParameter("page"));
+        } catch (NumberFormatException ex) {
+            page = 1;
+        }
+        if (page <= 0) {
+            page = 1;
+        }
         UserDAOImpl userDAO = new UserDAOImpl();
         ArrayList<User> userList = null;
         try {
-            userList = userDAO.getAllUsers();
+            // get all User from database for list
+            userList = userDAO.getAllUserPaging(pageSize, page);
+            if (!userList.isEmpty()) {
+                // get number page
+                int numberPage = userDAO.getNumberOfPages(pageSize);
+                request.setAttribute("numberPage", numberPage);
+                request.setAttribute("page", page);
+            }
         } catch (Exception ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -89,8 +111,9 @@ public class UserController extends HttpServlet {
             throws ServletException, IOException {
         String word = request.getParameter("word");
         UserDAOImpl userDAO = new UserDAOImpl();
-        ArrayList<User> userListSearch = null;
+        ArrayList<User> userListSearch;
         try {
+            // get all User from database when input search word
             userListSearch = userDAO.getUserListByString(word);
             request.setAttribute("userList", userListSearch);
             request.getRequestDispatcher("userlist.jsp").forward(request, response);

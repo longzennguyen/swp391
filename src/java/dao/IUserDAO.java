@@ -55,4 +55,24 @@ public interface IUserDAO {
     * @param status_id
     */    
     public void editUserByID(int id, int role_id, int status_id);
+    
+    /**
+    * Get number of pages in pagination  
+    *
+    * 
+    * @param pageSize
+    * @return 
+    * @throws java.lang.Exception
+    */    
+    public int getNumberOfPages(int pageSize) throws Exception;
+    
+    /**
+     * Get all User in the database and paging
+     *
+     * @param pageSize it is an int number.
+     * @param pageIndex it is an int number.
+     * @return a list <code>User</code> object
+     * @throws Exception
+     */
+    public ArrayList<User> getAllUserPaging(int pageSize, int pageIndex) throws Exception;
 }

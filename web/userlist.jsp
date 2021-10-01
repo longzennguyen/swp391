@@ -24,7 +24,7 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search name, email, phone" aria-label="Search" name="word">
                 <input class="btn  my-2 my-sm-0" type="submit" value="Search">
             </form>
-            
+
             <caption>List of users</caption>
             <table class="table" style="margin-top: 10px">
                 <thead>
@@ -62,9 +62,20 @@
                     </c:forEach>
                 </tbody>
             </table>
-            <div class="mt-5 text-center col-md-10">
-                <a href="adduser.jsp"><button class="btn btn-primary profile-button" type="button" >Add New User</button></a>
+            
+            <div class="paging d-flex justify-content-center">
+                <c:forEach var="i" begin="1" end="${numberPage}">
+                    <!--page current-->
+                    <c:if test="${i == page}">
+                        <p>${i}</p>
+                    </c:if>
+                    <!--other pages:If clicked, it will move to a new page-->
+                    <c:if test="${i != page}">
+                        <a href="userlist?page=${i}" style="margin: 2px;" >${i}</a>
+                    </c:if>
+                </c:forEach>
             </div>
+
         </div>  
 
 

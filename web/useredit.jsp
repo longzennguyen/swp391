@@ -73,10 +73,10 @@
                                     <input type="text" class="form-control"  value="${data.status}" readonly>
                                 </div>
                                 <div class="col-md-12" style="margin-top: 20px;"><label class="labels">New Status: </label>
-                                    <input type="radio" name="status_id" value="1" } /> Active
-                                    <input type="radio" name="status_id" value="2" }/> Disable
+                                    <input type="radio" name="status_id" value="1" ${data.status == "Active"? "checked":"" } /> Active
+                                    <input type="radio" name="status_id" value="2" ${data.status == "Disable"? "checked":"" }}/> Disable
                                 </div>
-                                <input type="submit" value="Save">
+                                <input type="submit" value="Save" >
                             </form>                               
                         </div>
                     </div>

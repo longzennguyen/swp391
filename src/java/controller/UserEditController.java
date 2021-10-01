@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-21    1.0        DucNT           First Version<br>
  */
 package controller;
 
@@ -9,7 +13,6 @@ import dao.impl.UserDAOImpl;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -18,8 +21,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * doGet:<br>
+ * - Get User profile from database <br>
+ * doPost <br>
+ * - Edit user profile by role and status <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class UserEditController extends HttpServlet {
 
@@ -64,6 +71,7 @@ public class UserEditController extends HttpServlet {
         UserDAOImpl userDAO = new UserDAOImpl();        
         int id = Integer.parseInt(request.getParameter("id"));
         try {
+            // get User detail from database for display
             User user = userDAO.getUserDetailImg(id);
             request.setAttribute("data", user);
             request.getRequestDispatcher("useredit.jsp").forward(request, response);
@@ -88,9 +96,10 @@ public class UserEditController extends HttpServlet {
         int status_id = Integer.parseInt(request.getParameter("status_id"));
         UserDAOImpl userDAO = new UserDAOImpl();
         try {
+            // edit User information in the database and return to list
             userDAO.editUserByID(id, role_id, status_id);
             response.sendRedirect("userlist");
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

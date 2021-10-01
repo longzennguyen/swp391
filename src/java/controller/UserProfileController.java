@@ -21,8 +21,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author ROG STRIX
+ * doGet:<br>
+ * - Get User profile from database <br>
+ * 
+ * @author DucNT
  */
 public class UserProfileController extends HttpServlet {
 
@@ -67,6 +69,7 @@ public class UserProfileController extends HttpServlet {
         UserDAOImpl userDAO = new UserDAOImpl();        
         int id = Integer.parseInt(request.getParameter("id"));
         try {
+            // get all User detail by ID from database
             User user = userDAO.getUserDetailImg(id);
             request.setAttribute("data", user);
             request.getRequestDispatcher("userprofile.jsp").forward(request, response);
