@@ -21,22 +21,22 @@ import java.util.logging.Logger;
 
 /**
  * This class implements from class interface IUserDAO <br>
- * This class contains method to query select data from the table User join with table Role and Status.<br>
- * There are get all User, get User detail, get all user by word search,
- * Edit user by ID and get number of page for list of user
+ * This class contains method to query select data from the table User join with
+ * table Role and Status.<br>
+ * There are get all User, get User detail, get all user by word search, Edit
+ * user by ID and get number of page for list of user
  *
  * @author DucNT
  */
 public class UserDAOImpl extends DBContext implements IUserDAO {
-   
-    
+
     /**
-    * Get all Users in the database
-    *
-    * 
-    * @return a list <code>User</code> object
-    * @throws Exception
-    */
+     * Get all Users in the database
+     *
+     *
+     * @return a list <code>User</code> object
+     * @throws Exception
+     */
     @Override
     public ArrayList<User> getAllUsers() throws Exception {
         Connection conn = null;
@@ -80,15 +80,15 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         }
         return users;
     }
-    
+
     /**
-    * Get User detail by ID in the database
-    *
-    * 
-    * @param id
-    * @return a <code>User</code>
-    * @throws Exception
-    */ 
+     * Get User detail by ID in the database
+     *
+     *
+     * @param id
+     * @return a <code>User</code>
+     * @throws Exception
+     */
     @Override
     public User getUserDetailImg(int id) throws Exception {
         Connection conn = null;
@@ -136,16 +136,15 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         }
         return user;
     }
-    
-    /**
-    * Get User list by name, email, phone in the database
-    *
-    * 
-    * @param word
-    * @return a <code>User</code>
-    * @throws Exception
-    */  
 
+    /**
+     * Get User list by name, email, phone in the database
+     *
+     *
+     * @param word
+     * @return a <code>User</code>
+     * @throws Exception
+     */
     @Override
     public ArrayList<User> getUserListByString(String word) throws Exception {
         Connection conn = null;
@@ -182,7 +181,7 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
                 String email = rs.getString("email");
                 String address = rs.getString("address");
                 String role = rs.getString("role_name");
-                String status = rs.getString("status_name");               
+                String status = rs.getString("status_name");
                 User user = new User(id, userName, gender, email, phone, address, role, status);
                 users.add(user);
             }
@@ -196,15 +195,15 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         }
         return users;
     }
-    
+
     /**
-    * Edit User Role and Status 
-    *
-    * 
-    * @param id
-    * @param role_id
-    * @param status_id
-    */ 
+     * Edit User Role and Status
+     *
+     *
+     * @param id
+     * @param role_id
+     * @param status_id
+     */
     @Override
     public void editUserByID(int id, int role_id, int status_id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -240,15 +239,15 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         }
 
     }
-    
+
     /**
-    * Get number of pages in pagination  
-    *
-    * 
-    * @param pageSize
-    * @return 
-    * @throws java.lang.Exception
-    */ 
+     * Get number of pages in pagination
+     *
+     *
+     * @param pageSize
+     * @return
+     * @throws java.lang.Exception
+     */
     @Override
     public int getNumberOfPages(int pageSize) throws Exception {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -279,7 +278,7 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         }
         return -1;
     }
-    
+
     /**
      * Get all User in the database and paging
      *
@@ -343,6 +342,64 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             closeResultSet(rs);
             closePreparedStatement(statement);
             closeConnection(conn);
+        }
+    }
+
+    /**
+     * Add new User to database
+     *
+     * @param user_id
+     * @param first_name
+     * @param last_name
+     * @param phone
+     * @param email
+     * @param address
+     * @param dob
+     * @param role_id
+     * @param status_id
+     * @param gender
+     * @throws Exception
+     */
+    @Override
+    public void addNewUser(int user_id, String first_name, String last_name, String phone, String email, String address, String dob, int role_id, int status_id, int gender) throws Exception {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        String sql = "INSERT INTO [dbo].[User]([user_id],[first_name],[last_name],[gender],[email],[phone],[address],[role_id],[status_id],[created_at],[updated_at],[dob])\n"
+                + "VALUES(?, ?, ?, ?, ?, ?, ?,?,?,?,?,?)";
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, user_id);
+            ps.setString(2, first_name);
+            ps.setString(3, last_name);
+            ps.setInt(4, gender);
+            ps.setString(5, email);
+            ps.setString(6, phone);
+            ps.setString(7, address);
+            ps.setInt(8, role_id);
+            ps.setInt(9, status_id);
+            ps.setString(10,"");
+            ps.setString(11,"");
+            ps.setString(12,dob);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            try {
+                throw e;
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                closePreparedStatement(ps);
+                closeConnection(conn);
+            } catch (Exception ex) {
+                Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

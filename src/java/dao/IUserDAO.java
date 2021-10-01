@@ -75,4 +75,21 @@ public interface IUserDAO {
      * @throws Exception
      */
     public ArrayList<User> getAllUserPaging(int pageSize, int pageIndex) throws Exception;
+    
+    /**
+     * Add new User to database
+     *
+     * @param user_id
+     * @param first_name
+     * @param last_name
+     * @param phone
+     * @param email
+     * @param address
+     * @param dob
+     * @param role_id
+     * @param status_id
+     * @param gender
+     * @throws Exception
+     */
+    public void addNewUser(int user_id, String first_name, String last_name, String phone, String email, String address, String dob,int role_id, int status_id, int gender) throws Exception;
 }

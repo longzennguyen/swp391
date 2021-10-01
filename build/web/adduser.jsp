@@ -19,42 +19,45 @@
         <%@include file="header.jsp"%>
 
         <div class="content">
-            <form action="">
+            <form action="useradd" method="POST">
                 <div class="container rounded bg-white mt-5 mb-5">
                     <div class="row">
-                        <div class="col-md-6 border-right">
+                        <div class="d-flex justify-content-center">
                             <div class="p-3 py-5">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h4 class="text-right">User Profile</h4>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-6"><label class="labels">First Name</label>
-                                        <input type="text" class="form-control" placeholder="" value="">
+                                        <input type="text" class="form-control" name="first_name" value="">
                                     </div>
                                     <div class="col-md-6"><label class="labels">Last Name</label>
-                                        <input type="text" class="form-control" value="" placeholder="">
+                                        <input type="text" class="form-control" value=""name="last_name">
                                     </div>
                                 </div>
                                 <div class="row mt-3">
+                                    <div class="col-md-12"><label class="labels">User ID</label>
+                                        <input type="text" class="form-control" name="user_id" value="">
+                                    </div>
                                     <div class="col-md-12"><label class="labels">Mobile Number</label>
-                                        <input type="text" class="form-control" placeholder="" value="">
+                                        <input type="text" class="form-control" name="phone" value="">
                                     </div>
                                     <div class="col-md-12"><label class="labels">Email</label>
-                                        <input type="text" class="form-control" placeholder="" value="">
+                                        <input type="text" class="form-control" name="email" value="">
                                     </div>
                                     <div class="col-md-12"><label class="labels">Address</label>
-                                        <input type="text" class="form-control" placeholder="" value="">
+                                        <input type="text" class="form-control" name="address" value="">
                                     </div>                            
                                     <div class="col-md-12"><label class="labels">Birthday</label>
-                                        <input type="date" class="form-control" placeholder="" value="">
+                                        <input type="date" class="form-control" name="dob" value="">
                                     </div>
                                     <div class="col-md-12" style="margin-top: 20px"><label class="labels">Role: </label>
-                                        <select name="type">
-                                            <option>Customer</option>
-                                            <option>Nurse</option>
-                                            <option>Doctor</option>
-                                            <option>Manager</option>
-                                            <option>Administrator</option>
+                                        <select name="role_id">
+                                            <option value="5">Customer</option>
+                                            <option value="4">Nurse</option>
+                                            <option value="3">Doctor</option>
+                                            <option value="2">Manager</option>
+                                            <option value="1">Administrator</option>
                                         </select>                                
                                     </div> 
                                     <div class="col-md-12" style="margin-top: 20px"><label class="labels">Gender: </label>                                
@@ -62,32 +65,12 @@
                                         <input type="radio" name="gender" value="1" /> Female
                                     </div>
                                     <div class="col-md-12" style="margin-top: 20px"><label class="labels">Status: </label>                                
-                                        <input type="radio" name="status" value="0" checked /> Enable
-                                        <input type="radio" name="status" value="1" /> Disable
-                                    </div>
-                                    <div class="col-md-12" style="margin-top: 20px">
-                                        <label class="labels">Avatar</label>
-                                        <input type="file" class="form-control" placeholder="" value="" accept="image/*">
+                                        <input type="radio" name="status_id" value="0" checked /> Active
+                                        <input type="radio" name="status_id" value="1" /> Disable
                                     </div>
 
                                 </div>                                                                    
                             </div>                  
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-3 py-5">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h4 class="text-right">User Account</h4>
-                                </div>                        
-                                <div class="col-md-12"><label class="labels">Username</label>
-                                    <input type="text" class="form-control" placeholder="" value="">
-                                </div>
-                                <div class="col-md-12"><label class="labels">Password</label>
-                                    <input type="password" class="form-control" placeholder="" value="">
-                                </div>
-                                <div class="col-md-12"><label class="labels">Re-enter Password</label>
-                                    <input type="password" class="form-control" placeholder="" value="">
-                                </div>
-                            </div>
                         </div>
                         <div class="mt-5 text-center col-md-12"><button class="btn btn-primary profile-button" type="button" data-toggle="modal" data-target="#exampleModalCenter">Save Profile</button></div>
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
