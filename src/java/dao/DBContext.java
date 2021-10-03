@@ -45,7 +45,7 @@ public class DBContext {
     /**
      * DBContext database name
      */
-    final private String DBName = "ChildrenCare";
+    final private String DBName = "ChildCare";
     /**
      * DBContext image
      */

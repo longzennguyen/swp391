@@ -1,13 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-01    1.0        DucNT           First Version<br>
  */
 package controller;
 
 import dao.impl.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -17,8 +24,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * doGet:<br>
+ * - Get the form in jsp <br>
+ * doPost <br>
+ * - Add new user to database <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 @WebServlet(name = "UserAddController", urlPatterns = {"/useradd"})
 public class UserAddController extends HttpServlet {
@@ -40,7 +51,7 @@ public class UserAddController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserAddController</title>");            
+            out.println("<title>Servlet UserAddController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet UserAddController at " + request.getContextPath() + "</h1>");
@@ -75,24 +86,35 @@ public class UserAddController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String first_name = request.getParameter("first_name");
-        String last_name = request.getParameter("last_name");
-        int user_id = Integer.parseInt(request.getParameter("user_id"));
-        String phone= request.getParameter("phone");
-        String email = request.getParameter("email");
-        String dob = request.getParameter("dob");
-        String address = request.getParameter("address");
-        int role_id = Integer.parseInt(request.getParameter("role_id"));
-        int gender = Integer.parseInt(request.getParameter("gender"));
-        int status_id = Integer.parseInt(request.getParameter("status_id"));
-        UserDAOImpl userDAO = new UserDAOImpl();
         try {
-            userDAO.addNewUser(user_id, first_name, last_name, phone, email, address, dob, role_id, status_id, gender);
-            response.sendRedirect("userlist");
-        } catch (Exception ex) {
+            String first_name = request.getParameter("first_name");
+            String last_name = request.getParameter("last_name");
+            int user_id = Integer.parseInt(request.getParameter("user_id"));
+            String phone = request.getParameter("phone");
+            String email = request.getParameter("email");
+            String date1 = request.getParameter("dob");
+            String old_pattern = "yyyy-MM-dd";
+            String new_pattern = "MM-dd-yyyy";
+            SimpleDateFormat oldSDF = new SimpleDateFormat(old_pattern);
+            SimpleDateFormat newSDF = new SimpleDateFormat(new_pattern);
+            Date date = oldSDF.parse(date1);
+            String dob = newSDF.format(date);
+            String address = request.getParameter("address");
+            int role_id = Integer.parseInt(request.getParameter("role_id"));
+            int gender = Integer.parseInt(request.getParameter("gender"));
+            int status_id = Integer.parseInt(request.getParameter("status_id"));        
+            
+            UserDAOImpl userDAO = new UserDAOImpl();
+            try {
+                userDAO.addNewUser(user_id, first_name, last_name, phone, email, address, dob, role_id, status_id, gender);
+                response.sendRedirect("userlist");
+            } catch (Exception ex) {
+                Logger.getLogger(UserAddController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ParseException ex) {
             Logger.getLogger(UserAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     /**

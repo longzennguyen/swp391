@@ -29,27 +29,27 @@
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-6"><label class="labels">First Name</label>
-                                        <input type="text" class="form-control" name="first_name" value="">
+                                        <input type="text" class="form-control" name="first_name" >
                                     </div>
                                     <div class="col-md-6"><label class="labels">Last Name</label>
-                                        <input type="text" class="form-control" value=""name="last_name">
+                                        <input type="text" class="form-control" name="last_name">
                                     </div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-12"><label class="labels">User ID</label>
-                                        <input type="text" class="form-control" name="user_id" value="">
+                                        <input type="text" class="form-control" name="user_id">
                                     </div>
                                     <div class="col-md-12"><label class="labels">Mobile Number</label>
-                                        <input type="text" class="form-control" name="phone" value="">
+                                        <input type="text" class="form-control" name="phone" >
                                     </div>
                                     <div class="col-md-12"><label class="labels">Email</label>
-                                        <input type="text" class="form-control" name="email" value="">
+                                        <input type="text" class="form-control" name="email">
                                     </div>
                                     <div class="col-md-12"><label class="labels">Address</label>
-                                        <input type="text" class="form-control" name="address" value="">
+                                        <input type="text" class="form-control" name="address">
                                     </div>                            
                                     <div class="col-md-12"><label class="labels">Birthday</label>
-                                        <input type="date" class="form-control" name="dob" value="">
+                                        <input type="date" class="form-control" name="dob">
                                     </div>
                                     <div class="col-md-12" style="margin-top: 20px"><label class="labels">Role: </label>
                                         <select name="role_id">
@@ -65,8 +65,8 @@
                                         <input type="radio" name="gender" value="1" /> Female
                                     </div>
                                     <div class="col-md-12" style="margin-top: 20px"><label class="labels">Status: </label>                                
-                                        <input type="radio" name="status_id" value="0" checked /> Active
-                                        <input type="radio" name="status_id" value="1" /> Disable
+                                        <input type="radio" name="status_id" value="1" checked /> Active
+                                        <input type="radio" name="status_id" value="2" /> Disable
                                     </div>
 
                                 </div>                                                                    

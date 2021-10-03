@@ -44,9 +44,9 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         ResultSet rs = null;
 
         String sql = "select * from "
-                + "([User] join [Role] on [User].role_id = [Role].role_id "
-                + "join StatusData on [User].status_id = StatusData.status_id)"
-                + " ORDER BY [user_id] ASC";
+                + "([Users] join [Role] on [Users].role_id = [Role].role_id "
+                + "join StatusData on [Users].status_id = StatusData.status_id)"
+                + " ORDER BY [users_id] ASC";
         ArrayList<User> users = new ArrayList<>();
 
         try {
@@ -54,7 +54,7 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("user_id");
+                int id = rs.getInt("users_id");
                 String userName = rs.getString("first_name") + " " + rs.getString("last_name");
                 String phone = rs.getString("phone");
                 String gender;
@@ -96,11 +96,11 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         ResultSet rs = null;
 
         String sql = "select * from \n"
-                + "([User] \n"
-                + "join [Role] on [User].role_id = [Role].role_id \n"
-                + "join StatusData on [User].status_id = StatusData.status_id) \n"
-                + "where [User].user_id = ?"
-                + " ORDER BY [user_id] ASC";
+                + "([Users] \n"
+                + "join [Role] on [Users].role_id = [Role].role_id \n"
+                + "join StatusData on [Users].status_id = StatusData.status_id) \n"
+                + "where [Users].users_id = ?"
+                + " ORDER BY [users_id] ASC";
         User user = null;
 
         try {
@@ -152,13 +152,13 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         ResultSet rs = null;
 
         String sql = "select *\n"
-                + "from ([User] \n"
-                + "join [Role] on [User].role_id = [Role].role_id \n"
-                + "join StatusData on [User].status_id = StatusData.status_id) \n"
+                + "from ([Users] \n"
+                + "join [Role] on [Users].role_id = [Role].role_id \n"
+                + "join StatusData on [Users].status_id = StatusData.status_id) \n"
                 + "where CONCAT( first_name, ' ', last_name) like ? \n"
-                + "or [User].phone like ? \n"
-                + "or [User].email like ?"
-                + " ORDER BY [user_id] ASC";
+                + "or [Users].phone like ? \n"
+                + "or [Users].email like ?"
+                + " ORDER BY [users_id] ASC";
         ArrayList<User> users = new ArrayList<>();
 
         try {
@@ -169,7 +169,7 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             ps.setString(3, "%" + word + "%");
             rs = ps.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("user_id");
+                int id = rs.getInt("users_id");
                 String userName = rs.getString("first_name") + " " + rs.getString("last_name");
                 String phone = rs.getString("phone");
                 String gender;
@@ -210,9 +210,9 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        String sql = "update [User]\n"
-                + "set [User].role_id = ?, [User].status_id = ?\n"
-                + "where [User].user_id = ? ";
+        String sql = "update [Users]\n"
+                + "set [Users].role_id = ?, [Users].status_id = ?\n"
+                + "where [Users].users_id = ? ";
         try {
             conn = getConnection();
             ps = conn.prepareStatement(sql);
@@ -255,7 +255,7 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         PreparedStatement statement = null;
         ResultSet rs = null;
 
-        String sql = "SELECT COUNT(user_id) as number FROM [User] ";
+        String sql = "SELECT COUNT(users_id) as number FROM [Users] ";
         try {
             conn = getConnection();
             statement = conn.prepareStatement(sql);
@@ -295,15 +295,15 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         ResultSet rs = null;
 
         String sql = "with UserbyRole as\n"
-                + "(select tb1.user_id,tb1.first_name,tb1.last_name,tb1.email,tb1.phone,tb1.address,\n"
+                + "(select tb1.users_id,tb1.first_name,tb1.last_name,tb1.email,tb1.phone,tb1.address,\n"
                 + "tb1.gender, tb1.dob,tb1.role_id,tb2.role_name,tb1.status_id,tb3.status_name\n"
-                + "from ([User] as tb1\n"
+                + "from ([Users] as tb1\n"
                 + "INNER JOIN [Role] as tb2 on tb1.role_id = tb2.role_id \n"
                 + "INNER JOIN StatusData as tb3 on tb1.status_id = tb3.status_id) \n"
                 + ")\n"
                 + "SELECT * FROM (\n"
                 + "SELECT ROW_NUMBER()\n"
-                + "OVER(ORDER BY user_id) as Number,* \n"
+                + "OVER(ORDER BY users_id) as Number,* \n"
                 + "FROM UserbyRole )as dbNumber \n"
                 + "where Number between ? and ?";
 
@@ -318,7 +318,7 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             statement.setInt(2, to);
             rs = statement.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("user_id");
+                int id = rs.getInt("users_id");
                 String userName = rs.getString("first_name") + " " + rs.getString("last_name");
                 String phone = rs.getString("phone");
                 String gender;
@@ -366,8 +366,8 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        String sql = "INSERT INTO [dbo].[User]([user_id],[first_name],[last_name],[gender],[email],[phone],[address],[role_id],[status_id],[created_at],[updated_at],[dob])\n"
-                + "VALUES(?, ?, ?, ?, ?, ?, ?,?,?,?,?,?)";
+        String sql = "INSERT INTO [dbo].[Users]([users_id],[first_name],[last_name],[gender],[email],[phone],[address],[created_at],[role_id],[status_id],[dob])\n" +
+                        "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             conn = getConnection();
             ps = conn.prepareStatement(sql);
@@ -378,13 +378,11 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             ps.setString(5, email);
             ps.setString(6, phone);
             ps.setString(7, address);
-            ps.setInt(8, role_id);
-            ps.setInt(9, status_id);
-            ps.setString(10,"");
-            ps.setString(11,"");
-            ps.setString(12,dob);
+            ps.setInt(9, role_id);
+            ps.setInt(10, status_id);
+            ps.setString(8,"");
+            ps.setString(11,dob);
             ps.executeUpdate();
-
         } catch (SQLException e) {
             try {
                 throw e;
@@ -402,4 +400,5 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             }
         }
     }
+
 }
