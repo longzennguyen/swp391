@@ -54,6 +54,11 @@ public class User {
      * User's avatar
     */
     private String img;
+     
+    //role id
+    
+    private int role_id;
+    
     /**
      * Constructor
     */
@@ -95,6 +100,14 @@ public class User {
         this.status = status;
         this.dob = dob;
         this.img = img;
+    }
+
+    public int getRole_id() {
+        return role_id;
+    }
+
+    public void setRole_id(int role_id) {
+        this.role_id = role_id;
     }
 
     
