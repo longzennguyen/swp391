@@ -79,5 +79,8 @@ div.content {
   }
 }
 .content label{
-  text-decoration: underline;
+    text-decoration: none;
+}
+.usercontent label{
+    text-decoration: none;
 }

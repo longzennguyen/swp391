@@ -1,23 +1,33 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-21    1.0        DucNT           First Version<br>
  */
 package controller;
 
+import dao.impl.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import dao.UserDAO;
-import model.User;
+import entity.User;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
+ * doGet:<br>
+ * - Get all User and paging <br>
+ * doPost <br>
+ * - Get all user by search Word <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class UserController extends HttpServlet {
 
@@ -38,7 +48,7 @@ public class UserController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserController</title>");            
+            out.println("<title>Servlet UserController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet UserController at " + request.getContextPath() + "</h1>");
@@ -59,10 +69,33 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserDAO dao = new UserDAO();
-        List<User> ulist = dao.UserList();
-        request.setAttribute("ulist", ulist);
-        request.getRequestDispatcher("userlist.jsp").forward(request, response);       
+        int pageSize = 5;
+        // get page current
+        int page;
+        try {
+            page = Integer.parseInt(request.getParameter("page"));
+        } catch (NumberFormatException ex) {
+            page = 1;
+        }
+        if (page <= 0) {
+            page = 1;
+        }
+        UserDAOImpl userDAO = new UserDAOImpl();
+        ArrayList<User> userList = null;
+        try {
+            // get all User from database for list
+            userList = userDAO.getAllUserPaging(pageSize, page);
+            if (!userList.isEmpty()) {
+                // get number page
+                int numberPage = userDAO.getNumberOfPages(pageSize);
+                request.setAttribute("numberPage", numberPage);
+                request.setAttribute("page", page);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        request.setAttribute("userList", userList);
+        request.getRequestDispatcher("userlist.jsp").forward(request, response);
     }
 
     /**
@@ -76,7 +109,17 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String word = request.getParameter("word");
+        UserDAOImpl userDAO = new UserDAOImpl();
+        ArrayList<User> userListSearch;
+        try {
+            // get all User from database when input search word
+            userListSearch = userDAO.getUserListByString(word);
+            request.setAttribute("userList", userListSearch);
+            request.getRequestDispatcher("userlist.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
