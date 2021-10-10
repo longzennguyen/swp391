@@ -24,6 +24,10 @@
         <servlet-name>UserEditController</servlet-name>
         <servlet-class>controller.UserEditController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserSearchController</servlet-name>
+        <servlet-class>controller.UserSearchController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>UserEditController</servlet-name>
         <url-pattern>/useredit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserSearchController</servlet-name>
+        <url-pattern>/usersearch</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

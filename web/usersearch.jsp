@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
-    Document   : userlist
-    Created on : Sep 22, 2021, 10:56:13 AM
+    Document   : usersearch
+    Created on : Oct 6, 2021, 11:35:11 AM
     Author     : ROG STRIX
 --%>
 
@@ -25,7 +25,8 @@
                 <input class="btn  my-2 my-sm-0" type="submit" value="Search">
             </form>
 
-            <caption>List of users</caption>
+            <caption> <a href="userlist"><< Back to User list</a></caption>
+            
             <table class="table" style="margin-top: 10px">
                 <thead>
                     <tr>
@@ -43,7 +44,6 @@
                 <c:if test="${empty userList}">
                     <td>User not found</td>
                 </c:if>
-
                 <tbody>               
                     <c:forEach var="o" items="${userList}">
                         <tr>
@@ -64,13 +64,12 @@
                 </tbody>
             </table>
 
-
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <!-- If page != 1 display Previous -->
                     <c:if test="${page != 1}">
                         <li class="page-item">
-                            <a class="page-link" href="userlist?page=${page-1}">Previous</a>
+                            <a class="page-link" href="usersearch?page=${page-1}&word=${word}">Previous</a>
                         </li>
                     </c:if>
                     <c:forEach var="i" begin="1" end="${numberPage}">
@@ -82,7 +81,7 @@
                             </c:when>
                             <c:otherwise>
                                 <li class="page-item">
-                                    <a class="page-link"href="userlist?page=${i}">${i}</a>
+                                    <a class="page-link"href="usersearch?page=${i}&word=${word}">${i}</a>
                                 </li>
                             </c:otherwise>
                         </c:choose>
@@ -90,7 +89,7 @@
                     <!-- If page != Last display Next -->            
                     <c:if test="${page lt numberPage}">
                         <li class="page-item">
-                            <a class="page-link" href="userlist?page=${page+1}">Next</a>
+                            <a class="page-link" href="usersearch?page=${page+1}&word=${word}">Next</a>
                         </li>
                     </c:if>
                 </ul>

@@ -69,6 +69,7 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         int pageSize = 5;
         // get page current
         int page;
@@ -109,17 +110,7 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String word = request.getParameter("word");
-        UserDAOImpl userDAO = new UserDAOImpl();
-        ArrayList<User> userListSearch;
-        try {
-            // get all User from database when input search word
-            userListSearch = userDAO.getUserListByString(word);
-            request.setAttribute("userList", userListSearch);
-            request.getRequestDispatcher("userlist.jsp").forward(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

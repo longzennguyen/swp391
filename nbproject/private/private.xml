@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/header.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserAddController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserEditController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/IUserDAO.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/DBContext.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/adduser.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/impl/UserDAOImpl.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserProfileController.java</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/login.jsp</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/register.jsp</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/usersearch.jsp</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/css/style.css</file>
         </group>
     </open-files>
 </project-private>
