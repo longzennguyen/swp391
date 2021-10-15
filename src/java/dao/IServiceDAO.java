@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-05    1.0        DucNT           First Version<br>
  */
 package dao;
 
@@ -33,6 +37,8 @@ public interface IServiceDAO {
     * Get all Services in the database paging
     *
     * 
+     * @param pageSize
+     * @param pageIndex
     * @return a list <code>Service</code> object
     * @throws Exception
     */
@@ -47,4 +53,25 @@ public interface IServiceDAO {
     * @throws java.lang.Exception
     */    
     public int getNumberOfPages(int pageSize) throws Exception;
+    
+    /**
+     * Get all User in the database by word search and paging
+     *
+     * @param word
+     * @param pageSize it is an int number.
+     * @param pageIndex it is an int number.
+     * @return a list <code>User</code> object
+     * @throws Exception
+     */
+    public ArrayList<Service> getAllServicePagingbyWord(String word, int pageSize, int pageIndex) throws Exception;
+    /**
+    * Get number of pages in pagination  
+    *
+    * 
+    * @param pageSize
+     * @param word
+    * @return 
+    * @throws java.lang.Exception
+    */    
+    public int getNumberOfPagesSearch(int pageSize, String word) throws Exception;
 }

@@ -33,38 +33,60 @@
     </head>
     <body>
         <%@include file="homepageheader.jsp"%>
-
+        <div class="breadcrumb-agile ">
+            <div aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="homepage">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Service List</li>
+                </ol>
+            </div>                     
+        </div>
 
         <div class="main-container">
-            <div>
+            <div >
                 <div class="container">
                     <h2 class="title-style-1">OUR SERVICES<span class="title-under"></span></h2>
-                    <div class="row">
+
+
+                    <div class="row col-md-10 col-sm-12">
 
                         <c:forEach var="i" items="${serviceList}">
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="cause">
                                     <img src="${i.img}" alt="" class="cause-img" style="width: 250px; height: 150px; margin-left: 7px">
                                     <div class=" cause-progress" style="text-align: center; background: #144d7b">
                                         <h4 style="color: white">Price: $${i.price}</h4>
                                     </div>
                                     <div class=" cause-progress" style="text-align: center">
-                                        <h4 style="font-weight: bold"> ${i.title}</h4>
+                                        <a href="servicedetail.jsp"><h4 style="font-weight: bold"> ${i.title}</h4></a>
                                     </div>                                  
                                     <div class="cause-details">
                                         ${i.description}
                                     </div>
                                     <div class="text-center">
-                                        <a href="#" class="btn btn-primary">Detail</a>
+                                        <a href="#" class="btn btn-primary">Buy</a>
+                                        <a href="#" class="btn btn-primary">Feedback</a>
                                     </div>
                                 </div> <!-- /.cause -->
                             </div>  
-                        </c:forEach>                                                      
-
+                        </c:forEach>                                                                            
+                    </div>                    
+                    <div class="row col-lg-2" style="margin-left: 30px; border-width:1px;border-style:solid; border-color:#144d7b">
+                        <form class="input-group text-center" style="display: inline-block" action="servicesearch?page=1" method="POST">
+                            <input type="text" class="form-control rounded" placeholder="Search" aria-label="Search" name ="word" style="margin-top: 10px"/>
+                            <button type="submit" class="btn btn-outline-primary" style="background-color: #0076a3; color: white;margin-top: 10px">Search</button>
+                        </form>
+                        <a><h4 style="font-weight: bold">Medical Care</h4></a>
+                        <a><h4 style="font-weight: bold">Surgery</h4></a>
+                        <a><h4 style="font-weight: bold">Other Medical</h4></a>
                     </div>
+
                 </div>
 
             </div> <!-- /.our-causes -->
+
 
             <div class="container">
                 <ul class="pagination">
@@ -95,7 +117,7 @@
                     </c:if>
                 </ul>
             </div>
-            
+
             <%@include file="homepagefooter.jsp"%>
 
             <!-- jQuery -->

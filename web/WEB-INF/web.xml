@@ -40,6 +40,10 @@
         <servlet-name>ServiceDetailController</servlet-name>
         <servlet-class>controller.ServiceDetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServiceSearchController</servlet-name>
+        <servlet-class>controller.ServiceSearchController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>ServiceDetailController</servlet-name>
         <url-pattern>/servicedetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServiceSearchController</servlet-name>
+        <url-pattern>/servicesearch</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

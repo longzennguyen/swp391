@@ -66,13 +66,13 @@
                                     <h4 style="color: white">Price: $${i.price}</h4>
                                 </div>
                                 <div class=" cause-progress" style="text-align: center">
-                                    <h4 style="font-weight: bold"> ${i.title}</h4>
-                                </div>                                  
+                                        <a href="servicedetail.jsp"><h4 style="font-weight: bold"> ${i.title}</h4></a>
+                                    </div>                                  
                                 <div class="cause-details">
                                     ${i.description}
                                 </div>
                                 <div class="text-center">
-                                    <a href="#" class="btn btn-primary">Detail</a>
+                                    <a href="servicedetail.jsp" class="btn btn-primary">Detail</a>
                                 </div>
                             </div> <!-- /.cause -->
                         </div>  

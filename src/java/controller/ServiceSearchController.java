@@ -1,17 +1,14 @@
 /*
- * Copyright (C) 2021, FPT University<br>
- * SWP391<br>
- * ChildrenCareProject<br>
- *
- * Record of change:<br>
- * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-05    1.0        DucNT           First Version<br>
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
 import dao.impl.ServiceDAOImpl;
 import entity.Service;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ROG STRIX
  */
-public class ServiceController extends HttpServlet {
+public class ServiceSearchController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,15 +35,34 @@ public class ServiceController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            ServiceDAOImpl dao = new ServiceDAOImpl();
-            ArrayList<Service> serviceList, serviceListTop;
-            serviceList = dao.getAllServices();
-            serviceListTop = dao.getTopServices();
+            String word = request.getParameter("word");
+            int pageSize = 3;
+            // get page current
+            int page;
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+            } catch (NumberFormatException ex) {
+                page = 1;
+            }
+            if (page <= 0) {
+                page = 1;
+            }
+            
+            ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
+            ArrayList<Service> serviceList;
+            serviceList = serviceDAO.getAllServicePagingbyWord(word, pageSize, page);
+            if (!serviceList.isEmpty()) {
+                // get number page
+                int numberPage = serviceDAO.getNumberOfPagesSearch(pageSize, word);
+                request.setAttribute("numberPage", numberPage);
+                request.setAttribute("page", page);
+                request.setAttribute("word", word);
+            }
             request.setAttribute("serviceList", serviceList);
-            request.setAttribute("serviceListTop", serviceListTop);
-            request.getRequestDispatcher("servicelist.jsp").forward(request, response);
+            request.getRequestDispatcher("servicesearch.jsp").forward(request, response);
+
         } catch (Exception ex) {
-            Logger.getLogger(ServiceController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSearchController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -62,34 +78,7 @@ public class ServiceController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            int pageSize = 3;
-            // get page current
-            int page;
-            try {
-                page = Integer.parseInt(request.getParameter("page"));
-            } catch (NumberFormatException ex) {
-                page = 1;
-            }
-            if (page <= 0) {
-                page = 1;
-            }
-            
-            ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
-            ArrayList<Service> serviceList;
-            serviceList = serviceDAO.getServicesPaging(pageSize, page);
-            if (!serviceList.isEmpty()) {
-                // get number page
-                int numberPage = serviceDAO.getNumberOfPages(pageSize);
-                request.setAttribute("numberPage", numberPage);
-                request.setAttribute("page", page);
-            }
-            request.setAttribute("serviceList", serviceList);
-            request.getRequestDispatcher("servicelist.jsp").forward(request, response);
-
-        } catch (Exception ex) {
-            Logger.getLogger(ServiceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

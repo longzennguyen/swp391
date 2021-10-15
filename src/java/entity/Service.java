@@ -10,11 +10,29 @@ package entity;
  * @author ROG STRIX
  */
 public class Service {
+    /**
+     * Service id
+     */
     private int service_id;
+    /**
+     * Service thumbnail
+     */
     private String img;
+    /**
+     * Service title
+     */
     private String title;
+    /**
+     * Service description
+     */
     private String description;
+    /**
+     * Service price
+     */
     private double price;
+    /**
+     * Service category_id
+     */
     private int category_id;
 
     public Service() {

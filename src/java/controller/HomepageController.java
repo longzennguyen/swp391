@@ -1,14 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-05    1.0        DucNT           First Version<br>
  */
 package controller;
 
 import dao.impl.ServiceDAOImpl;
 import entity.Service;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,13 +39,13 @@ public class HomepageController extends HttpServlet {
             throws ServletException, IOException {
         try {
             ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
-            ArrayList<Service>serviceListTop;
+            ArrayList<Service> serviceListTop;
             serviceListTop = serviceDAO.getTopServices();
             request.setAttribute("serviceListTop", serviceListTop);
             request.getRequestDispatcher("homepage.jsp").forward(request, response);
         } catch (Exception ex) {
             Logger.getLogger(HomepageController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -57,18 +60,8 @@ public class HomepageController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            ServiceDAOImpl dao = new ServiceDAOImpl();
-            ArrayList<Service> serviceList,serviceListTop;
-            serviceList = dao.getAllServices();
-            serviceListTop = dao.getTopServices();
-            request.setAttribute("serviceList", serviceList);
-            request.setAttribute("serviceListTop", serviceListTop);
-            request.getRequestDispatcher("homepage.jsp").forward(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(HomepageController.class.getName()).log(Level.SEVERE, null, ex);
-        }        
-    
+        processRequest(request, response);
+
     }
 
     /**

@@ -33,25 +33,27 @@
     </head>
     <body>
         <%@include file="homepageheader.jsp"%>
-        <div class="breadcrumb-agile ">
-            <div aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="homepage">Home</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Service List</li>
-                </ol>
-            </div>                     
-        </div>
+
 
         <div class="main-container">
             <div >
                 <div class="container">
                     <h2 class="title-style-1">OUR SERVICES<span class="title-under"></span></h2>
-
+                    <div class="breadcrumb-agile ">
+                        <div aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="homepage">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Service List</li>
+                            </ol>
+                        </div>                     
+                    </div>
 
                     <div class="row col-md-10 col-sm-12">
-
+                        <c:if test="${empty serviceList}">
+                            <h1>Service not found<h1>
+                        </c:if>
                         <c:forEach var="i" items="${serviceList}">
                             <div class="col-md-4 col-sm-6">
                                 <div class="cause">
@@ -74,8 +76,8 @@
                         </c:forEach>                                                                            
                     </div>                    
                     <div class="row col-lg-2" style="margin-left: 30px; border-width:1px;border-style:solid; border-color:#144d7b">
-                        <form class="input-group text-center" style="display: inline-block" action="servicesearch?page=1" method="POST">
-                            <input type="text" class="form-control rounded" placeholder="Search" aria-label="Search" name ="word" style="margin-top: 10px"/>
+                        <form class="input-group text-center" style="display: inline-block" >
+                            <input type="text" class="form-control rounded" name ="word" placeholder="Search" aria-label="Search" style="margin-top: 10px" action="servicesearch?page=1" method="POST"/>
                             <button type="submit" class="btn btn-outline-primary" style="background-color: #0076a3; color: white;margin-top: 10px">Search</button>
                         </form>
                         <a><h4 style="font-weight: bold">Medical Care</h4></a>
@@ -92,7 +94,7 @@
                 <ul class="pagination">
                     <c:if test="${page != 1}">
                         <li class="icon">
-                            <a href="servicelist?page=${page-1}">Previous</a>
+                            <a href="servicesearch?page=${page-1}&word=${word}">Previous</a>
                         </li>
                     </c:if>
                     <c:forEach var="i" begin="1" end="${numberPage}">
@@ -104,7 +106,7 @@
                             </c:when>
                             <c:otherwise>
                                 <li class="page-item">
-                                    <a href="servicelist?page=${i}">${i}</a>
+                                    <a href="servicesearch?page=${i}&word=${word}">${i}</a>
                                 </li>
                             </c:otherwise>
                         </c:choose>
@@ -112,7 +114,7 @@
                     <!-- If page != Last display Next -->            
                     <c:if test="${page lt numberPage}">
                         <li class="icon">
-                            <a  href="servicelist?page=${page+1}">Next</a>
+                            <a  href="servicesearch?page=${page+1}&word=${word}">Next</a>
                         </li>
                     </c:if>
                 </ul>
