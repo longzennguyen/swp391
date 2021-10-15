@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : homepage
     Created on : Oct 7, 2021, 9:36:00 PM
@@ -44,7 +45,7 @@
                         <div class="carousel-caption">
                             <h2 class="carousel-title  ">If your children need help</h2>
                             <h4 class="carousel-subtitle  ">Use our services</h4>
-                            <a href="servicelist.jsp" class="btn btn-lg btn-secondary hidden-xs">VIEW NOW</a>
+                            <a href="servicelist" class="btn btn-lg btn-secondary hidden-xs">VIEW NOW</a>
                         </div> <!-- /.carousel-caption -->
                     </div>
                 </div> <!-- /.item -->
@@ -53,81 +54,64 @@
 
 
 
-        <div class="section-home about-us fadeIn animated">
+        <div class="section-home about-us">
             <div class="container">
                 <h2 class="title-style-1">Our Popular Services <span class="title-under"></span></h2>
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="cause">
-                            <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                            <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                <h4 style="color: white">Price: 500$</h4>
-                            </div>
-                            <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                            <div class="cause-details">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                            </div>
-                            <div class="btn-holder text-center">
-                                <a href="#" class="btn btn-primary" >Detail</a>
-                            </div>
-                        </div> <!-- /.service -->
-                    </div> 
+                    <c:forEach var="i" items="${serviceListTop}">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="cause">
+                                <img src="${i.img}" alt="" class="cause-img" style="width: 250px; height: 150px; margin-left: 7px">
+                                <div class=" cause-progress" style="text-align: center; background: #144d7b">
+                                    <h4 style="color: white">Price: $${i.price}</h4>
+                                </div>
+                                <div class=" cause-progress" style="text-align: center">
+                                    <h4 style="font-weight: bold"> ${i.title}</h4>
+                                </div>                                  
+                                <div class="cause-details">
+                                    ${i.description}
+                                </div>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary">Detail</a>
+                                </div>
+                            </div> <!-- /.cause -->
+                        </div>  
+                    </c:forEach>
 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="cause">
-                            <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                            <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                <h4 style="color: white">Price: 500$</h4>
-                            </div>
-                            <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                            <div class="cause-details">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                            </div>
-                            <div class="btn-holder text-center">
-                                <a href="#" class="btn btn-primary" >Detail</a>
-                            </div>
-                        </div> <!-- /.service -->
-                    </div> 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="cause">
-                            <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                            <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                <h4 style="color: white">Price: 500$</h4>
-                            </div>
-                            <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                            <div class="cause-details">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                            </div>
-                            <div class="btn-holder text-center">
-                                <a href="#" class="btn btn-primary">Detail</a>
-                            </div>
-                        </div> <!-- /.service -->
-                    </div> 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="cause">
-                            <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                            <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                <h4 style="color: white">Price: 500$</h4>
-                            </div>
-                            <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                            <div class="cause-details">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                            </div>
-                            <div class="btn-holder text-center">
-                                <a href="#" class="btn btn-primary">Detail</a>
-                            </div>
-                        </div> <!-- /.service -->
-                    </div> 
-                </div>
-                <div class="btn-holder text-center">
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal">View All Services</a>
-                </div>
-            </div>
-        </div> <!-- /.our-services -->    
+                    <div class="text-center">
+                        <a href="servicelist" class="btn btn-primary">View All Services</a>
+                    </div>
 
-        
-        
-        
+                </div>
+            </div> <!-- /.our-services --> 
+        </div>
+
+        <div class="section-home about-us">
+            <div class="container">
+                <h2 class="title-style-1">Our Blogs <span class="title-under"></span></h2>
+                <div class="row">
+                    <c:forEach begin="1" end="4" var="o">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="cause" style="background-color: #0076a3; color: white">
+                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
+                                <h4 class="cause-title" style="color: white">HUNGER AND POVERTY</h4>
+                                <div class="cause-details">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
+                                </div>
+                                <div class="btn-holder text-center">
+                                    <a href="#" class="btn btn-primary" >Read now</a>
+                                </div>
+                            </div> <!-- /.service -->
+                        </div> 
+                    </c:forEach> 
+                    <div class="btn-holder text-center">
+                        <a href="" class="btn btn-primary">View All Blogs</a>
+                    </div>
+                </div>
+            </div> <!-- /.our-services --> 
+        </div>
+
+
         <%@include file="homepagefooter.jsp"%>
 
 

@@ -66,7 +66,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <h1>
-                                <a class="logo" href="homepage.jsp" style="text-decoration: none">
+                                <a class="logo" href="homepage" style="text-decoration: none">
                                     Children Care
                                 </a>
                             </h1>
@@ -74,17 +74,9 @@
 
                         <div id="navbar" class="navbar-collapse collapse pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a class="is-active" href="homepage.jsp">Home</a></li>
+                                <li><a href="homepage">Home</a></li>
                                 <li><a href="#">About</a></li>
-                                <li class="has-child"><a href="#">Services</a>
-                                    <ul class="submenu">
-                                        <li class="submenu-item"><a href="servicelist.jsp">All Service</a></li>
-                                        <li class="submenu-item"><a href="#">Service 2</a></li>
-                                        <li class="submenu-item"><a href="#">Service 3 </a></li>
-                                        <li class="submenu-item"><a href="#">Service 4</a></li>
-                                    </ul>
-
-                                </li>
+                                <li class="has-child"><a href="servicelist">Services</a></li>
                                 <li><a href="#">Reservation</a></li>
                                 <li><a href="#">Contact</a></li>
                                 <li>

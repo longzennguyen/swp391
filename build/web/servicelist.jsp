@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : servicelist
     Created on : Oct 7, 2021, 9:20:04 PM
@@ -32,144 +33,84 @@
     </head>
     <body>
         <%@include file="homepageheader.jsp"%>
+
+
         <div class="main-container">
-            <div class="our-causes fadeIn animated">
+            <div>
                 <div class="container">
                     <h2 class="title-style-1">OUR SERVICES<span class="title-under"></span></h2>
                     <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="cause">
-                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                    <h4 style="color: white">Price: 500$</h4>
-                                </div>
-                                <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                                <div class="cause-details">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </div>
-                                <div class="btn-holder text-center">
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal">Detail</a>
-                                </div>
-                            </div> <!-- /.cause -->
-                        </div> 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="cause">
-                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                    <h4 style="color: white">Price: 500$</h4>
-                                </div>
-                                <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                                <div class="cause-details">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </div>
-                                <div class="btn-holder text-center">
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal">Detail</a>
-                                </div>
-                            </div> <!-- /.cause -->
-                        </div> 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="cause">
-                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                    <h4 style="color: white">Price: 500$</h4>
-                                </div>
-                                <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                                <div class="cause-details">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </div>
-                                <div class="btn-holder text-center">
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal">Detail</a>
-                                </div>
-                            </div> <!-- /.cause -->
-                        </div> 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="cause">
-                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                    <h4 style="color: white">Price: 500$</h4>
-                                </div>
-                                <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                                <div class="cause-details">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </div>
-                                <div class="btn-holder text-center">
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal">Detail</a>
-                                </div>
-                            </div> <!-- /.cause -->
-                        </div> 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="cause">
-                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                    <h4 style="color: white">Price: 500$</h4>
-                                </div>
-                                <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                                <div class="cause-details">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </div>
-                                <div class="btn-holder text-center">
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal">Detail</a>
-                                </div>
-                            </div> <!-- /.cause -->
-                        </div> 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="cause">
-                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                    <h4 style="color: white">Price: 500$</h4>
-                                </div>
-                                <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                                <div class="cause-details">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </div>
-                                <div class="btn-holder text-center">
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal">Detail</a>
-                                </div>
-                            </div> <!-- /.cause -->
-                        </div> 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="cause">
-                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                <div class=" cause-progress" style="text-align: center; background: #144d7b">
-                                    <h4 style="color: white">Price: 500$</h4>
-                                </div>
-                                <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                                <div class="cause-details">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </div>
-                                <div class="btn-holder text-center">
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal">Detail</a>
-                                </div>
-                            </div> <!-- /.cause -->
-                        </div> 
-                        
 
+                        <c:forEach var="i" items="${serviceList}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="cause">
+                                    <img src="${i.img}" alt="" class="cause-img" style="width: 250px; height: 150px; margin-left: 7px">
+                                    <div class=" cause-progress" style="text-align: center; background: #144d7b">
+                                        <h4 style="color: white">Price: $${i.price}</h4>
+                                    </div>
+                                    <div class=" cause-progress" style="text-align: center">
+                                        <h4 style="font-weight: bold"> ${i.title}</h4>
+                                    </div>                                  
+                                    <div class="cause-details">
+                                        ${i.description}
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="#" class="btn btn-primary">Detail</a>
+                                    </div>
+                                </div> <!-- /.cause -->
+                            </div>  
+                        </c:forEach>                                                      
 
                     </div>
-
                 </div>
 
             </div> <!-- /.our-causes -->
 
-        </div> <!-- /.main-container  -->
+            <div class="container">
+                <ul class="pagination">
+                    <c:if test="${page != 1}">
+                        <li class="icon">
+                            <a href="servicelist?page=${page-1}">Previous</a>
+                        </li>
+                    </c:if>
+                    <c:forEach var="i" begin="1" end="${numberPage}">
+                        <c:choose>
+                            <c:when test="${page eq i}">
+                                <li class="page-item active"><a class="page-link">
+                                        ${i} <span class="sr-only">(current)</span></a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="page-item">
+                                    <a href="servicelist?page=${i}">${i}</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <!-- If page != Last display Next -->            
+                    <c:if test="${page lt numberPage}">
+                        <li class="icon">
+                            <a  href="servicelist?page=${page+1}">Next</a>
+                        </li>
+                    </c:if>
+                </ul>
+            </div>
+            
+            <%@include file="homepagefooter.jsp"%>
 
-        <%@include file="homepagefooter.jsp"%>
+            <!-- jQuery -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script>
+                window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\script>');
+            </script>
 
+            <!-- Bootsrap javascript file -->
+            <script src="js/bootstrap.min.js"></script>
 
+            <!-- owl carouseljavascript file -->
+            <script src="js/owl.carousel.min.js"></script>
 
-        <!-- jQuery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\script>');
-        </script>
-
-        <!-- Bootsrap javascript file -->
-        <script src="js/bootstrap.min.js"></script>
-
-        <!-- owl carouseljavascript file -->
-        <script src="js/owl.carousel.min.js"></script>
-
-        <!-- Template main javascript -->
-        <script src="js/main.js"></script>
+            <!-- Template main javascript -->
+            <script src="js/main.js"></script>
     </body>
 </html>

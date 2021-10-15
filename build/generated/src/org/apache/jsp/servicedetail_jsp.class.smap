@@ -1,0 +1,18 @@
+SMAP
+servicedetail_jsp.java
+JSP
+*S JSP
+*F
++ 0 servicedetail.jsp
+servicedetail.jsp
++ 1 homepageheader.jsp
+homepageheader.jsp
++ 2 homepagefooter.jsp
+homepagefooter.jsp
+*L
+5,30:50
+5#1,123:80
+34#0,287:202
+5#2,153:489
+320#0,21:641
+*E
