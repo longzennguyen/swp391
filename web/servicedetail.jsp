@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : servicedetail
     Created on : Oct 14, 2021, 9:08:44 PM
@@ -46,9 +47,9 @@
                 </ol>
             </div>                     
         </div>
-        
+
         <div class="page-heading text-center">
-            <h1 class="page-title" style="color: #0076a3">SERVICE TITLE</h1>
+            <h1 class="page-title" style="color: #0076a3">${data.title}</h1>
         </div>
         <div class="main-container" style="margin-top: -100px">
 
@@ -58,17 +59,12 @@
 
                     <div class="col-md-12 fadeIn animated">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            ${data.description}
                         </p>
 
                     </div>
                     <center>
-                        <img src="img/Service/Anesthesiology.jpg" alt="" style="max-width: 700px; max-height: 500px; ">
+                        <img src="${data.img}" alt="" style="max-width: 700px; max-height: 500px; ">
                     </center>
                 </div>
 
@@ -76,35 +72,58 @@
 
                     <div class="col-md-6">
 
-                        <h2 class="title-style-2"> Cause sub title <span class="title-under"></span></h2>
-
+                        <h2 class="title-style-2"> Service Category <span class="title-under"></span></h2>                        
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <c:if test="${data.category_id == 1}">
+                            <p style="font-weight: bold; font-size: 20px">
+                                Medical Care
+                            </p>
+                        </c:if>
+                        <c:if test="${data.category_id == 2}">
+                            <p style="font-weight: bold; font-size: 20px">
+                                Surgery
+                            </p>
+                        </c:if>
+                        <c:if test="${data.category_id == 3}">
+                            <p style="font-weight: bold; font-size: 20px">
+                                Other Medical
+                            </p>
+                        </c:if>
                         </p>
 
                     </div>
 
                     <div class="col-md-6">
 
-                        <h2 class="title-style-2"> Cause sub title <span class="title-under"></span></h2>
-
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <h2 class="title-style-2"> Service Price <span class="title-under"></span></h2>
+                        <p style="font-weight: bold; font-size: 20px">
+                            Price: $${data.price}
                         </p>
 
                     </div>
 
                 </div>
+                <br/>
+                <br/>
+                <div class="row">
+
+                    <div class="col-md-12 fadeIn animated">
+                        <p>
+                            ${data.description}
+                            ${data.description}
+                            <br/>
+                            ${data.description}
+                            ${data.description}
+                        </p>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="text-center">
+                    <a href="#" class="btn btn-primary">Buy Now</a>
+                    <a href="#" class="btn btn-primary">Feedback</a>
+                </div>        
+
 
 
             </div>

@@ -17,8 +17,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * This class implements from class interface IServiceDAO <br>
@@ -195,7 +193,8 @@ public class ServiceDAOImpl extends DBContext implements IServiceDAO {
                 + "(SELECT ROW_NUMBER()\n"
                 + "OVER(ORDER BY service_id) as Number,\n"
                 + "* FROM [Service] where \n"
-                + "title like ?)as dbNumber \n"
+                + "title like ?\n"
+                + ")as dbNumber \n"
                 + "where\n"
                 + "Number between ? and ?";
         ArrayList<Service> services = new ArrayList<>();
@@ -273,6 +272,40 @@ public class ServiceDAOImpl extends DBContext implements IServiceDAO {
             closeConnection(conn);
         }
         return -1;
+    }
+
+    @Override
+    public Service getServiceDetail(int id) throws Exception {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "select * from [Service] where [Service].service_id = ?";
+        Service service = null;
+
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int service_id = rs.getInt("service_id");
+                String title = rs.getString("title");
+                String img = getImagePath() + "Service/" + rs.getString("image");
+                int category_id = rs.getInt("category_id");
+                double price = rs.getInt("original_price");
+                String description = rs.getString("summary");
+                service = new Service(service_id, img, title, description, price, category_id);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(conn);
+        }
+        return service;
     }
 
 }

@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-05    1.0        DucNT           First Version<br>
  */
 package entity;
 
@@ -34,10 +38,21 @@ public class Service {
      * Service category_id
      */
     private int category_id;
-
+    /**
+     * Constructor
+    */
     public Service() {
     }
-
+    /**
+     * Constructor
+     *
+     * @param service_id
+     * @param img
+     * @param title
+     * @param description
+     * @param price
+     * @param category_id
+     */
     public Service(int service_id, String img, String title, String description, double price, int category_id) {
         this.service_id = service_id;
         this.img = img;
@@ -46,51 +61,99 @@ public class Service {
         this.price = price;
         this.category_id = category_id;
     }
-
+    /**
+     * Get value service id attribute of Service class. <br>
+     *
+     * @return id it is an int
+     */
     public int getService_id() {
         return service_id;
     }
-
+    /**
+     * Set value to id attribute of Service class
+     *
+     * @param service_id
+     */
     public void setService_id(int service_id) {
         this.service_id = service_id;
     }
-
+    /**
+     * Get value img attribute of Service class. <br>
+     *
+     * @return id it is an int
+     */
     public String getImg() {
         return img;
     }
-
+    /**
+     * Set value to img attribute of Service class
+     *
+     * @param img
+     */
     public void setImg(String img) {
         this.img = img;
     }
-
+    /**
+     * Get value title attribute of Service class. <br>
+     *
+     * @return id it is an int
+     */
     public String getTitle() {
         return title.toUpperCase();
     }
-
+    /**
+     * Set value to title attribute of Service class
+     *
+     * @param title
+     */
     public void setTitle(String title) {
         this.title = title.toUpperCase();
     }
-
+    /**
+     * Get value description attribute of Service class. <br>
+     *
+     * @return id it is an int
+     */
     public String getDescription() {
         return description;
     }
-
+    /**
+     * Set value to description attribute of Service class
+     *
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
-
+    /**
+     * Get value price attribute of Service class. <br>
+     *
+     * @return id it is an int
+     */
     public double getPrice() {
         return price;
     }
-
+    /**
+     * Set value to price attribute of Service class
+     *
+     * @param price
+     */
     public void setPrice(double price) {
         this.price = price;
     }
-
+    /**
+     * Get value category id attribute of Service class. <br>
+     *
+     * @return id it is an int
+     */
     public int getCategory_id() {
         return category_id;
     }
-
+    /**
+     * Set value category to id attribute of Service class
+     *
+     * @param category_id
+     */
     public void setCategory_id(int category_id) {
         this.category_id = category_id;
     }

@@ -11,7 +11,9 @@ package entity;
 
 /**
  *
- * @author ROG STRIX
+ * This class represents the Users table in database
+ *
+ * @author DucNT
  */
 public class User {
     /**
@@ -71,7 +73,6 @@ public class User {
      * @param role
      * @param status
      */
-    
     public User(int user_id, String name, String gender, String email, String phone, String address, String role, String status) {
         this.user_id = user_id;
         this.name = name;
@@ -138,7 +139,6 @@ public class User {
      *
      * @return id it is an int
      */
-
     public int getUser_id() {
         return user_id;
     }

@@ -1,12 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-05    1.0        DucNT           First Version<br>
  */
 package controller;
 
+import dao.impl.ServiceDAOImpl;
+import entity.Service;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +64,15 @@ public class ServiceDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
+        try {
+            Service service = serviceDAO.getServiceDetail(id);
+            request.setAttribute("data", service);
+            request.getRequestDispatcher("servicedetail.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ServiceDetailController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

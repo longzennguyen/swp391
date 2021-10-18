@@ -74,4 +74,13 @@ public interface IServiceDAO {
     * @throws java.lang.Exception
     */    
     public int getNumberOfPagesSearch(int pageSize, String word) throws Exception;
+    /**
+    * Get User detail by ID in the database
+    *
+    * 
+    * @param id
+    * @return a <code>User</code>
+    * @throws Exception
+    */    
+    public Service getServiceDetail(int id) throws Exception;
 }
