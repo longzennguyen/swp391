@@ -145,13 +145,13 @@ public class LoginSvlet extends HttpServlet {
 //            request.getSession().setAttribute("user", user);
 //            request.getSession().setAttribute("userId", user.getUser_id());
 //            response.sendRedirect("login");
-            response.sendRedirect(request.getContextPath() + "/ManagementPage.jsp");
+            response.sendRedirect(request.getContextPath() + "/Manager.jsp");
 //            request.getRequestDispatcher("HomePage").forward(request, response);
         } else if (user.getRole_id()== 3) {
             log("abababa2");
-            response.sendRedirect(request.getContextPath() + "/AdminDashboard.jsp");
+            response.sendRedirect(request.getContextPath() + "/admin.jsp");
         } else if (user.getRole_id()== 4) {
-            response.sendRedirect(request.getContextPath() + "/Staf_Page.jsp");
+            response.sendRedirect(request.getContextPath() + "/Manager.jsp");
         }
 
     }

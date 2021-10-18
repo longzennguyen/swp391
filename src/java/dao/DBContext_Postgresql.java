@@ -30,6 +30,6 @@ public class DBContext_Postgresql {
     private final String portNumber = "5432";
     private final String instance="";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
     private final String userID = "postgres";
-    private final String password = "123123";
+    private final String password = "123";
 }
  

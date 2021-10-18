@@ -18,7 +18,7 @@
     <body>
         <%@include file="header.jsp"%>
         <div class="content">
-            <h2>Admin Page</h2>
+            <h2>Manager Page</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eaque molestias, fugit obcaecati labore repellat recusandae quod. Enim consequatur fuga temporibus optio aliquam molestiae dicta ullam cupiditate? Tempore, doloribus aliquam?</p>
         </div>  
 

@@ -5,21 +5,18 @@
  */
 package controller;
 
-import com.sun.java.swing.plaf.windows.resources.windows;
 import dao.DBContext_Postgresql;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.Alert;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
+@WebServlet(name = "RegisterAccount", urlPatterns = {"/RegisterAccount"})
 public class RegisterAccount extends HttpServlet {
 
     DBContext_Postgresql db = new DBContext_Postgresql();
@@ -89,14 +87,14 @@ public class RegisterAccount extends HttpServlet {
                         }
                         System.out.println("new ID : " + maxID);
                         String sql = "INSERT INTO Users(Users_id, first_name, last_name, gender, email, phone, address,\n"
-                                + "				 created_at, role_id)\n"
-                                + "	VALUES(" + maxID + ", '" + fname + "','" + lname + "','" + gender + "','" + email + "','" + phoneNum + "','" + address + "','" + dob + "',1)";
+                                + "				 created_at, role_id,password,status_id,dob)\n"
+                                + "	VALUES(" + maxID + ", '" + fname + "','" + lname + "','" + gender + "','" + email + "','" + phoneNum + "','" + address + "','" + dob + "',1,'"+password+"',1,'"+dob+"')";
                         System.out.println("sql: " + sql);
                         st = con.prepareStatement(sql);
                         rs = st.executeQuery();
-
+                        System.out.println("Insert success");
                     } catch (Exception e) {
-                        System.out.println("Not found user");
+                        System.out.println("Not found user or error to insert");
                     }
                    // System.out.println("yah");
                     response.setContentType("text/html");
@@ -117,12 +115,6 @@ public class RegisterAccount extends HttpServlet {
                     //email existed -> reject request
 
                     System.out.println("invalid");
-//                    request.getRequestDispatcher("/index.jsp").forward(request, response);
-//                    String msg = "hihi";
-//                    out.println("<script type=\"text/javascript\">");
-//                    out.println("alert('User or password incorrect');");
-//                    out.println("location='index.jsp';");
-//                    out.println("</script>");
                     response.setContentType("text/html");
                     PrintWriter pw = response.getWriter();
                     pw.println("<script type=\"text/javascript\">");
