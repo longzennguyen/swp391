@@ -24,7 +24,7 @@ import java.util.logging.Logger;
  * doGet:<br>
  * - Get User profile from database <br>
  * 
- * @author DucNT
+ * @author longzennguyen
  */
 public class UserProfileController extends HttpServlet {
 
