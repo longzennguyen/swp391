@@ -118,6 +118,7 @@ public final class homepageheader_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                <li class=\"has-child\"><a href=\"servicelist\">Services</a></li>\n");
       out.write("                                <li><a href=\"#\">Reservation</a></li>\n");
       out.write("                                <li><a href=\"#\">Contact</a></li>\n");
+      out.write("                                <li><a href=\"BlogsListServlet\">Blogs</a></li>\n");
       out.write("                                <li>\n");
       out.write("                                    <a href=\"login.jsp\">LOGIN</a>\n");
       out.write("                                </li>\n");

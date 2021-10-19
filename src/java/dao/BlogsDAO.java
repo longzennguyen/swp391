@@ -9,25 +9,29 @@ import entity.Blogs;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- *
+ * DAO override function in InterfaceBlog
  * @author longzennguyen
  */
-public class BlogsDAO {
+public class BlogsDAO extends DBContext_Postgresql implements InterfaceBlog{
     PreparedStatement st;
     Connection con;
-    DBContext_Postgresql db = new DBContext_Postgresql();
-    /*
-        Get Blog List
-    */
+    /**
+     * get list blog in database
+     * @return List<Blogs>
+     */
+    @Override
     public List<Blogs> getListBlog() {
         String sql = "select * from post";
         List<Blogs> listBlog = new ArrayList<Blogs>();
         try {
-            con = db.getConnection();
+            con = getConnection();
             st = con.prepareStatement(sql);
             ResultSet rs = null;
             ResultSet rsID = null;
@@ -48,8 +52,15 @@ public class BlogsDAO {
                 blog.setUpdated_at(rs.getString("updated_at"));
                 listBlog.add(blog);
             }
+            
         } catch (Exception ex) {
             System.out.println("Errror: " + ex);
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BlogsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         System.out.println("Size of blog: " + listBlog.get(0).toString());
         return listBlog;

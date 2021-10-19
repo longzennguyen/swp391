@@ -79,6 +79,7 @@
                                 <li class="has-child"><a href="servicelist">Services</a></li>
                                 <li><a href="#">Reservation</a></li>
                                 <li><a href="#">Contact</a></li>
+                                <li><a href="BlogsListServlet">Blogs</a></li>
                                 <li>
                                     <a href="login.jsp">LOGIN</a>
                                 </li>

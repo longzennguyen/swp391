@@ -39,6 +39,11 @@
         <script src="js/modernizr.js"></script>
     </head>
     <body>
+        <%
+            if(request.getAttribute("listBlog") == null){
+                response.sendRedirect("BlogsListServlet");
+            }
+        %>
         <%@include file="homepageheader.jsp"%>
         <form action="BlogsListServlet" action="POST">
             <div class="main-container">

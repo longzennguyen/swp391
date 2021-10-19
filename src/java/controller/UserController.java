@@ -27,7 +27,7 @@ import java.util.logging.Logger;
  * doPost <br>
  * - Get all user by search Word <br>
  *
- * @author DucNT
+ * @author longzennguyen
  */
 public class UserController extends HttpServlet {
 

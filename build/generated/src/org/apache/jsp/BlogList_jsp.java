@@ -102,6 +102,13 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
+
+            if(request.getAttribute("listBlog") == null){
+                response.sendRedirect("BlogsListServlet");
+            }
+        
+      out.write("\n");
+      out.write("        ");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -166,7 +173,7 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <span class=\"icon-bar\"></span>\n");
       out.write("                            </button>\n");
       out.write("                            <h1>\n");
-      out.write("                                <a class=\"logo\" href=\"homepage.jsp\" style=\"text-decoration: none\">\n");
+      out.write("                                <a class=\"logo\" href=\"homepage\" style=\"text-decoration: none\">\n");
       out.write("                                    Children Care\n");
       out.write("                                </a>\n");
       out.write("                            </h1>\n");
@@ -174,19 +181,12 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                        <div id=\"navbar\" class=\"navbar-collapse collapse pull-right\">\n");
       out.write("                            <ul class=\"nav navbar-nav\">\n");
-      out.write("                                <li><a class=\"is-active\" href=\"homepage.jsp\">Home</a></li>\n");
+      out.write("                                <li><a href=\"homepage\">Home</a></li>\n");
       out.write("                                <li><a href=\"#\">About</a></li>\n");
-      out.write("                                <li class=\"has-child\"><a href=\"#\">Services</a>\n");
-      out.write("                                    <ul class=\"submenu\">\n");
-      out.write("                                        <li class=\"submenu-item\"><a href=\"servicelist.jsp\">All Service</a></li>\n");
-      out.write("                                        <li class=\"submenu-item\"><a href=\"#\">Service 2</a></li>\n");
-      out.write("                                        <li class=\"submenu-item\"><a href=\"#\">Service 3 </a></li>\n");
-      out.write("                                        <li class=\"submenu-item\"><a href=\"#\">Service 4</a></li>\n");
-      out.write("                                    </ul>\n");
-      out.write("\n");
-      out.write("                                </li>\n");
+      out.write("                                <li class=\"has-child\"><a href=\"servicelist\">Services</a></li>\n");
       out.write("                                <li><a href=\"#\">Reservation</a></li>\n");
       out.write("                                <li><a href=\"#\">Contact</a></li>\n");
+      out.write("                                <li><a href=\"BlogList.jsp\">Blogs</a></li>\n");
       out.write("                                <li>\n");
       out.write("                                    <a href=\"login.jsp\">LOGIN</a>\n");
       out.write("                                </li>\n");
@@ -223,8 +223,7 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("    </body>\n");
-      out.write("</html>\n");
-      out.write("\n");
+      out.write("</html>");
       out.write("\n");
       out.write("        <form action=\"BlogsListServlet\" action=\"POST\">\n");
       out.write("            <div class=\"main-container\">\n");
@@ -232,7 +231,7 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"container\">\n");
       out.write("                        <h2 class=\"title-style-1\">Blog List<span class=\"title-under\"></span></h2>\n");
       out.write("\n");
-      out.write("                        <div class=\"row\"> detail\n");
+      out.write("                        <div class=\"row\">\n");
       out.write("                            ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
@@ -450,6 +449,9 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\n");
           out.write("                                <div class=\"col-md-3 col-sm-6\">\n");
           out.write("                                    <div class=\"cause\">\n");
+          out.write("                                        <input type=\"text\" name=\"blog_id\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.post_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" hidden=\"true\"/>\n");
           out.write("                                        <img src=\"img/cause-hunger.jpg\" alt=\"\" class=\"cause-img\">\n");
           out.write("                                        <h4 class=\"cause-title\"><a href=\"#\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -460,7 +462,7 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\n");
           out.write("                                        </div>\n");
           out.write("                                        <div class=\"btn-holder text-center\">\n");
-          out.write("                                            <button type=\"button\" class=\"btn btn-primary\" name=\"service\" value=\"\">Detail</a>\n");
+          out.write("                                            <button type=\"submit\" class=\"btn btn-primary\" name=\"service\" value=\"detail\">Detail</a>\n");
           out.write("                                        </div>\n");
           out.write("                                    </div> <!-- /.cause -->\n");
           out.write("\n");
