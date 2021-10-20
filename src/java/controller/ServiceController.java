@@ -21,12 +21,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author ROG STRIX
+ * Process:<br>
+ * - Get all service<br>
+ * Get:<br>
+ * Get all service paging to display
+ * Get all service by search word to display
+ * 
+ * @author DucNT
  */
 public class ServiceController extends HttpServlet {
 
     /**
+     * Get all <code>Service</code> from database then display to jsp page
+     * Get pagination
+     * 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -39,11 +47,9 @@ public class ServiceController extends HttpServlet {
             throws ServletException, IOException {
         try {
             ServiceDAOImpl dao = new ServiceDAOImpl();
-            ArrayList<Service> serviceList, serviceListTop;
+            ArrayList<Service> serviceList;
             serviceList = dao.getAllServices();
-            serviceListTop = dao.getTopServices();
             request.setAttribute("serviceList", serviceList);
-            request.setAttribute("serviceListTop", serviceListTop);
             request.getRequestDispatcher("servicelist.jsp").forward(request, response);
         } catch (Exception ex) {
             Logger.getLogger(ServiceController.class.getName()).log(Level.SEVERE, null, ex);

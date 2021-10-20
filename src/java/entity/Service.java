@@ -11,7 +11,9 @@ package entity;
 
 /**
  *
- * @author ROG STRIX
+ * This class represents the Service table in database
+ *
+ * @author DucNT
  */
 public class Service {
     /**
@@ -62,7 +64,7 @@ public class Service {
         this.category_id = category_id;
     }
     /**
-     * Get value service id attribute of Service class. <br>
+     * Get value service id attribute of <code>Service </code> class. <br>
      *
      * @return id it is an int
      */
@@ -70,7 +72,7 @@ public class Service {
         return service_id;
     }
     /**
-     * Set value to id attribute of Service class
+     * Set value to id attribute of <code>Service </code> class
      *
      * @param service_id
      */
@@ -78,7 +80,7 @@ public class Service {
         this.service_id = service_id;
     }
     /**
-     * Get value img attribute of Service class. <br>
+     * Get value img attribute of <code>Service </code> class. <br>
      *
      * @return id it is an int
      */
@@ -86,7 +88,7 @@ public class Service {
         return img;
     }
     /**
-     * Set value to img attribute of Service class
+     * Set value to img attribute of <code>Service </code> class
      *
      * @param img
      */
@@ -94,7 +96,7 @@ public class Service {
         this.img = img;
     }
     /**
-     * Get value title attribute of Service class. <br>
+     * Get value title attribute of <code>Service </code> class. <br>
      *
      * @return id it is an int
      */
@@ -102,7 +104,7 @@ public class Service {
         return title.toUpperCase();
     }
     /**
-     * Set value to title attribute of Service class
+     * Set value to title attribute of <code>Service </code> class
      *
      * @param title
      */
@@ -110,7 +112,7 @@ public class Service {
         this.title = title.toUpperCase();
     }
     /**
-     * Get value description attribute of Service class. <br>
+     * Get value description attribute of <code>Service </code> class. <br>
      *
      * @return id it is an int
      */
@@ -118,7 +120,7 @@ public class Service {
         return description;
     }
     /**
-     * Set value to description attribute of Service class
+     * Set value to description attribute of <code>Service </code> class
      *
      * @param description
      */
@@ -126,7 +128,7 @@ public class Service {
         this.description = description;
     }
     /**
-     * Get value price attribute of Service class. <br>
+     * Get value price attribute of <code>Service </code> class. <br>
      *
      * @return id it is an int
      */
@@ -134,7 +136,7 @@ public class Service {
         return price;
     }
     /**
-     * Set value to price attribute of Service class
+     * Set value to price attribute of <code>Service </code> class
      *
      * @param price
      */
@@ -142,7 +144,7 @@ public class Service {
         this.price = price;
     }
     /**
-     * Get value category id attribute of Service class. <br>
+     * Get value category id attribute of <code>Service </code> class. <br>
      *
      * @return id it is an int
      */
@@ -150,7 +152,7 @@ public class Service {
         return category_id;
     }
     /**
-     * Set value category to id attribute of Service class
+     * Set value category to id attribute of <code>Service </code> class
      *
      * @param category_id
      */

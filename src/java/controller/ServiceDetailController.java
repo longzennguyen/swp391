@@ -5,7 +5,7 @@
  *
  * Record of change:<br>
  * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-05    1.0        DucNT           First Version<br>
+ * 2021-10-15    1.0        DucNT           First Version<br>
  */
 package controller;
 
@@ -21,12 +21,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author ROG STRIX
+ * Get:<br>
+ * Get all service paging to display
+ * Get service detail to display in detail page
+ * @author DucNT
  */
 public class ServiceDetailController extends HttpServlet {
 
     /**
+     * Handle for <code>GET</code> method
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -54,6 +57,8 @@ public class ServiceDetailController extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
+     * Get the detail of <code>Service</code> by Service ID from database then display to jsp page
+     * 
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request

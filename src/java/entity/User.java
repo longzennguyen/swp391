@@ -135,7 +135,7 @@ public class User {
     }
 
     /**
-     * Get value user id attribute of User class. <br>
+     * Get value user id attribute of <code>User</code> class. <br>
      *
      * @return id it is an int
      */
@@ -143,7 +143,7 @@ public class User {
         return user_id;
     }
     /**
-     * Set value to id attribute of User class
+     * Set value to id attribute of <code>User</code> class
      *
      * @param user_id
      */
@@ -151,7 +151,7 @@ public class User {
         this.user_id = user_id;
     }
     /**
-     * Get value user name attribute of User class. <br>
+     * Get value user name attribute of <code>User</code> class. <br>
      *
      * @return name it is a String
      */
@@ -159,15 +159,15 @@ public class User {
         return name;
     }
     /**
-     * Set value to name attribute of User class
+     * Set value to name attribute of <code>User</code> class
      *
      * @param name
-     */
+    */
     public void setName(String name) {
         this.name = name;
     }
     /**
-     * Get value user gender attribute of User class. <br>
+     * Get value user gender attribute of <code>User</code> class. <br>
      *
      * @return gender it is a String
      */
@@ -175,7 +175,7 @@ public class User {
         return gender;
     }
     /**
-     * Set value to gender attribute of User class
+     * Set value to gender attribute of <code>User</code> class
      *
      * @param gender
      */
@@ -183,7 +183,7 @@ public class User {
         this.gender = gender;
     }
     /**
-     * Get value user gender attribute of User class. <br>
+     * Get value user gender attribute of <code>User</code> class. <br>
      *
      * @return gender it is a String
      */
@@ -191,7 +191,7 @@ public class User {
         return email;
     }
     /**
-     * Set value to email attribute of User class
+     * Set value to email attribute of <code>User</code> class
      *
      * @param email
      */
@@ -199,7 +199,7 @@ public class User {
         this.email = email;
     }
     /**
-     * Get value user phone attribute of User class. <br>
+     * Get value user phone attribute of <code>User</code> class. <br>
      *
      * @return gender it is a String
      */
@@ -207,7 +207,7 @@ public class User {
         return phone;
     }
     /**
-     * Set value to phone attribute of User class
+     * Set value to phone attribute of <code>User</code> class
      *
      * @param phone
      */
@@ -215,7 +215,7 @@ public class User {
         this.phone = phone;
     }
     /**
-     * Get value user address attribute of User class. <br>
+     * Get value user address attribute of <code>User</code> class. <br>
      *
      * @return address it is a String
      */
@@ -223,7 +223,7 @@ public class User {
         return address;
     }
     /**
-     * Set value to address attribute of User class
+     * Set value to address attribute of <code>User</code> class
      *
      * @param address
      */
@@ -231,7 +231,7 @@ public class User {
         this.address = address;
     }
     /**
-     * Get value user role attribute of User class. <br>
+     * Get value user role attribute of <code>User</code> class. <br>
      *
      * @return role it is a String
      */
@@ -239,7 +239,7 @@ public class User {
         return role;
     }
     /**
-     * Set value to role attribute of User class
+     * Set value to role attribute of <code>User</code> class
      *
      * @param role
      */
@@ -247,7 +247,7 @@ public class User {
         this.role = role;
     }
     /**
-     * Get value user status attribute of User class. <br>
+     * Get value user status attribute of <code>User</code> class. <br>
      *
      * @return status it is a String
      */
@@ -255,7 +255,7 @@ public class User {
         return status;
     }
     /**
-     * Set value to status attribute of User class
+     * Set value to status attribute of <code>User</code> class
      *
      * @param status
      */
@@ -263,7 +263,7 @@ public class User {
         this.status = status;
     }
     /**
-     * Get value user dob attribute of User class. <br>
+     * Get value user dob attribute of <code>User</code> class. <br>
      *
      * @return dob it is a String
      */
@@ -271,14 +271,15 @@ public class User {
         return dob;
     }
     /**
-     * Set value to dob attribute of User class
+     * Set value to dob attribute of <code>User</code> class
      *
+     * @param dob
      */
     public void setDob(String dob) {
         this.dob = dob;
     }
     /**
-     * Get value user image attribute of User class. <br>
+     * Get value user image attribute of <code>User</code> class. <br>
      *
      * @return image it is a String
      */
@@ -286,16 +287,12 @@ public class User {
         return img;
     }
     /**
-     * Set value to image attribute of User class
+     * Set value to image attribute of <code>User</code> class
      *
      * @param img
      */
     public void setImg(String img) {
         this.img = img;
     }
-
-               
-    
-    
-    
+                           
 }

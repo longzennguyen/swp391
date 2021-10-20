@@ -55,7 +55,7 @@ public interface IServiceDAO {
     public int getNumberOfPages(int pageSize) throws Exception;
     
     /**
-     * Get all User in the database by word search and paging
+     * Get all Service in the database by word search and paging
      *
      * @param word
      * @param pageSize it is an int number.
@@ -75,7 +75,7 @@ public interface IServiceDAO {
     */    
     public int getNumberOfPagesSearch(int pageSize, String word) throws Exception;
     /**
-    * Get User detail by ID in the database
+    * Get Service detail by ID in the database
     *
     * 
     * @param id

@@ -21,12 +21,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Process:<br>
+ * - Get top service in home page<br>
+ * - Get top blogs in home page<br>
+ * - Get link share<br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class HomepageController extends HttpServlet {
 
     /**
+     * Get top 4 <code>Service</code> from database then display to jsp page
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *

@@ -60,7 +60,7 @@
                                                 <h4 style="color: white">Price: $${i.price}</h4>
                                             </div>
                                             <div class=" cause-progress" style="text-align: center">
-                                                <a href="servicedetail.jsp"><h4 style="font-weight: bold"> ${i.title}</h4></a>
+                                                <a href="servicedetail?id="${i.service_id}"><h4 style="font-weight: bold"> ${i.title}</h4></a>
                                             </div>                                  
                                             <div class="cause-details">
                                                 ${i.description}

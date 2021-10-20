@@ -21,12 +21,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author ROG STRIX
+ * ProcessRequest:<br>
+ * Get the parameter:  word
+ * Get number of page by search word
+ * Get service list by search word to display in jsp page
+ * @author DucNT
  */
 public class ServiceSearchController extends HttpServlet {
 
     /**
+     * Get the list <code>Service</code> from database when User enter "Search" then display to jsp page
+     * Get pagination
+     * 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -38,7 +44,7 @@ public class ServiceSearchController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String word = request.getParameter("word");
+            String word = request.getParameter("word").trim();
             int pageSize = 3;
             // get page current
             int page;

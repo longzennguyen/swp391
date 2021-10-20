@@ -3,36 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/impl/ServiceDAOImpl.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/servicesearch.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/homepageheader.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/homepagefooter.jsp</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/ServiceController.java</file>
             <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/HomepageController.java</file>
             <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserController.java</file>
             <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserAddController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/IStatusDAO.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/css/style.css</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/entity/User.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserSearchController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/servicelist.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/header.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/impl/RoleDAOImple.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserEditController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/DBContext.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/UserProfileController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/ServiceController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/servicedetail.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/usersearch.jsp</file>
             <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/ServiceSearchController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/IServiceDAO.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/homepage.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/impl/UserDAOImpl.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/userlist.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/admin.jsp</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/IRoleDAO.java</file>
             <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/controller/ServiceDetailController.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/dao/IUserDAO.java</file>
-            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/src/java/entity/Service.java</file>
+            <file>file:/C:/Users/ROG%20STRIX/OneDrive/Documents/GitHub/swp391/web/adduser.jsp</file>
         </group>
     </open-files>
 </project-private>

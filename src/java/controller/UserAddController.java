@@ -35,6 +35,8 @@ import javax.servlet.http.HttpServletResponse;
 public class UserAddController extends HttpServlet {
 
     /**
+     * Handle for this for <code>POST</code> method
+     * 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -76,6 +78,8 @@ public class UserAddController extends HttpServlet {
     }
 
     /**
+     * Get <code>User</code> information then add to database
+     * 
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
