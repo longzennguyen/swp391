@@ -92,4 +92,41 @@ public interface IUserDAO {
      * @throws Exception
      */
     public void addNewUser(int user_id, String first_name, String last_name, String phone, String email, String address, String dob,int role_id, int status_id, int gender) throws Exception;
+    
+   // public void createUser(String uid,String pwd);
+    /**
+     * get user by email & pass
+     * @param uid
+     * @param pwd
+     * @return 
+     */
+    public User getUserByEmailAndPwd(String uid,String pwd);
+    /**
+     * check email registed
+     * @param email
+     * @return 
+     */
+    public boolean checkUserExisted(String email);
+    /**
+     * register new account
+     * @param user_id
+     * @param first_name
+     * @param last_name
+     * @param phone
+     * @param email
+     * @param address
+     * @param dob
+     * @param role_id
+     * @param status_id
+     * @param gender
+     * @param password
+     * @throws Exception 
+     */
+     public void registerAccount(int user_id, String first_name, String last_name, String phone, String email, String address, String dob,int role_id, int status_id, int gender,String password) throws Exception;
+     /**
+      * update password
+      * @param email
+      * @param password 
+      */
+     public void updatePassword(String email,String password);
 }

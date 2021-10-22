@@ -9,6 +9,7 @@
  */
 package dao.impl;
 
+import controller.LoginController;
 import dao.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -254,10 +255,10 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         Connection conn = null;
         PreparedStatement statement = null;
         ResultSet rs = null;
-
+        DBContext_Postgresql db = new DBContext_Postgresql();
         String sql = "SELECT COUNT(users_id) as number FROM [Users] ";
         try {
-            conn = getConnection();
+            conn = db.getConnection();
             statement = conn.prepareStatement(sql);
             rs = statement.executeQuery();
 
@@ -366,8 +367,8 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        String sql = "INSERT INTO [dbo].[Users]([users_id],[first_name],[last_name],[gender],[email],[phone],[address],[created_at],[role_id],[status_id],[dob])\n" +
-                        "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO [dbo].[Users]([users_id],[first_name],[last_name],[gender],[email],[phone],[address],[created_at],[role_id],[status_id],[dob])\n"
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             conn = getConnection();
             ps = conn.prepareStatement(sql);
@@ -380,8 +381,8 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             ps.setString(7, address);
             ps.setInt(9, role_id);
             ps.setInt(10, status_id);
-            ps.setString(8,"");
-            ps.setString(11,dob);
+            ps.setString(8, "");
+            ps.setString(11, dob);
             ps.executeUpdate();
         } catch (SQLException e) {
             try {
@@ -396,6 +397,143 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
                 closePreparedStatement(ps);
                 closeConnection(conn);
             } catch (Exception ex) {
+                Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    /**
+     * create new usser
+     *
+     * @param uid
+     * @param pwd
+     */
+    @Override
+    public User getUserByEmailAndPwd(String uid, String pwd) {
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs;
+        String sql = "select * from Users where email='" + uid + "' and password='" + pwd + "'";
+        System.out.println("SQL get user: " + sql);
+        User user = new User();
+        DBContext_Postgresql db = new DBContext_Postgresql();
+        try {
+            con = db.getConnection();
+            st = con.prepareStatement(sql);
+            rs = st.executeQuery();
+            if (!rs.next()) {
+                System.out.println("Khong tim thay tk111");
+                return null;
+            } else {
+                System.out.println("Prepare get object");
+
+                rs = st.executeQuery();
+                while (rs.next()) {
+                    System.out.println("Name of User: " + rs.getString("first_name") + " roleid: " + rs.getString("role_id"));
+                    user.setUser_id(rs.getInt("users_id"));
+                    user.setName(rs.getString("first_name") + " " + rs.getString("last_name"));
+                    user.setRole_id(rs.getInt("role_id"));
+                    user.setAddress(rs.getString("address"));
+//                    request.setAttribute("user", user);
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Lỗi");
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return user;
+    }
+
+    @Override
+    public boolean checkUserExisted(String email) {
+        String sql = "select * from users where email = '" + email + "'";
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs;
+        DBContext_Postgresql db = new DBContext_Postgresql();
+        try {
+            con = db.getConnection();
+            st = con.prepareStatement(sql);
+            rs = st.executeQuery();
+            if (!rs.next()) {
+                return true;
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Not found user");
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void registerAccount(int user_id, String fname, String lname, String phone, String email, String address, String dob, int role_id, int status_id, int gender, String password) throws Exception {
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs;
+        DBContext_Postgresql db = new DBContext_Postgresql();
+        try {
+            con = db.getConnection();
+            st = con.prepareStatement("select max(users_id) from users");
+            rs = st.executeQuery();
+            int maxID = 0;
+            if (rs.next()) {
+                maxID = rs.getInt("max") + 1;
+            } else {
+                maxID = 0;
+            }
+            System.out.println("new ID : " + maxID);
+            String sql = "INSERT INTO Users(Users_id, first_name, last_name, gender, email, phone, address,\n"
+                    + "				 created_at, role_id,password,status_id,dob)\n"
+                    + "	VALUES(" + maxID + ", '" + fname + "','" + lname + "','" + gender + "','" + email + "','" + phone + "','" + address + "','" + dob + "',1,'" + password + "',1,'" + dob + "')";
+            System.out.println("sql: " + sql);
+            st = con.prepareStatement(sql);
+            rs = st.executeQuery();
+            System.out.println("Insert success");
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Not found user or error to insert");
+        }
+    }
+
+    /**
+     * process reset password by email
+     *
+     * @param email
+     * @param password
+     */
+    @Override
+    public void updatePassword(String email, String password) {
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs;
+        DBContext_Postgresql db = new DBContext_Postgresql();
+        String sql = "update users set password ='" + password + "' where email = '" + email + "'";
+        try {
+            con = db.getConnection();
+            st = con.prepareStatement(sql);
+            rs = st.executeQuery();
+            System.out.println("sql: " + sql);
+        } catch (Exception e) {
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
                 Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

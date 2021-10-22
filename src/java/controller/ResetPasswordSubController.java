@@ -45,7 +45,11 @@ public class ResetPasswordSubController extends HttpServlet {
     private Connection con;
     private PreparedStatement st;
 
-    //Executed query
+    /**
+     * update pass
+     * @param userid
+     * @param newPass 
+     */
     public void resetPassword(long userid, String newPass) {
         String sql = "update users set password='" + newPass + "' where users_id=" + userid;
         ResultSet rs = null;
@@ -140,9 +144,9 @@ public class ResetPasswordSubController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String service = request.getParameter("service");
         System.out.println("Service: " + service);
-        String userid = request.getParameter("userid").trim();
-        String newPass = request.getParameter("newpass").trim();
         if (service.equals("reset_pass")) {
+            String userid = userid = request.getParameter("userid").trim();;
+            String newPass = newPass = request.getParameter("newpass").trim();;
             resetPassword(Long.valueOf(userid), newPass);
             response.setContentType("text/html");
 

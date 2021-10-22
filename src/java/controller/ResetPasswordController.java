@@ -6,6 +6,7 @@
 package controller;
 
 import dao.DBContext_Postgresql;
+import dao.impl.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -65,16 +66,18 @@ public class ResetPasswordController extends HttpServlet {
                 System.out.println("Attri: " + request.getAttribute("emailr"));
 //                String email = request.getAttribute("emailr").toString();
                 System.out.println("email: " + email);
-                String sql = "update users set password ='" + pass + "' where email = '" + email + "'";
-                try {
-                    con = db.getConnection();
-                    ResultSet rs;
-                    st = con.prepareStatement(sql);
-                    rs = st.executeQuery();
-                    System.out.println("sql: " + sql);
-                    con.close();
-                } catch (Exception e) {
-                }
+//                String sql = "update users set password ='" + pass + "' where email = '" + email + "'";
+//                try {
+//                    con = db.getConnection();
+//                    ResultSet rs;
+//                    st = con.prepareStatement(sql);
+//                    rs = st.executeQuery();
+//                    System.out.println("sql: " + sql);
+//                    con.close();
+//                } catch (Exception e) {
+//                }
+                UserDAOImpl userDAOImpl = new UserDAOImpl();
+                userDAOImpl.updatePassword(email, pass);
                 response.setContentType("text/html");
 
                 //// System.out.println("yah1");

@@ -80,8 +80,14 @@
                                 <li><a href="#">Reservation</a></li>
                                 <li><a href="#">Contact</a></li>
                                 <li><a href="BlogsListServlet">Blogs</a></li>
-                                <li>
-                                    <a href="login.jsp">LOGIN</a>
+                                <li class="has-child">
+                                    <form action="HomePage" method="POST">
+                                        <button class='has-child' style="color: blue" name="service" type="submit" value="profile">
+                                                <p class="navbar-brand " style="color: white"><%=(request.getAttribute("Name_of_User") == null || request.getAttribute("Name_of_User").toString().length() == 0)
+                                                    ? "Login"
+                                                    : "" + request.getAttribute("Name_of_User")%></p>
+                                            <input name="userId1" value="${userId}" hidden="true"></button>
+                                    </form>
                                 </li>
                             </ul>                             
                         </div> <!-- /#navbar -->

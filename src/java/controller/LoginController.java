@@ -6,6 +6,7 @@
 package controller;
 
 import dao.DBContext_Postgresql;
+import dao.impl.UserDAOImpl;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,6 +32,7 @@ public class LoginController extends HttpServlet {
     private DBContext_Postgresql db = new DBContext_Postgresql();
     private Connection con;
     private PreparedStatement st;
+    private UserDAOImpl userDAOImpl = new UserDAOImpl();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -89,34 +91,35 @@ public class LoginController extends HttpServlet {
             System.out.println("Connect fail!");
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String sql = "select * from Users where email='" + uid + "' and password='" + pwd + "'";
-        //get data
-        ResultSet rs = null;
-        try {
-            st = con.prepareStatement(sql);
-            rs = st.executeQuery();
-            if (!rs.next()) {
-                System.out.println("Khong tim thay tk111");
-                user = null;
-            } else {
-                System.out.println("Prepare get object");
-
-                rs = st.executeQuery();
-                while (rs.next()) {
-                    System.out.println("Name of User: " + rs.getString("first_name") + " roleid: " + rs.getString("role_id"));
-                    user.setUser_id(rs.getInt("users_id"));
-                    user.setName(rs.getString("first_name") + " " + rs.getString("last_name"));
-                    user.setRole_id(rs.getInt("role_id"));
-                    user.setAddress(rs.getString("address"));
-                    request.setAttribute("user", user);
-                }
-            }
-            con.close();
-        } catch (SQLException ex) {
-            System.out.println("Lỗi");
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+//        String sql = "select * from Users where email='" + uid + "' and password='" + pwd + "'";
+//        //get data
+//        ResultSet rs = null;
+//        try {
+//            st = con.prepareStatement(sql);
+//            rs = st.executeQuery();
+//            if (!rs.next()) {
+//                System.out.println("Khong tim thay tk111");
+//                user = null;
+//            } else {
+//                System.out.println("Prepare get object");
+//
+//                rs = st.executeQuery();
+//                while (rs.next()) {
+//                    System.out.println("Name of User: " + rs.getString("first_name") + " roleid: " + rs.getString("role_id"));
+//                    user.setUser_id(rs.getInt("users_id"));
+//                    user.setName(rs.getString("first_name") + " " + rs.getString("last_name"));
+//                    user.setRole_id(rs.getInt("role_id"));
+//                    user.setAddress(rs.getString("address"));
+//                    request.setAttribute("user", user);
+//                }
+//            }
+//            con.close();
+//        } catch (SQLException ex) {
+//            System.out.println("Lỗi");
+//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        user = userDAOImpl.getUserByEmailAndPwd(uid, pwd);
+        request.setAttribute("user", user); 
         log("abababa");
         //        user.setRoleid(2);
         //        user = null;
@@ -139,7 +142,7 @@ public class LoginController extends HttpServlet {
             request.getSession().setAttribute("user", user);
             request.getSession().setAttribute("userId", user.getUser_id());
 //            response.sendRedirect("login");
-            request.getRequestDispatcher("/HomePage.jsp").forward(request, response);
+            request.getRequestDispatcher("/homepageheader.jsp").forward(request, response);
 //            response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
 
         } else if (user.getRole_id() == 2) {

@@ -6,6 +6,7 @@
 package controller;
 
 import dao.DBContext_Postgresql;
+import dao.impl.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -28,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "RegisterAccount", urlPatterns = {"/RegisterAccount"})
 public class RegisterAccountController extends HttpServlet {
-
+    
     private DBContext_Postgresql db = new DBContext_Postgresql();
     private Connection con;
     private PreparedStatement st;
@@ -70,33 +71,39 @@ public class RegisterAccountController extends HttpServlet {
             String action = request.getParameter("action");
             System.out.println("Action get : " + action);
             if (action != null && action.equals("submit")) {
-                if (checkAccountValid(email)) {
+                UserDAOImpl userDAOImpl = new UserDAOImpl();
+                if (userDAOImpl.checkUserExisted(email)) {
                     //email not existed
                     //create user
                     System.out.println("valid");
-
+                    
                     ResultSet rs = null;
                     try {
-                        con = db.getConnection();
-                        st = con.prepareStatement("select max(users_id) from users");
-                        rs = st.executeQuery();
-                        int maxID = 0;
-                        if (rs.next()) {
-                            maxID = rs.getInt("max") + 1;
-                        } else {
-                            maxID = 0;
-                        }
-                        System.out.println("new ID : " + maxID);
-                        String sql = "INSERT INTO Users(Users_id, first_name, last_name, gender, email, phone, address,\n"
-                                + "				 created_at, role_id,password,status_id,dob)\n"
-                                + "	VALUES(" + maxID + ", '" + fname + "','" + lname + "','" + gender + "','" + email + "','" + phoneNum + "','" + address + "','" + dob + "',1,'" + password + "',1,'" + dob + "')";
-                        System.out.println("sql: " + sql);
-                        st = con.prepareStatement(sql);
-                        rs = st.executeQuery();
-                        System.out.println("Insert success");
-                        con.close();
-                    } catch (Exception e) {
-                        System.out.println("Not found user or error to insert");
+                        //                    try {
+//                        con = db.getConnection();
+//                        st = con.prepareStatement("select max(users_id) from users");
+//                        rs = st.executeQuery();
+//                        int maxID = 0;
+//                        if (rs.next()) {
+//                            maxID = rs.getInt("max") + 1;
+//                        } else {
+//                            maxID = 0;
+//                        }
+//                        System.out.println("new ID : " + maxID);
+//                        String sql = "INSERT INTO Users(Users_id, first_name, last_name, gender, email, phone, address,\n"
+//                                + "				 created_at, role_id,password,status_id,dob)\n"
+//                                + "	VALUES(" + maxID + ", '" + fname + "','" + lname + "','" + gender + "','" + email + "','" + phoneNum + "','" + address + "','" + dob + "',1,'" + password + "',1,'" + dob + "')";
+//                        System.out.println("sql: " + sql);
+//                        st = con.prepareStatement(sql);
+//                        rs = st.executeQuery();
+//                        System.out.println("Insert success");
+//                        con.close();
+//                    } catch (Exception e) {
+//                        System.out.println("Not found user or error to insert");
+//                    }
+                        userDAOImpl.registerAccount(0, fname, lname, phoneNum, email, address, dob, 1, 1, Integer.valueOf(gender), password);
+                    } catch (Exception ex) {
+                        Logger.getLogger(RegisterAccountController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     // System.out.println("yah");
                     response.setContentType("text/html");
@@ -128,7 +135,7 @@ public class RegisterAccountController extends HttpServlet {
             }
         }
     }
-
+    
     public boolean checkAccountValid(String email) {
         String sql = "select * from users where email = '" + email + "'";
         ResultSet rs = null;
@@ -174,7 +181,7 @@ public class RegisterAccountController extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getParameter("action");
         System.out.println("Action : " + action);
-
+        
         processRequest(request, response);
     }
 

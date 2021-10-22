@@ -120,7 +120,13 @@ public final class homepageheader_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                <li><a href=\"#\">Contact</a></li>\n");
       out.write("                                <li><a href=\"BlogsListServlet\">Blogs</a></li>\n");
       out.write("                                <li>\n");
-      out.write("                                    <a href=\"login.jsp\">LOGIN</a>\n");
+      out.write("                                    <a href=\"login.jsp\">");
+      out.print(
+                                        (request.getAttribute("Name_of_User")==null||request.getAttribute("Name_of_User").toString().length()==0)?
+                                                "Login":
+                                                ""+request.getAttribute("Name_of_User")
+                                        );
+      out.write("</a>\n");
       out.write("                                </li>\n");
       out.write("                            </ul>                             \n");
       out.write("                        </div> <!-- /#navbar -->\n");
