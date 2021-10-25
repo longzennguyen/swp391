@@ -6,6 +6,7 @@
 package controller;
 
 import dao.DBContext_Postgresql;
+import dao.impl.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -33,6 +34,7 @@ public class ChangePasswordController extends HttpServlet {
     private DBContext_Postgresql db = new DBContext_Postgresql();
     private Connection con;
     private PreparedStatement st;
+    UserDAOImpl userDAOImpl = new UserDAOImpl();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -59,34 +61,36 @@ public class ChangePasswordController extends HttpServlet {
             } else {
                 System.out.println("Not valid pass");
                 System.out.println("Email: " + email);
-                String sql = "select * from users where email ='" + email + "'";
-                System.out.println("sqllll: " + sql);
+//                String sql = "select * from users where email ='" + email + "'";
+//                System.out.println("sqllll: " + sql);
                 ResultSet rs = null;
                 ResultSet rs1 = null;
                 try {
-                    con = db.getConnection();
-                    st = con.prepareStatement(sql);
-                    System.out.println("Yah");
-                    rs = st.executeQuery();
+//                    con = db.getConnection();
+//                    st = con.prepareStatement(sql);
+//                    System.out.println("Yah");
+//                    rs = st.executeQuery();
+                    user = userDAOImpl.getByEmail(email);
                     System.out.println("Executed");
-                    if (!rs.next()) {
+                    if (user == null) {
                         System.out.println("Executed");
                         request.setAttribute("error_code", "Email không tồn tại!");
                         user = null;
                         RequestDispatcher rd = request.getRequestDispatcher("/changPass.jsp");
                         rd.include(request, response);
                     } else {
-                        System.out.println("Have user");
-                        rs = st.executeQuery();
-                        while (rs.next()) {
-                            sql = "update users set password='" + newPass + "' where email='" + email + "'";
-                            System.out.println("sql: " + sql);
-                            st = con.prepareStatement(sql);
-                            try {
-
-                                rs1 = st.executeQuery();
-                            } catch (Exception e) {
-                            }
+//                        System.out.println("Have user");
+//                        rs = st.executeQuery();
+//                        while (rs.next()) {
+//                            sql = "update users set password='" + newPass + "' where email='" + email + "'";
+//                            System.out.println("sql: " + sql);
+//                            st = con.prepareStatement(sql);
+//                            try {
+//
+//                                rs1 = st.executeQuery();
+//                            } catch (Exception e) {
+//                            }
+                            userDAOImpl.updatePassword(email, newPass);
                             response.setContentType("text/html");
 
                             //// System.out.println("yah1");
@@ -100,7 +104,7 @@ public class ChangePasswordController extends HttpServlet {
                             System.out.println("yah5");
                             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                             rd.include(request, response);
-                        }
+//                        }
                     }
                 } catch (Exception e) {
                     System.out.println("Eror");

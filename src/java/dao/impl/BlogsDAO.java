@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package dao.impl;
 
 import entity.Blogs;
 import java.sql.Connection;
@@ -14,12 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import dao.DBContext_Postgresql;
+import dao.IBlogDAO;
 /**
- * DAO override function in InterfaceBlog
+ * DAO override function in IBlogDAO
  * @author longzennguyen
  */
-public class BlogsDAO extends DBContext_Postgresql implements InterfaceBlog{
+public class BlogsDAO extends DBContext_Postgresql implements IBlogDAO{
     PreparedStatement st;
     Connection con;
     /**
@@ -64,5 +65,30 @@ public class BlogsDAO extends DBContext_Postgresql implements InterfaceBlog{
         }
         System.out.println("Size of blog: " + listBlog.get(0).toString());
         return listBlog;
+    }
+
+    @Override
+    public Blogs getBlogByID(int id) {
+        Blogs blog = new Blogs();
+            try {
+                con = getConnection();
+                st = con.prepareStatement("select * from post where post_id = " + id);
+                ResultSet rs = null;
+                rs = st.executeQuery();
+                while (rs.next()) {
+                    blog.setDescription(rs.getString("description"));
+                    blog.setTitle(rs.getString("title"));
+                }
+            } catch (Exception e) {
+                System.out.println("Error Get blog detail: " + e);
+            }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BlogsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+                    
+    return blog;
     }
 }

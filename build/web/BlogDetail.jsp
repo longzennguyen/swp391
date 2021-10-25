@@ -38,6 +38,9 @@
         <!-- Modernizr -->
         <script src="js/modernizr.js"></script>
     </head>
+    <% request.setAttribute("title", request.getParameter("name"));
+        request.setAttribute("description", request.getParameter("description"));
+    %>
     <body>
         <%@include file="homepageheader.jsp"%>
         <form action="BlogsListServlet" action="POST">

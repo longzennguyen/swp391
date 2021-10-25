@@ -103,7 +103,7 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("        ");
 
-            if(request.getAttribute("listBlog") == null){
+            if (request.getAttribute("listBlog") == null) {
                 response.sendRedirect("BlogsListServlet");
             }
         
@@ -186,9 +186,19 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <li class=\"has-child\"><a href=\"servicelist\">Services</a></li>\n");
       out.write("                                <li><a href=\"#\">Reservation</a></li>\n");
       out.write("                                <li><a href=\"#\">Contact</a></li>\n");
-      out.write("                                <li><a href=\"BlogList.jsp\">Blogs</a></li>\n");
-      out.write("                                <li>\n");
-      out.write("                                    <a href=\"login.jsp\">LOGIN</a>\n");
+      out.write("                                <li><a href=\"BlogsListServlet\">Blogs</a></li>\n");
+      out.write("                                <li class=\"has-child\">\n");
+      out.write("                                    <form action=\"HomePage\" method=\"POST\">\n");
+      out.write("                                        <button class='has-child' style=\"color: blue\" name=\"service\" type=\"submit\" value=\"profile\">\n");
+      out.write("                                                <p class=\"navbar-brand \" style=\"color: white\">");
+      out.print((request.getAttribute("Name_of_User") == null || request.getAttribute("Name_of_User").toString().length() == 0)
+                                                    ? "Login"
+                                                    : "" + request.getAttribute("Name_of_User"));
+      out.write("</p>\n");
+      out.write("                                            <input name=\"userId1\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" hidden=\"true\"></button>\n");
+      out.write("                                    </form>\n");
       out.write("                                </li>\n");
       out.write("                            </ul>                             \n");
       out.write("                        </div> <!-- /#navbar -->\n");
@@ -452,17 +462,23 @@ public final class BlogList_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                        <input type=\"text\" name=\"blog_id\" value=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.post_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" hidden=\"true\"/>\n");
-          out.write("                                        <img src=\"img/cause-hunger.jpg\" alt=\"\" class=\"cause-img\">\n");
+          out.write("                                        <img src=\"img/cause-hunger.jpg\" alt=\"\" class=\"cause-title\">\n");
           out.write("                                        <h4 class=\"cause-title\"><a href=\"#\">");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.title.substring(0,32)}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a></h4>\n");
           out.write("                                        <div class=\"cause-details\">\n");
+          out.write("\n");
           out.write("                                            ");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.description}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.description.substring(0,300)}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\n");
           out.write("                                        </div>\n");
           out.write("                                        <div class=\"btn-holder text-center\">\n");
-          out.write("                                            <button type=\"submit\" class=\"btn btn-primary\" name=\"service\" value=\"detail\">Detail</a>\n");
+          out.write("                                            <!--<button type=\"submit\" class=\"btn btn-primary\" name=\"service\" value=\"detail\">-->\n");
+          out.write("                                                <a class=\"btn btn-primary\" href=\"BlogDetail.jsp?name=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("&description=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.description}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">Detail</a>\n");
           out.write("                                        </div>\n");
           out.write("                                    </div> <!-- /.cause -->\n");
           out.write("\n");

@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author longzennguyen
  */
-public interface InterfaceBlog {
+public interface IBlogDAO {
 
     /**
      * Get all Blog in the database paging
@@ -21,4 +21,10 @@ public interface InterfaceBlog {
      * @return a list <code>Blogs</code> object
      */
     public List<Blogs> getListBlog();
+    /**
+     * get Blog by id
+     * @param id
+     * @return 
+     */
+    public Blogs getBlogByID(int id);
 }

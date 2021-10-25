@@ -40,7 +40,7 @@
     </head>
     <body>
         <%
-            if(request.getAttribute("listBlog") == null){
+            if (request.getAttribute("listBlog") == null) {
                 response.sendRedirect("BlogsListServlet");
             }
         %>
@@ -56,13 +56,15 @@
                                 <div class="col-md-3 col-sm-6">
                                     <div class="cause">
                                         <input type="text" name="blog_id" value="${name.post_id}" hidden="true"/>
-                                        <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                        <h4 class="cause-title"><a href="#">${name.title}</a></h4>
+                                        <img src="img/cause-hunger.jpg" alt="" class="cause-img" style="width: 260px; height: 150px; margin-left: 0px">
+                                        <h4 class="cause-title"><a href="#">${name.title.substring(0,32)}</a></h4>
                                         <div class="cause-details">
-                                            ${name.description}
+
+                                            ${name.description.substring(0,300)}
                                         </div>
                                         <div class="btn-holder text-center">
-                                            <button type="submit" class="btn btn-primary" name="service" value="detail">Detail</a>
+                                            <!--<button type="submit" class="btn btn-primary" name="service" value="detail">-->
+                                                <a class="btn btn-primary" href="BlogDetail.jsp?name=${name.title}&description=${name.description}">Detail</a>
                                         </div>
                                     </div> <!-- /.cause -->
 

@@ -129,4 +129,5 @@ public interface IUserDAO {
       * @param password 
       */
      public void updatePassword(String email,String password);
+     public User getByEmail(String email);
 }

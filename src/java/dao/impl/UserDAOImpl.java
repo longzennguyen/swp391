@@ -539,4 +539,45 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         }
     }
 
+    @Override
+    public User getByEmail(String email) {
+        User user = new User();
+        String sql = "select * from users where email = '" + email + "'";
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs;
+        try {
+            con = getConnection();
+            st = con.prepareStatement(sql);
+            rs = st.executeQuery();
+            if (!rs.next()) {
+                System.out.println("Khong tim thay tk111");
+                return null;
+            } else {
+                System.out.println("Prepare get object");
+
+                rs = st.executeQuery();
+                while (rs.next()) {
+                    System.out.println("Name of User: " + rs.getString("first_name") + " roleid: " + rs.getString("role_id"));
+                    user.setUser_id(rs.getInt("users_id"));
+                    user.setName(rs.getString("first_name") + " " + rs.getString("last_name"));
+                    user.setRole_id(rs.getInt("role_id"));
+                    user.setAddress(rs.getString("address"));
+//                    request.setAttribute("user", user);
+                }
+            }
+            System.out.println("sql: " + sql);
+        } catch (Exception e) {
+            System.out.println("error : " + e);
+            return null;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return user;
+    }
+
 }

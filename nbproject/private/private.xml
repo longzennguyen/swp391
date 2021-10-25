@@ -5,8 +5,12 @@
         <group>
             <file>file:/Users/longzennguyen/Desktop/NetBean%20Projects/swp391/src/java/dao/impl/UserDAOImpl.java</file>
             <file>file:/Users/longzennguyen/Desktop/NetBean%20Projects/swp391/src/java/controller/ResetPasswordSubController.java</file>
+            <file>file:/Users/longzennguyen/Desktop/NetBean%20Projects/swp391/src/java/controller/ChangePasswordController.java</file>
             <file>file:/Users/longzennguyen/Desktop/NetBean%20Projects/swp391/src/java/dao/IUserDAO.java</file>
+            <file>file:/Users/longzennguyen/Desktop/NetBean%20Projects/swp391/src/java/controller/BlogsListController.java</file>
             <file>file:/Users/longzennguyen/Desktop/NetBean%20Projects/swp391/src/java/controller/ResetPasswordController.java</file>
+            <file>file:/Users/longzennguyen/Desktop/NetBean%20Projects/swp391/web/BlogList.jsp</file>
+            <file>file:/Users/longzennguyen/Desktop/NetBean%20Projects/swp391/web/BlogDetail.jsp</file>
         </group>
     </open-files>
 </project-private>
