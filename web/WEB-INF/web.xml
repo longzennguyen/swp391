@@ -24,6 +24,26 @@
         <servlet-name>UserEditController</servlet-name>
         <servlet-class>controller.UserEditController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserSearchController</servlet-name>
+        <servlet-class>controller.UserSearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomepageController</servlet-name>
+        <servlet-class>controller.HomepageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServiceController</servlet-name>
+        <servlet-class>controller.ServiceController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServiceDetailController</servlet-name>
+        <servlet-class>controller.ServiceDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServiceSearchController</servlet-name>
+        <servlet-class>controller.ServiceSearchController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -39,6 +59,26 @@
     <servlet-mapping>
         <servlet-name>UserEditController</servlet-name>
         <url-pattern>/useredit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserSearchController</servlet-name>
+        <url-pattern>/usersearch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomepageController</servlet-name>
+        <url-pattern>/homepage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServiceController</servlet-name>
+        <url-pattern>/servicelist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServiceDetailController</servlet-name>
+        <url-pattern>/servicedetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServiceSearchController</servlet-name>
+        <url-pattern>/servicesearch</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

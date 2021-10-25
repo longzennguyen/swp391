@@ -5,7 +5,7 @@
  *
  * Record of change:<br>
  * DATE          Version    Author           DESCRIPTION<br>
- * 2021-09-21    1.0        DucNT           First Version<br>
+ * 2021-10-05    1.0        DucNT           First Version<br>
  */
 package dao.impl;
 
@@ -366,8 +366,8 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        String sql = "INSERT INTO [dbo].[Users]([users_id],[first_name],[last_name],[gender],[email],[phone],[address],[created_at],[role_id],[status_id],[dob])\n" +
-                        "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO [dbo].[Users]([users_id],[first_name],[last_name],[gender],[email],[phone],[address],[created_at],[role_id],[status_id],[dob])\n"
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             conn = getConnection();
             ps = conn.prepareStatement(sql);
@@ -380,8 +380,8 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             ps.setString(7, address);
             ps.setInt(9, role_id);
             ps.setInt(10, status_id);
-            ps.setString(8,"");
-            ps.setString(11,dob);
+            ps.setString(8, "");
+            ps.setString(11, dob);
             ps.executeUpdate();
         } catch (SQLException e) {
             try {
@@ -401,4 +401,111 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         }
     }
 
+    @Override
+    public ArrayList<User> getAllUserPagingbyWord(String word, int pageSize, int pageIndex) throws Exception {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+        String sql = "with UserbyRole as\n"
+                + "(select tb1.users_id,tb1.first_name,tb1.last_name,tb1.email,tb1.phone,tb1.[address],tb1.gender,\n"
+                + "tb1.dob,tb1.role_id,tb2.role_name,tb1.status_id,tb3.status_name\n"
+                + "from (Users as tb1\n"
+                + "INNER JOIN [Role] as tb2 on tb1.role_id = tb2.role_id \n"
+                + "INNER JOIN StatusData as tb3 on tb1.status_id = tb3.status_id) \n"
+                + ")\n"
+                + "SELECT * FROM (\n"
+                + "SELECT ROW_NUMBER()\n"
+                + "OVER(ORDER BY users_id) as Number,* FROM UserbyRole \n"
+                + "where \n"
+                + "(CONCAT( first_name, ' ', last_name) like ? \n"
+                + "or\n"
+                + "phone like ? \n"
+                + "or email like ? ))as dbNumber "
+                + "where Number between ? and ?";
+        ArrayList<User> users = new ArrayList<>();
+        try {
+            int from = pageSize * (pageIndex - 1) + 1;
+            int to = pageSize * pageIndex;
+
+            conn = getConnection();
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, "%" + word + "%");
+            statement.setString(2, "%" + word + "%");
+            statement.setString(3, "%" + word + "%");
+            statement.setInt(4, from);
+            statement.setInt(5, to);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("users_id");
+                String userName = rs.getString("first_name") + " " + rs.getString("last_name");
+                String phone = rs.getString("phone");
+                String gender;
+                if (rs.getString("gender").equals("1")) {
+                    gender = "Male";
+                } else {
+                    gender = "Female";
+                }
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                String role = rs.getString("role_name");
+                String status = rs.getString("status_name");
+                User user = new User(id, userName, gender, email, phone, address, role, status);
+                users.add(user);
+            }
+            return users;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(statement);
+            closeConnection(conn);
+        }
+
+    }
+
+    @Override
+    public int getNumberOfPagesSearch(int pageSize, String word) throws Exception {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT COUNT(users_id) as number from\n"
+                + "(Users as tb1\n"
+                + "INNER JOIN [Role] as tb2 on tb1.role_id = tb2.role_id \n"
+                + "INNER JOIN StatusData as tb3 on tb1.status_id = tb3.status_id) \n"
+                + "where \n"
+                + "(CONCAT(first_name, ' ', last_name) like ? \n"
+                + "or\n"
+                + "phone like ? \n"
+                + "or email like ?)";
+        try {
+            conn = getConnection();
+            statement = conn.prepareStatement(sql);
+            conn = getConnection();
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, "%" + word + "%");
+            statement.setString(2, "%" + word + "%");
+            statement.setString(3, "%" + word + "%");
+            rs = statement.executeQuery();
+
+            while (rs.next()) {
+                int number = rs.getInt("number");
+                if (number % pageSize == 0) {
+                    return number / pageSize;
+                } else {
+                    return number / pageSize + 1;
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(statement);
+            closeConnection(conn);
+        }
+        return -1;
+    }
 }

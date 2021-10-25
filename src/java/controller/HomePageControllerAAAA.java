@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Admin
  */
 @WebServlet(name = "HomePage", urlPatterns = {"/HomePage"})
-public class HomePageController extends HttpServlet {
+public class HomePageControllerAAAA extends HttpServlet {
 
     private DBContext_Postgresql db = new DBContext_Postgresql();
     private Connection con;
@@ -75,7 +75,7 @@ public class HomePageController extends HttpServlet {
                 try {
                     con.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(HomePageControllerAAAA.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }

@@ -92,4 +92,28 @@ public interface IUserDAO {
      * @throws Exception
      */
     public void addNewUser(int user_id, String first_name, String last_name, String phone, String email, String address, String dob,int role_id, int status_id, int gender) throws Exception;
+    
+    
+    /**
+     * Get all User in the database by word search and paging
+     *
+     * @param word
+     * @param pageSize it is an int number.
+     * @param pageIndex it is an int number.
+     * @return a list <code>User</code> object
+     * @throws Exception
+     */
+    public ArrayList<User> getAllUserPagingbyWord(String word, int pageSize, int pageIndex) throws Exception;
+    
+    /**
+    * Get number of pages in pagination  
+    *
+    * 
+    * @param pageSize
+     * @param word
+    * @return 
+    * @throws java.lang.Exception
+    */    
+    public int getNumberOfPagesSearch(int pageSize, String word) throws Exception;
+
 }
