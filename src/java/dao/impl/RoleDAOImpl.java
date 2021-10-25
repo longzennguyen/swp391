@@ -9,6 +9,6 @@ package dao.impl;
  *
  * @author ROG STRIX
  */
-public class RoleDAOImple {
+public class RoleDAOImpl {
     
 }
