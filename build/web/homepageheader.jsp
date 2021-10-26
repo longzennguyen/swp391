@@ -80,7 +80,7 @@
                                 <li class="has-child"><a href="servicelist">Services</a></li>
                                 <li><a href="#">Reservation</a></li>
                                 <li><a href="#">Contact</a></li>
-                                <li><a href="BlogsListServlet">Blogs</a></li>
+                                <li><a href="BlogsListServlet">Blog</a></li>
                                 <c:if test="${empty user}">
                                     <li>
                                         <a href="login">LOGIN</a>
@@ -89,6 +89,9 @@
                                 <c:if test="${not empty user}">
                                     <li>
                                         <a href="userprofile?id=${user.user_id}">${user.name}</a>
+                                    </li>
+                                    <li>
+                                        <a href="logout">Log Out</a>
                                     </li>
                                 </c:if>
                             </ul>                             
