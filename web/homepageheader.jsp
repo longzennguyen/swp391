@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : homepageheader
     Created on : Oct 7, 2021, 8:23:35 PM
@@ -80,9 +81,16 @@
                                 <li><a href="#">Reservation</a></li>
                                 <li><a href="#">Contact</a></li>
                                 <li><a href="BlogsListServlet">Blogs</a></li>
-                                <li>
-                                    <a href="login.jsp">LOGIN</a>
-                                </li>
+                                <c:if test="${empty user}">
+                                    <li>
+                                        <a href="login">LOGIN</a>
+                                    </li>
+                                </c:if>
+                                <c:if test="${not empty user}">
+                                    <li>
+                                        <a href="userprofile?id=${user.user_id}">${user.name}</a>
+                                    </li>
+                                </c:if>
                             </ul>                             
                         </div> <!-- /#navbar -->
 

@@ -45,7 +45,7 @@ public class User {
     private String role;
     /**
      * User's status
-     */
+    */
     private String status;
     /**
      * User's date of birth
@@ -56,8 +56,15 @@ public class User {
      */
     private String img;
 
-    //role id
+    /**
+     * User's role id
+     */
     private int role_id;
+    
+    /**
+     * User's password
+     */
+    private String password;
 
     /**
      * Constructor
@@ -125,7 +132,7 @@ public class User {
      * @param role
      * @param status
      * @param dob
-     * @param image
+     * @param img
      */
     public User(int user_id, String name, String gender, String email, String phone, String address, String role, String status, String dob, String img) {
         this.user_id = user_id;
@@ -139,22 +146,52 @@ public class User {
         this.dob = dob;
         this.img = img;
     }
-
     /**
-     * Get value role id attribute of Login,Profile class. <br>
+     * Constructor
+     *
+     * @param user_id
+     * @param name
+     * @param gender
+     * @param email
+     * @param phone
+     * @param address
+     * @param dob
+     * @param img
+     * @param role_id
+     * @param password
+     */
+    public User(int user_id, String name, String gender, String email, String phone, String address, String dob, String img, int role_id, String password) {
+        this.user_id = user_id;
+        this.name = name;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.dob = dob;
+        this.img = img;
+        this.role_id = role_id;
+        this.password = password;
+    }
+    
+    /**
+     * Get value role id attribute of <Code>User</Code> class. <br>
      *
      * @return id it is an int
      */
     public int getRole_id() {
         return role_id;
     }
-
+    /**
+     * Set value role id attribute of <Code>User</Code> class. <br>
+     *
+     * @param role_id
+     */
     public void setRole_id(int role_id) {
         this.role_id = role_id;
     }
 
     /**
-     * Get value role id attribute of Login,Profile class. <br>
+     * Get value role id attribute of <Code>User</Code> class. <br>
      *
      * @return id it is an int
      */
@@ -167,7 +204,7 @@ public class User {
     }
 
     /**
-     * Get value role id attribute of Login,Profile class. <br>
+     * Get value role id attribute of <Code>User</Code> class. <br>
      *
      * @return id it is an int
      */
@@ -176,7 +213,7 @@ public class User {
     }
 
     /**
-     * Set value name attribute of Login,Profile  class
+     * Set value name attribute of <Code>User</Code>  class
      *
      * @param name
      */
@@ -185,7 +222,7 @@ public class User {
     }
 
     /**
-     * Get value gender attribute of Login,Profile class. <br>
+     * Get value gender attribute of <Code>User</Code> class. <br>
      *
      * @return gender is string
      */
@@ -194,7 +231,7 @@ public class User {
     }
 
     /**
-     * Set value gender attribute of Login,Profile class
+     * Set value gender attribute of <Code>User</Code> class
      *
      * @param gender
      */
@@ -203,7 +240,7 @@ public class User {
     }
 
     /**
-     * Get value email attribute of Login,Profile class. <br>
+     * Get value email attribute of <Code>User</Code> class. <br>
      *
      * @return email is a string
      */
@@ -212,7 +249,7 @@ public class User {
     }
 
     /**
-     * Set value email attribute of Login,Profile class
+     * Set value email attribute of <Code>User</Code> class
      *
      * @param email
      */
@@ -221,7 +258,7 @@ public class User {
     }
 
     /**
-     * Get value phone attribute of Login,Profile class. <br>
+     * Get value phone attribute of <Code>User</Code> class. <br>
      *
      * @return phone is string
      */
@@ -230,7 +267,7 @@ public class User {
     }
 
     /**
-     * Set value phone attribute of Login,Profile class
+     * Set value phone attribute of <Code>User</Code> class
      *
      * @param phone
      */
@@ -239,7 +276,7 @@ public class User {
     }
 
     /**
-     * Get value address attribute of Login,Profile class. <br>
+     * Get value address attribute of <Code>User</Code> class. <br>
      *
      * @return address is a string
      */
@@ -248,7 +285,7 @@ public class User {
     }
 
     /**
-     * Set value address attribute of Login,Profile class
+     * Set value address attribute of <Code>User</Code> class
      *
      * @param address
      */
@@ -257,7 +294,7 @@ public class User {
     }
 
     /**
-     * Get value role attribute of Login,Profile class. <br>
+     * Get value role attribute of <Code>User</Code> class. <br>
      *
      * @return role is string
      */
@@ -266,7 +303,7 @@ public class User {
     }
 
     /**
-     * Set value role attribute of Login,Profile class
+     * Set value role attribute of <Code>User</Code> class
      *
      * @param role
      */
@@ -275,7 +312,7 @@ public class User {
     }
 
     /**
-     * Get value status attribute of Login,Profile class. <br>
+     * Get value status attribute of <Code>User</Code> class. <br>
      *
      * @return status is stirng
      */
@@ -284,7 +321,7 @@ public class User {
     }
 
     /**
-     * Set value status attribute of Login,Profile class
+     * Set value status attribute of <Code>User</Code> class
      *
      * @param status
      */
@@ -293,7 +330,7 @@ public class User {
     }
 
     /**
-     * Get value dob attribute of Login,Profile class. <br>
+     * Get value dob attribute of <Code>User</Code> class. <br>
      *
      * @return dob is date convert to string
      */
@@ -302,7 +339,7 @@ public class User {
     }
 
     /**
-     * Set value dob attribute of Login,Profile class
+     * Set value dob attribute of <Code>User</Code> class
      *
      * @param dob
      */
@@ -311,7 +348,7 @@ public class User {
     }
 
     /**
-     * Get value img attribute of Login,Profile class. <br>
+     * Get value img attribute of <Code>User</Code> class. <br>
      *
      * @return img is a string
      */
@@ -320,12 +357,29 @@ public class User {
     }
 
     /**
-     * Set value img attribute of Login,Profile class
+     * Set value img attribute of <Code>User</Code> class
      *
      * @param img
      */
     public void setImg(String img) {
         this.img = img;
     }
+    /**
+     * Get value password attribute of <Code>User</Code> class. <br>
+     *
+     * @return img is a string
+     */
+    public String getPassword() {
+        return password;
+    }
+    /**
+     * Set value password attribute of <Code>User</Code> class. <br>
+     *
+     * @param password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
 
 }

@@ -51,7 +51,7 @@
                     <div class="row col-md-10 col-sm-12">
                         <c:if test="${empty serviceList}">
                             <h1>Service not found<h1>
-                                </c:if>
+                        </c:if>
                                 <c:forEach var="i" items="${serviceList}">
                                     <div class="col-md-4 col-sm-6">
                                         <div class="cause">

@@ -115,5 +115,46 @@ public interface IUserDAO {
     * @throws java.lang.Exception
     */    
     public int getNumberOfPagesSearch(int pageSize, String word) throws Exception;
+    
+    /**
+     * Get user by email & password
+     * @param uid
+     * @param pwd
+     * @return 
+     * @throws java.lang.Exception 
+     */
+    public User getUserByEmailAndPwd(String uid,String pwd) throws Exception;
+    
+    /**
+     * check email registed
+     * @param email
+     * @return 
+     * @throws java.lang.Exception 
+     */
+    public boolean checkUserExisted(String email) throws Exception;
+    /**
+     * register new account
+     * @param user_id
+     * @param first_name
+     * @param last_name
+     * @param phone
+     * @param email
+     * @param address
+     * @param dob
+     * @param role_id
+     * @param status_id
+     * @param gender
+     * @param password
+     * @throws Exception 
+     */
+     public void registerAccount(int user_id, String first_name, String last_name, String phone, String email, String address, String dob,int role_id, int status_id, int gender,String password) throws Exception;
+     /**
+      * update password
+      * @param email
+      * @param password 
+     * @throws java.lang.Exception 
+      */
+     public void updatePassword(String email,String password) throws Exception;
+     public User getByEmail(String email) throws Exception;
 
 }

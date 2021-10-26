@@ -47,10 +47,12 @@
                         <!--<h2 class="text-info">Dịch vụ chăm sóc sức khoẻ cho trẻ</h2>-->
                         <h2 class="text-info">Đăng nhập</h2>
                     </div>
-                    <form action="LoginSvlet" method="POST">
+                    <form action="login" method="POST">
                         <div class="form-group"><label for="email">Email</label><input placeholder="Email" class="form-control item" type="email" name="uid" required></div>
-                        <div class="form-group"><label for="password">Mật khẩu</label><input placeholder="Mật khẩu" class="form-control" type="password" name="pwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"></div>
-                        <!--<p class="form-group">${loginfail1}</p>-->
+                        <div class="form-group"><label for="password">Mật khẩu</label><input placeholder="Mật khẩu" class="form-control" type="password" name="pwd" ></div>
+<!--                        required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"-->
+
+<!--<p class="form-group">${loginfail1}</p>-->
                         <p style="color: red"><%=request.getAttribute("loginfail1") == null ? "" : request.getAttribute("loginfail1")%></p>
                         <div class="form-group">
                             <div class="form-check"><label class="form-check-label" for="checkbox">${loginfail}</label></div>

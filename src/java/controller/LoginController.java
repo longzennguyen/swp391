@@ -5,32 +5,22 @@
  */
 package controller;
 
-import dao.DBContext_Postgresql;
+import dao.impl.UserDAOImpl;
+import entity.User;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import entity.User;
-import javax.servlet.annotation.WebServlet;
 
 /**
- * Process login , check user information and set attribute
  *
- * @author Admin
+ * @author ROG STRIX
  */
-@WebServlet(name = "LoginSvlet", urlPatterns = {"/LoginSvlet"})
 public class LoginController extends HttpServlet {
-
-    private DBContext_Postgresql db = new DBContext_Postgresql();
-    private Connection con;
-    private PreparedStatement st;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,6 +34,18 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LoginController</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -58,12 +60,11 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method. process login action , check
-     * service and process user information
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -73,90 +74,44 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        System.out.println("action get : " + request.getParameter("action"));
-        System.out.println("Do Post Login");
-        log("abcbcbc");
-        User user = new User();
-        //get email and password
-        String uid = request.getParameter("uid");
-        String pwd = request.getParameter("pwd");
-        //get connection
         try {
-            con = db.getConnection();
-            System.out.println("Connect Success");
-        } catch (Exception ex) {
-            System.out.println("Connect fail!");
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        String sql = "select * from Users where email='" + uid + "' and password='" + pwd + "'";
-        //get data
-        ResultSet rs = null;
-        try {
-            st = con.prepareStatement(sql);
-            rs = st.executeQuery();
-            if (!rs.next()) {
-                System.out.println("Khong tim thay tk111");
-                user = null;
-            } else {
-                System.out.println("Prepare get object");
-
-                rs = st.executeQuery();
-                while (rs.next()) {
-                    System.out.println("Name of User: " + rs.getString("first_name") + " roleid: " + rs.getString("role_id"));
-                    user.setUser_id(rs.getInt("users_id"));
-                    user.setName(rs.getString("first_name") + " " + rs.getString("last_name"));
-                    user.setRole_id(rs.getInt("role_id"));
-                    user.setAddress(rs.getString("address"));
-                    request.setAttribute("user", user);
-                }
+            String uid = request.getParameter("uid");
+            String pwd = request.getParameter("pwd");
+            UserDAOImpl userDAO = new UserDAOImpl();
+            User user = userDAO.getUserByEmailAndPwd(uid, pwd);
+            request.setAttribute("user", user);
+            if (user == null) {
+                System.out.println("Do Post Login3");
+                String loginfail = "Tên đăng nhập hoặc mật khẩu không chính xác, vui lòng kiểm tra lại!";
+                request.setAttribute("loginfail1", loginfail);
+                System.out.println("url : " + request.getContextPath() + "/index.jsp");
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                System.out.println("Attri bute>>>> " + request.getAttribute("loginfail1"));
+            } 
+            else if (user.getRole_id() == 5) {
+                System.out.println("Name of user: " + user.getName());
+                request.setAttribute("Name_of_User", user.getName());
+                System.out.println("Username att: " + request.getAttribute("Name_of_User"));
+                //save user information
+                request.getSession().setAttribute("user", user);
+                request.getSession().setAttribute("userId", user.getUser_id());
+                request.getRequestDispatcher("homepage").forward(request, response);
+            } 
+            else if (user.getRole_id() == 2) {
+                response.sendRedirect(request.getContextPath() + "/Manager.jsp");
+            } 
+            else if (user.getRole_id() == 1) {
+                response.sendRedirect(request.getContextPath() + "/admin.jsp");
+            } 
+            else if (user.getRole_id() == 3) {
+                response.sendRedirect(request.getContextPath() + "/staff.jsp");
             }
-            con.close();
-        } catch (SQLException ex) {
-            System.out.println("Lỗi");
+            else if (user.getRole_id() == 4) {
+                response.sendRedirect(request.getContextPath() + "/staff.jsp");
+            }
+        } catch (Exception ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        log("abababa");
-        //        user.setRoleid(2);
-        //        user = null;
-        //check role and navigate
-        System.out.println("Do Post Login2");
-        if (user == null) {
-            System.out.println("Do Post Login3");
-            log("abababa1");
-            String loginfail = "Tên đăng nhập hoặc mật khẩu không chính xác, vui lòng kiểm tra lại!";
-            request.setAttribute("loginfail1", loginfail);
-            System.out.println("url : " + request.getContextPath() + "/index.htm");
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
-//            response.sendRedirect(request.getContextPath()+"/index.htm");
-            System.out.println("Attri bute>>>> " + request.getAttribute("loginfail1"));
-        } else if (user.getRole_id() == 1) {
-            System.out.println("Name of user: " + user.getName());
-            request.setAttribute("Name_of_User", user.getName());
-            System.out.println("Username att: " + request.getAttribute("Name_of_User"));
-            //save user information
-            request.getSession().setAttribute("user", user);
-            request.getSession().setAttribute("userId", user.getUser_id());
-//            response.sendRedirect("login");
-            request.getRequestDispatcher("/HomePage.jsp").forward(request, response);
-//            response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
-
-        } else if (user.getRole_id() == 2) {
-
-//            log("abababa3");
-//            request.getSession().setAttribute("user", user);
-//            request.getSession().setAttribute("userId", user.getUser_id());
-//            response.sendRedirect("login");
-            response.sendRedirect(request.getContextPath() + "/Manager.jsp");
-//            request.getRequestDispatcher("HomePage").forward(request, response);
-        } else if (user.getRole_id() == 3) {
-            log("abababa2");
-            response.sendRedirect(request.getContextPath() + "/admin.jsp");
-        } else if (user.getRole_id() == 4) {
-            response.sendRedirect(request.getContextPath() + "/Manager.jsp");
-        }
-
     }
 
     /**

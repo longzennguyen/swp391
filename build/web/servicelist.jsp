@@ -82,11 +82,9 @@
                         <a><h4 style="font-weight: bold">Surgery</h4></a>
                         <a><h4 style="font-weight: bold">Other Medical</h4></a>
                     </div>
-
                 </div>
-
             </div> <!-- /.our-causes -->
-
+        </div>
 
             <div class="container">
                 <ul class="pagination">

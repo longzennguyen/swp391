@@ -40,7 +40,7 @@
     </head>
     <body>
         <%@include file="homepageheader.jsp"%>
-        <form action="BlogsListServlet" action="POST">
+        <form action="BlogsListServlet" method="POST">
             <div class="main-container">
                 <div class="our-causes fadeIn animated">
                     <div class="container">

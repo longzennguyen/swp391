@@ -508,4 +508,78 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
         }
         return -1;
     }
+
+    @Override
+    public User getUserByEmailAndPwd(String username, String password) throws Exception{
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String sql = "select * from Users join [Role] on Users.role_id = [Role].role_id"
+                + " where email= ? and password= ?";
+        User user = null;
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,username);
+            ps.setString(2,password);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int userID = Integer.parseInt(rs.getString("users_id"));
+                String userName = rs.getString("first_name") + " " + rs.getString("last_name");
+                String phone = rs.getString("phone");
+                String dob = rs.getString("dob");
+                String gender;
+                if (rs.getString("gender").equals("1")) {
+                    gender = "Male";
+                } else {
+                    gender = "Female";
+                }
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                int role = Integer.parseInt(rs.getString("role_id"));
+                String img = getImagePath() + rs.getString("role_avatar");
+                //int user_id, String name, String gender, String email, String phone, String address, String role, String dob, String img, int role_id, String password
+                user = new User(userID, userName, gender, email, phone, address, dob, img, role, password);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(conn);
+        }
+        return user;
+        
+    }
+    
+    public static void main(String[] args) throws Exception {
+        UserDAOImpl dao = new UserDAOImpl();
+        User u = dao.getUserByEmailAndPwd("thao@gmail.com", "123456");
+        System.out.println(u.getName());
+    }
+    
+    
+
+    @Override
+    public boolean checkUserExisted(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void registerAccount(int user_id, String first_name, String last_name, String phone, String email, String address, String dob, int role_id, int status_id, int gender, String password) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updatePassword(String email, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
