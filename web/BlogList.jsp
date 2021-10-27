@@ -40,43 +40,90 @@
     </head>
     <body>
         <%
-            if(request.getAttribute("listBlog") == null){
-                response.sendRedirect("BlogsListServlet");
+            if (request.getAttribute("blogList") == null) {
+                response.sendRedirect("bloglist");
             }
         %>
+        
         <%@include file="homepageheader.jsp"%>
-        <form action="BlogsListServlet" action="POST">
-            <div class="main-container">
-                <div class="our-causes fadeIn animated">
-                    <div class="container">
-                        <h2 class="title-style-1">Blog List<span class="title-under"></span></h2>
 
-                        <div class="row">
-                            <c:forEach var="name" items="${listBlog}">
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cause">
-                                        <input type="text" name="blog_id" value="${name.post_id}" hidden="true"/>
-                                        <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                        <h4 class="cause-title"><a href="#">${name.title}</a></h4>
-                                        <div class="cause-details">
-                                            ${name.description}
-                                        </div>
-                                        <div class="btn-holder text-center">
-                                            <button type="submit" class="btn btn-primary" name="service" value="detail">Detail</a>
-                                        </div>
-                                    </div> <!-- /.cause -->
+        <div class="breadcrumb-agile ">
+            <div aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="homepage">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Blog List</li>
+                </ol>
+            </div>                     
+        </div>
 
-                                </div> 
-                            </c:forEach>
-                        </div>
+        <div class="main-container">
+            <div class="our-causes fadeIn animated">
+                <div class="container">
+                    <h2 class="title-style-1">Blog List<span class="title-under"></span></h2>
+                    <div class="row">
+                        
+                        <c:forEach var="name" items="${blogList}">
+                            <div class="col-md-3 col-sm-6" style="max-height:450px; max-width: 300px">
+                                <div class="cause">
+                                    <input type="text" name="blog_id" value="${name.post_id}" hidden="true"/>
+                                    <img src="${name.image}" alt="" class="cause-img" style="width: 250px; height: 150px; margin-left: 7px">
+                                    <h4 class="cause-title">
+                                        <a href="blogdetail?id=${name.post_id}">${name.title}</a>
+                                    </h4>
+                                    <div class="cause-details">
+                                        ${name.description}.
+                                        ${name.description}.
+                                        ${name.description}.
+                                        ${name.description}.
+                                    </div>
+                                    <div class="btn-holder text-center">
+                                        <a href="blogdetail?id=${name.post_id}">Detail</a>
+                                    </div>
+                                </div> <!-- /.cause -->
 
-
+                            </div> 
+                        </c:forEach>
                     </div>
 
-                </div> <!-- /.our-causes -->
+                </div>
 
-            </div> <!-- /.main-container  -->
-        </form>
+            </div> <!-- /.our-causes -->
+
+        </div> <!-- /.main-container  -->
+
+
+        <div class="container">
+            <ul class="pagination">
+                <c:if test="${page != 1}">
+                    <li class="icon">
+                        <a href="bloglist?page=${page-1}">Previous</a>
+                    </li>
+                </c:if>
+                <c:forEach var="i" begin="1" end="${numberPage}">
+                    <c:choose>
+                        <c:when test="${page eq i}">
+                            <li class="page-item active"><a class="page-link">
+                                    ${i} <span class="sr-only">(current)</span></a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="page-item">
+                                <a href="bloglist?page=${i}">${i}</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <!-- If page != Last display Next -->            
+                <c:if test="${page lt numberPage}">
+                    <li class="icon">
+                        <a  href="bloglist?page=${page+1}">Next</a>
+                    </li>
+                </c:if>
+            </ul>
+        </div>
+
         <%@include file="homepagefooter.jsp"%>
 
 

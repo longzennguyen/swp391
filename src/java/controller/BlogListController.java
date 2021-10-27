@@ -1,18 +1,12 @@
 /*
- * Copyright (C) 2021, FPT University<br>
- * SWP391<br>
- * ChildrenCareProject<br>
- *
- * Record of change:<br>
- * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-15    1.0        DucNT           First Version<br>
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
 import dao.impl.BlogDAOImpl;
-import dao.impl.ServiceDAOImpl;
 import entity.Blogs;
-import entity.Service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -23,17 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Process:<br>
- * - Get top service in home page<br>
- * - Get top blogs in home page<br>
- * - Get link share<br>
  *
- * @author DucNT
+ * @author longzennguyen
  */
-public class HomepageController extends HttpServlet {
+
+public class BlogListController extends HttpServlet {
 
     /**
-     * Get top 4 <code>Service</code> from database then display to jsp page
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -45,21 +35,35 @@ public class HomepageController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            
-            ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
-            ArrayList<Service> serviceListTop;
-            serviceListTop = serviceDAO.getTopServices();
+            response.setContentType("text/html;charset=UTF-8");
+            int pageSize = 4;
+            // get page current
+            int page;
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+            } catch (NumberFormatException ex) {
+                page = 1;
+            }
+            if (page <= 0) {
+                page = 1;
+            }
             
             BlogDAOImpl blogDAO = new BlogDAOImpl();
-            ArrayList<Blogs> blogListTop;
-            blogListTop = blogDAO.getTopBlogs();
+            ArrayList<Blogs> blogList;
+            blogList = blogDAO.getBlogsPaging(pageSize, page);
+            if (!blogList.isEmpty()) {
+                // get number page
+                int numberPage = blogDAO.getNumberOfPages(pageSize);
+                request.setAttribute("numberPage", numberPage);
+                request.setAttribute("page", page);
+            }
+            request.setAttribute("blogList", blogList);
+            request.getRequestDispatcher("/BlogList.jsp").forward(request, response);
             
-            request.setAttribute("serviceListTop", serviceListTop);
-            request.setAttribute("blogListTop", blogListTop);
-            request.getRequestDispatcher("homepage.jsp").forward(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(HomepageController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BlogListController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -75,7 +79,6 @@ public class HomepageController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /**

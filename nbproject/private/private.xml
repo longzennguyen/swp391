@@ -2,43 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ServiceController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/UserDAOImpl.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/BlogsDAO.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/servicedetail.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ServiceDetailController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/homepage.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/UserController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IRoleDAO.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/ResetPassword.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/LoginController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IStatusDAO.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/Service.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/servicelist.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/HomePageControllerAAAA.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/UserProfileController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ServiceSearchController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IUserDAO.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/index.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/BlogList.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/Blogs.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/adduser.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/NewPassword.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IServiceDAO.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/RegisterAccountController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/HomepageController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ChangePasswordController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/BlogDetail.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/admin.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/User.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/BlogsListController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/redirect.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/Manager.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/ServiceDAOImpl.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/WEB-INF/web.xml</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/RoleDAOImpl.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/DBContext_Postgresql.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

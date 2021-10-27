@@ -79,8 +79,8 @@
                                 <li><a href="#">About</a></li>
                                 <li class="has-child"><a href="servicelist">Services</a></li>
                                 <li><a href="#">Reservation</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="BlogsListServlet">Blog</a></li>
+<!--                                <li><a href="#">Contact</a></li>-->
+                                <li><a href="bloglist">Blog</a></li>
                                 <c:if test="${empty user}">
                                     <li>
                                         <a href="login">LOGIN</a>

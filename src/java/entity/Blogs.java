@@ -47,7 +47,11 @@ public class Blogs {
      * status id
      */
     private int status_id;
-
+    
+    /**
+     * detail
+     */
+    private String detail;
     /**
      * Constructor
      */
@@ -241,6 +245,16 @@ public class Blogs {
     public void setStatus_id(int status_id) {
         this.status_id = status_id;
     }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+    
+    
 
     /**
      * override toString() function to print object

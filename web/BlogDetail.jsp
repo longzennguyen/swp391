@@ -40,25 +40,71 @@
     </head>
     <body>
         <%@include file="homepageheader.jsp"%>
-        <form action="BlogsListServlet" method="POST">
-            <div class="main-container">
-                <div class="our-causes fadeIn animated">
-                    <div class="container">
-                        <h2 class="title-style-1">${title}<span class="title-under"></span></h2>
 
-                        <div class="row-center" > 
-                            <img src="img/cause-hunger.jpg" alt="" class="img-responsive center-block" style="align-self: center; align-items: center">
-                        </div>
-                        <div class="row">
-                            <p>${description}</p>
-                        </div>
-                        
+        <div class="breadcrumb-agile ">
+            <div aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="homepage">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="bloglist">Blog List</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Blog Detail</li>
+                </ol>
+            </div>                     
+        </div>
+
+        <div class="page-heading text-center">
+            <h1 class="page-title" style="color: #0076a3">${data.title}</h1>
+        </div>
+        <div class="main-container" style="margin-top: -100px">
+
+            <div class="container">
+
+                <div class="row">                                       
+                    <center>
+                        <img src="${data.image}" alt="" style="width: 800px; height: 400px; ">
+                    </center>
+                </div>
+                    <br/>
+                    <br/>
+                <div class="col-md-6">
+                        <p style="font-weight: bold; font-size: 20px">
+                          Created at: ${data.created_at}
+                        </p>
+
+                 </div>   
+                <br/>
+                <br/>
+                <div class="row">
+
+                    <div class="col-md-12 fadeIn animated">
+                        <p>
+                            ${data.detail}
+                            <br/>
+                            <br/>
+                            ${data.detail}
+                            <br/>
+                            <br/>
+                            ${data.detail}
+                            <br/>
+                            ${data.detail}
+                        </p>
                     </div>
+                </div>
+                <br/>
+                <br/>    
+                <div class="text-center">
+                    <a href="bloglist" class="btn btn-primary">Read more</a>
+                </div>   
 
-                </div> <!-- /.our-causes -->
 
-            </div> <!-- /.main-container  -->
-        </form>
+            </div>
+        </div>
+
+
+
         <%@include file="homepagefooter.jsp"%>
 
 

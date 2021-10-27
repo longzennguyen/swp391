@@ -90,13 +90,13 @@
             <div class="container">
                 <h2 class="title-style-1">Our Blogs <span class="title-under"></span></h2>
                 <div class="row">
-                    <c:forEach begin="1" end="4" var="o">
+                    <c:forEach var="o" items="${blogListTop}">
                         <div class="col-md-3 col-sm-6">
                             <div class="cause" style="background-color: #0076a3; color: white">
-                                <img src="img/cause-hunger.jpg" alt="" class="cause-img">
-                                <h4 class="cause-title" style="color: white">HUNGER AND POVERTY</h4>
-                                <div class="cause-details">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
+                                <img src="${o.image}" alt="" class="cause-img" style="width: 250px; height: 150px; margin-left: 7px; margin-top: 20px">
+                                <h4 class="cause-title" style="color: white;margin-top: 20px">${o.title}</h4>
+                                <div class="cause-details" style="margin-top: 20px">
+                                    ${o.description}
                                 </div>
                                 <div class="btn-holder text-center">
                                     <a href="#" class="btn btn-primary" >Read now</a>
@@ -105,7 +105,7 @@
                         </div> 
                     </c:forEach> 
                     <div class="btn-holder text-center">
-                        <a href="" class="btn btn-primary">View All Blogs</a>
+                        <a href="bloglist" class="btn btn-primary">View All Blogs</a>
                     </div>
                 </div>
             </div> <!-- /.our-services --> 
