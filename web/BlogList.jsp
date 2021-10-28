@@ -17,7 +17,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Blog List</title>
         <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
               rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
@@ -65,21 +65,21 @@
                     <div class="row">
                         
                         <c:forEach var="name" items="${blogList}">
-                            <div class="col-md-3 col-sm-6" style="max-height:450px; max-width: 300px">
-                                <div class="cause">
+                            <div class="col-md-3 col-sm-6" style="max-width: 300px">
+                                <div class="cause" style="height: 410px">
                                     <input type="text" name="blog_id" value="${name.post_id}" hidden="true"/>
                                     <img src="${name.image}" alt="" class="cause-img" style="width: 250px; height: 150px; margin-left: 7px">
-                                    <h4 class="cause-title">
+                                    <h4 class="cause-title" style="height: 20px">
                                         <a href="blogdetail?id=${name.post_id}">${name.title}</a>
                                     </h4>
-                                    <div class="cause-details">
+                                    <div class="cause-details" style="padding-top: 15px; margin-top: 20px">
                                         ${name.description}.
                                         ${name.description}.
                                         ${name.description}.
                                         ${name.description}.
                                     </div>
-                                    <div class="btn-holder text-center">
-                                        <a href="blogdetail?id=${name.post_id}">Detail</a>
+                                    <div class="text-center">
+                                        <a class="btn btn-primary" href="blogdetail?id=${name.post_id}">Detail</a>
                                     </div>
                                 </div> <!-- /.cause -->
 

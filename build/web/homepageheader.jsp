@@ -76,22 +76,24 @@
                         <div id="navbar" class="navbar-collapse collapse pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="homepage">Home</a></li>
-                                <li><a href="#">About</a></li>
+                                <li><a href="about.jsp">About</a></li>
                                 <li class="has-child"><a href="servicelist">Services</a></li>
                                 <li><a href="#">Reservation</a></li>
-<!--                                <li><a href="#">Contact</a></li>-->
+                                <!--                                <li><a href="#">Contact</a></li>-->
                                 <li><a href="bloglist">Blog</a></li>
+                                
                                 <c:if test="${empty user}">
                                     <li>
-                                        <a href="login">LOGIN</a>
-                                    </li>
+                                        <a href="login">Login</a>
+                                    </li>  
                                 </c:if>
+
                                 <c:if test="${not empty user}">
-                                    <li>
-                                        <a href="userprofile?id=${user.user_id}">${user.name}</a>
-                                    </li>
-                                    <li>
-                                        <a href="logout">Log Out</a>
+                                    <li class="has-child"><a href="#">${user.name}</a>
+                                        <ul class="submenu">
+                                            <li class="submenu-item"><a href="userprofile?id=${user.user_id}">Profile</a></li>
+                                            <li class="submenu-item"><a href="#">Log Out</a></li>
+                                        </ul>
                                     </li>
                                 </c:if>
                             </ul>                             

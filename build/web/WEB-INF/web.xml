@@ -60,6 +60,10 @@
         <servlet-name>BlogListController</servlet-name>
         <servlet-class>controller.BlogListController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServiceCategoryController</servlet-name>
+        <servlet-class>controller.ServiceCategoryController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>BlogListController</servlet-name>
         <url-pattern>/bloglist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServiceCategoryController</servlet-name>
+        <url-pattern>/servicebycategory</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

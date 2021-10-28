@@ -96,6 +96,12 @@
                                 <img src="${o.image}" alt="" class="cause-img" style="width: 250px; height: 150px; margin-left: 7px; margin-top: 20px">
                                 <h4 class="cause-title" style="color: white;margin-top: 20px">${o.title}</h4>
                                 <div class="cause-details" style="margin-top: 20px">
+                                    ${o.description}.
+                                    ${o.description}.
+                                    ${o.description}
+                                    <br/>
+                                    ${o.description}.
+                                    ${o.description}.
                                     ${o.description}
                                 </div>
                                 <div class="btn-holder text-center">

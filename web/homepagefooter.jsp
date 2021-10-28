@@ -67,13 +67,13 @@
 
                         <div class="col-md-4">
                             <div class="footer-col">
-                                <h4 class="footer-title">Chính sách<span class="title-under"></span></h4>
+                                <h4 class="footer-title">Policies<span class="title-under"></span></h4>
                                 <div class="footer-content">
                                     <ul class="tweets list-unstyled">
-                                        <li class="tweet"><a href="#">Chính sách 1</a></li>
-                                        <li class="tweet"><a href="#">Chính sách 2</a></li>
-                                        <li class="tweet"><a href="#">Chính sách 3</a></li>
-                                        <li class="tweet"><a href="#">Chính sách 4</a></li>
+                                        <li class="tweet"><a href="#">Privacy Policy 1</a></li>
+                                        <li class="tweet"><a href="#">Privacy Policy 2</a></li>
+                                        <li class="tweet"><a href="#">Privacy Policy 3</a></li>
+                                        <li class="tweet"><a href="#">Privacy Policy 4</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                 <h4 class="footer-title">Contact us <span class="title-under"></span></h4>
                                 <div class="footer-content">
                                     <ul class="tweets list-unstyled">
-                                        <li class="tweet">Facebook:   <a href="#">Nguyễn Tiến Đức</a></li>
+                                        <li class="tweet">Facebook:   <a href="#">Nguyen Tien Duc</a></li>
                                         <li class="tweet">Email:   <a href="#">ducnthe153062@fpt.edu.vn</a></li>
                                         <li class="tweet">Phone Number:   <a href="#">+84 963 974 475</a></li>
                                     </ul>

@@ -45,11 +45,11 @@
                 <div class="container" style="margin-top: 5%">
                     <div class="block-heading">
                         <!--<h2 class="text-info">Dịch vụ chăm sóc sức khoẻ cho trẻ</h2>-->
-                        <h2 class="text-info">Đăng nhập</h2>
+                        <h2 class="text-info">Login</h2>
                     </div>
                     <form action="login" method="POST">
                         <div class="form-group"><label for="email">Email</label><input placeholder="Email" class="form-control item" type="email" name="uid" required></div>
-                        <div class="form-group"><label for="password">Mật khẩu</label><input placeholder="Mật khẩu" class="form-control" type="password" name="pwd" ></div>
+                        <div class="form-group"><label for="password">Password</label><input placeholder="Mật khẩu" class="form-control" type="password" name="pwd" ></div>
 <!--                        required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"-->
 
 <!--<p class="form-group">${loginfail1}</p>-->
@@ -59,14 +59,14 @@
                         </div>
                         <div class="row" style="margin-top: 10px">
                             <div class="col-10" style="text-align: right" >
-                                <p style="margin-right: 10%">Đã có tài khoản?<a onclick="document.getElementById('resetpass').style.display = 'block'" style="color: blue">Quên mật khẩu?</a></p>
+                                <p style="margin-right: 10%">Already have an account?<a onclick="document.getElementById('resetpass').style.display = 'block'" style="color: blue">Forgot password?</a></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="btn btn-primary btn-block" type="submit" style="margin-top: 10px">Đăng nhập</button></div>
+                                <button class="btn btn-primary btn-block" type="submit" style="margin-top: 10px">Log In</button></div>
                             <div class="col-md-6">
-                                <button type="button" style="margin-top: 10px" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">Đăng ký</button>
+                                <button type="button" style="margin-top: 10px" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">Create new Account</button>
                             </div>
                             <!--                            <div class="col-md-6">
                                                             <button type="button" style="margin-top: 10px" class="btn btn-primary btn-block" data-toggle="modal" data-target="#resetpass">Quên mật khẩu</button>
