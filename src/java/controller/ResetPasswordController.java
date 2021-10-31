@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.DBContext_Postgresql;
+import dao.DBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ResetPass", urlPatterns = {"/ResetPass"})
 public class ResetPasswordController extends HttpServlet {
 
-    private DBContext_Postgresql db = new DBContext_Postgresql();
+    private DBContext db = new DBContext();
     private Connection con;
     private PreparedStatement st;
 

@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.DBContext_Postgresql;
+import dao.DBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -41,7 +41,7 @@ import entity.User;
 @WebServlet(name = "ResetPassword", urlPatterns = {"/ResetPassword"})
 public class ResetPasswordSubController extends HttpServlet {
 
-    private DBContext_Postgresql db = new DBContext_Postgresql();
+    private DBContext db = new DBContext();
     private Connection con;
     private PreparedStatement st;
 
@@ -140,9 +140,9 @@ public class ResetPasswordSubController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String service = request.getParameter("service");
         System.out.println("Service: " + service);
-        String userid = request.getParameter("userid").trim();
-        String newPass = request.getParameter("newpass").trim();
         if (service.equals("reset_pass")) {
+            String userid = request.getParameter("userid").trim();
+            String newPass = request.getParameter("newpass").trim();
             resetPassword(Long.valueOf(userid), newPass);
             response.setContentType("text/html");
 

@@ -156,5 +156,55 @@ public interface IUserDAO {
       */
      public void updatePassword(String email,String password) throws Exception;
      public User getByEmail(String email) throws Exception;
-
+     
+     
+    /**
+     * Get all Customer in the database and paging
+     *
+     * @param pageSize it is an int number.
+     * @param pageIndex it is an int number.
+     * @return a list <code>User</code> object
+     * @throws Exception
+     */
+    public ArrayList<User> getAllCustomerPaging(int pageSize, int pageIndex) throws Exception;
+    
+    /**
+    * Get number of pages in pagination  
+    *
+    * 
+    * @param pageSize
+    * @return 
+    * @throws java.lang.Exception
+    */    
+    public int getNumberOfPageCustomer(int pageSize) throws Exception;
+    /**
+    * Get Customer detail by ID in the database
+    *
+    * 
+    * @param id
+    * @return a <code>User</code>
+    * @throws Exception
+    */    
+    public User getCustomerByID(int id) throws Exception;
+    
+    /**
+    * Get number of pages in pagination when user search  
+    *
+    * 
+    * @param pageSize
+    * @return 
+    * @throws java.lang.Exception
+    */    
+    public int getNumberOfPageCustomerSearch(int pageSize, String word) throws Exception;
+    
+     /**
+     * Get all Customer in the database and paging by the word entered
+     *
+     * @param pageSize it is an int number.
+     * @param pageIndex it is an int number.
+     * @param word
+     * @return a list <code>User</code> object
+     * @throws Exception
+     */
+    public ArrayList<User> getAllCustomerPagingbyWord(int pageSize, int pageIndex, String word) throws Exception;
 }

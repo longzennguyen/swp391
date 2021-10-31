@@ -510,20 +510,20 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
     }
 
     @Override
-    public User getUserByEmailAndPwd(String username, String password) throws Exception{
+    public User getUserByEmailAndPwd(String username, String password) throws Exception {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
+
         String sql = "select * from Users join [Role] on Users.role_id = [Role].role_id"
                 + " where email= ? and password= ?";
         User user = null;
         try {
             conn = getConnection();
             ps = conn.prepareStatement(sql);
-            ps.setString(1,username);
-            ps.setString(2,password);
+            ps.setString(1, username);
+            ps.setString(2, password);
             rs = ps.executeQuery();
             while (rs.next()) {
                 int userID = Integer.parseInt(rs.getString("users_id"));
@@ -552,34 +552,240 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             closeConnection(conn);
         }
         return user;
-        
+
     }
-    
-    public static void main(String[] args) throws Exception {
-        UserDAOImpl dao = new UserDAOImpl();
-        User u = dao.getUserByEmailAndPwd("thao@gmail.com", "123456");
-        System.out.println(u.getName());
-    }
-    
-    
 
     @Override
-    public boolean checkUserExisted(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean checkUserExisted(String email) throws Exception {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select * from users where email = '" + email + "'";
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(sql);
+            conn = getConnection();
+            if (!rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(conn);
+        }
+        return false;
     }
 
     @Override
     public void registerAccount(int user_id, String first_name, String last_name, String phone, String email, String address, String dob, int role_id, int status_id, int gender, String password) throws Exception {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "INSERT INTO Users(Users_id, first_name, last_name, gender, email, phone, address,\n"
+                + "				 created_at, role_id,password,status_id,dob)\n"
+                + "	VALUES(" + user_id + ", '" + first_name + "','" + last_name + "','" + gender + "','" + email + "','" + phone + "','" + address + "','" + dob + "',1,'" + password + "',1,'" + dob + "')";
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(sql);
+            conn = getConnection();
+
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(conn);
+        }
+    }
+
+    @Override
+    public void updatePassword(String email, String password) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //cai ham nay lam gi a
+
+    }
+
+    @Override
+    public User getByEmail(String email) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void updatePassword(String email, String password) {
+    public ArrayList<User> getAllCustomerPaging(int pageSize, int pageIndex) throws Exception {
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(ORDER BY users_id) as Number,* \n"
+                + "FROM [Users] where [Users].role_id = 5)as dbNumber where Number between ? and ?";
+        ArrayList<User> users = new ArrayList<>();
+        try {
+            int from = pageSize * (pageIndex - 1) + 1;
+            int to = pageSize * pageIndex;
+
+            conn = getConnection();
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, from);
+            statement.setInt(2, to);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setUser_id(rs.getInt("users_id"));
+                user.setName(rs.getString("first_name") + " " + rs.getString("last_name"));
+                user.setPhone(rs.getString("phone"));
+                if (rs.getString("gender").equals("1")) {
+                    user.setGender("Male");
+                } else {
+                    user.setGender("Female");
+                }
+                user.setEmail(rs.getString("email"));
+                user.setAddress(rs.getString("address"));
+                user.setRole_id(rs.getInt("role_id"));
+                users.add(user);
+            }
+            return users;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(statement);
+            closeConnection(conn);
+        }
+
+    }
+
+    @Override
+    public int getNumberOfPageCustomer(int pageSize) throws Exception {
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT COUNT(users_id) as number FROM [Users] where [Users].role_id = 5";
+        try {
+            conn = getConnection();
+            statement = conn.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                int number = rs.getInt("number");
+                if (number % pageSize == 0) {
+                    return number / pageSize;
+                } else {
+                    return number / pageSize + 1;
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(statement);
+            closeConnection(conn);
+        }
+        return -1;
+    }
+
+//    public static void main(String[] args) throws Exception {
+//        UserDAOImpl dao = new UserDAOImpl();
+//        ArrayList<User> users = dao.getAllCustomerPagingbyWord(3, 1, "an");      
+//        for (User user : users) {
+//            System.out.println(user.getName());
+//        }
+//        
+//    }
+
+    @Override
+    public User getCustomerByID(int id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public User getByEmail(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int getNumberOfPageCustomerSearch(int pageSize, String word) throws Exception {
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT COUNT(users_id) as number from [Users]\n"
+                + "where [Users].role_id = 5 \n"
+                + "and (CONCAT( [Users].first_name, ' ', [Users].last_name) like ? \n"
+                + "or\n"
+                + "[Users].phone like ? \n"
+                + "or [Users].email like ?)";
+        try {
+            conn = getConnection();
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, "%" + word + "%");
+            statement.setString(2, "%" + word + "%");
+            statement.setString(3, "%" + word + "%");
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                int number = rs.getInt("number");
+                if (number % pageSize == 0) {
+                    return number / pageSize;
+                } else {
+                    return number / pageSize + 1;
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(statement);
+            closeConnection(conn);
+        }
+        return -1;
+    }
+
+    @Override
+    public ArrayList<User> getAllCustomerPagingbyWord(int pageSize, int pageIndex, String word) throws Exception {
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(ORDER BY users_id) as Number,* \n"
+                + "FROM [Users] where [Users].role_id = 5 \n"
+                + "and (CONCAT( [Users].first_name, ' ', [Users].last_name) like ? \n"
+                + "or \n"
+                + "[Users].phone like ? \n"
+                + "or [Users].email like ? ))\n"
+                + "as dbNumber where Number between ? and ?";
+        ArrayList<User> users = new ArrayList<>();
+        try {
+            int from = pageSize * (pageIndex - 1) + 1;
+            int to = pageSize * pageIndex;
+
+            conn = getConnection();
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, "%" + word + "%");
+            statement.setString(2, "%" + word + "%");
+            statement.setString(3, "%" + word + "%");
+            statement.setInt(4, from);
+            statement.setInt(5, to);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setUser_id(rs.getInt("users_id"));
+                user.setName(rs.getString("first_name") + " " + rs.getString("last_name"));
+                user.setPhone(rs.getString("phone"));
+                if (rs.getString("gender").equals("1")) {
+                    user.setGender("Male");
+                } else {
+                    user.setGender("Female");
+                }
+                user.setEmail(rs.getString("email"));
+                user.setAddress(rs.getString("address"));
+                user.setRole_id(rs.getInt("role_id"));
+                users.add(user);
+            }
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(statement);
+            closeConnection(conn);
+        }
+        return users;
     }
 }

@@ -99,15 +99,23 @@ public class LoginController extends HttpServlet {
             } 
             else if (user.getRole_id() == 2) {
                 response.sendRedirect(request.getContextPath() + "/Manager.jsp");
+                request.getSession().setAttribute("user", user);
+                request.getSession().setAttribute("userId", user.getUser_id());
             } 
             else if (user.getRole_id() == 1) {
                 response.sendRedirect(request.getContextPath() + "/admin.jsp");
+                request.getSession().setAttribute("user", user);
+                request.getSession().setAttribute("userId", user.getUser_id());
             } 
             else if (user.getRole_id() == 3) {
                 response.sendRedirect(request.getContextPath() + "/staff.jsp");
+                request.getSession().setAttribute("user", user);
+                request.getSession().setAttribute("userId", user.getUser_id());
             }
             else if (user.getRole_id() == 4) {
                 response.sendRedirect(request.getContextPath() + "/staff.jsp");
+                request.getSession().setAttribute("user", user);
+                request.getSession().setAttribute("userId", user.getUser_id());
             }
         } catch (Exception ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
