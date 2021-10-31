@@ -18,7 +18,7 @@
             <a class="active" href="admin.jsp">Children Care</a>
             <a href="#general">General</a>
             <a href="userlist">User List</a>
-            <a href="useradd">Add New User</a>
+<!--            <a href="useradd">Add New User</a>-->
             <a href="#systemsetting">System Settings Management</a>
             <a href="#addsystem">Add New System Settings</a>
         </div>
@@ -34,10 +34,10 @@
                             Administrator
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Profile</a>
-                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="userprofile?id=1">Profile</a>
+<!--                            <a class="dropdown-item" href="#">Settings</a>-->
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" href="logout">Logout</a>
                         </div>
                     </li>
                 </ul>

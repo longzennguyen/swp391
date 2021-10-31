@@ -21,7 +21,7 @@
 
         <!-- Font awesome -->
         <link rel="stylesheet" href="css/font-awesome.min.css">
-
+        <link rel="stylesheet" href="css/font-awesome.css">
         <!-- Owl carousel -->
         <link rel="stylesheet" href="css/owl.carousel.css">
 
@@ -36,21 +36,87 @@
         <%@include file="homepageheader.jsp"%>
 
 
-        <!-- Carousel-->
-        <div id="homeCarousel" class="carousel carousel-home" data-ride="carousel">
+        <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#homeCarousel" data-slide-to="1"></li>
+                <li data-target="#homeCarousel" data-slide-to="2"></li>
+            </ol>
+
             <div class="carousel-inner" role="listbox">
+
                 <div class="item active">
-                    <img src="img/home-slider-1.jpg" alt="">
+
+                    <img src="img/home-slider-4.jpg" alt="" style="width: 1920px;height: 580px">
+
                     <div class="container">
+
                         <div class="carousel-caption">
-                            <h2 class="carousel-title  ">If your children need help</h2>
-                            <h4 class="carousel-subtitle  ">Use our services</h4>
-                            <a href="servicelist" class="btn btn-lg btn-secondary hidden-xs">VIEW NOW</a>
+
+                            <h2 class="carousel-title bounceInDown animated slow">Believe in our Service</h2>
+                            <h4 class="carousel-subtitle bounceInUp animated slow ">We won't let you down</h4>
+                            <a href="servicelist" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" >View Service</a>
+
                         </div> <!-- /.carousel-caption -->
+
                     </div>
+
                 </div> <!-- /.item -->
+
+
+                <div class="item ">
+
+                    <img src="img/home-slider-3.jpg" alt="" style="width: 1920px;height: 580px">
+
+                    <div class="container">
+
+                        <div class="carousel-caption">
+
+                            <h2 class="carousel-title bounceInDown animated slow">Together we can improve our lives</h2>
+                            <h4 class="carousel-subtitle bounceInUp animated slow"> So let's do it!</h4>
+                            <a href="bloglist" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated">Read Blog</a>
+
+                        </div> <!-- /.carousel-caption -->
+
+                    </div>
+
+                </div> <!-- /.item -->
+
+
+                <div class="item ">
+
+                    <img src="img/home-slider-1.jpg" alt="" style="width: 1920px;height: 580px">
+
+                    <div class="container">
+
+                        <div class="carousel-caption">
+
+                            <h2 class="carousel-title bounceInDown animated slow" >Wanna know about us?</h2>
+                            <h4 class="carousel-subtitle bounceInUp animated slow">You can view our information</h4>
+                            <a href="about.jsp" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow">View Now</a>
+
+                        </div> <!-- /.carousel-caption -->
+
+                    </div>
+
+                </div> <!-- /.item -->
+
             </div>
-        </div> <!-- /.carousel -->
+
+            <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="right carousel-control" href="#homeCarousel" role="button" data-slide="next">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div><!-- /.carousel -->
+
+
 
 
 
@@ -66,8 +132,8 @@
                                     <h4 style="color: white">Price: $${i.price}</h4>
                                 </div>
                                 <div class=" cause-progress" style="text-align: center">
-                                        <a href="servicedetail?id=${i.service_id}"><h4 style="font-weight: bold"> ${i.title}</h4></a>
-                                    </div>                                  
+                                    <a href="servicedetail?id=${i.service_id}"><h4 style="font-weight: bold"> ${i.title}</h4></a>
+                                </div>                                  
                                 <div class="cause-details">
                                     ${i.description}
                                 </div>
@@ -105,7 +171,7 @@
                                     ${o.description}
                                 </div>
                                 <div class="btn-holder text-center">
-                                    <a href="#" class="btn btn-primary" >Read now</a>
+                                    <a href="blogdetail?id=${o.post_id}" class="btn btn-primary" >Read now</a>
                                 </div>
                             </div> <!-- /.service -->
                         </div> 

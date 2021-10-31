@@ -16,6 +16,8 @@
               rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
               rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <!-- //Web-Fonts -->
         <!-- Bootsrap -->
         <link rel="stylesheet" href="css/bootstrap.css">
@@ -75,27 +77,48 @@
 
                         <div id="navbar" class="navbar-collapse collapse pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="homepage">Home</a></li>
-                                <li><a href="about.jsp">About</a></li>
-                                <li class="has-child"><a href="servicelist">Services</a></li>
-                                <li><a href="#">Reservation</a></li>
-                                <!--                                <li><a href="#">Contact</a></li>-->
-                                <li><a href="bloglist">Blog</a></li>
-                                
+
                                 <c:if test="${empty user}">
+                                    <li><a href="homepage">Home</a></li>
+                                    <li><a href="about.jsp">About</a></li>
+                                    <li class="has-child"><a href="servicelist">Services</a></li>
+                                    <li><a href="#">Reservation</a></li>
+                                    <li><a href="bloglist">Blog</a></li>
+
                                     <li>
                                         <a href="login">Login</a>
                                     </li>  
                                 </c:if>
 
-                                <c:if test="${not empty user}">
-                                    <li class="has-child"><a href="#">${user.name}</a>
+                                <c:if test="${not empty user && user.getRole_id() == 5}">
+                                    <li><a href="homepage">Home</a></li>
+                                    <li><a href="about.jsp">About</a></li>
+                                    <li class="has-child"><a href="servicelist">Services</a></li>
+                                    <li><a href="#">Reservation</a></li>
+                                    <li><a href="bloglist">Blog</a></li>                                  
+                                    <li class="has-child"><a href="#">Hello, ${user.name}</a>                                       
                                         <ul class="submenu">
                                             <li class="submenu-item"><a href="userprofile?id=${user.user_id}">Profile</a></li>
-                                            <li class="submenu-item"><a href="#">Log Out</a></li>
+                                            <li class="submenu-item"><a href="logout">Log Out</a></li>
                                         </ul>
                                     </li>
                                 </c:if>
+
+
+                                <c:if test="${not empty user && user.getRole_id() == 2}">
+                                    <li><a href="Manager.jsp">Manager</a></li>
+                                    <li><a href="feedbacklist">Feedback</a></li>
+                                    <li class="has-child"><a href="servicelist">Services</a></li>
+                                    <li><a href="#">Posts</a></li>
+                                    <li><a href="customerlist?word=">Customer</a></li>                                   
+                                    <li class="has-child"><a href="#">Hello, ${user.name}</a>
+                                        <ul class="submenu">
+                                            <li class="submenu-item"><a href="userprofile?id=${user.user_id}">Profile</a></li>
+                                            <li class="submenu-item"><a href="logout">Log Out</a></li>
+                                        </ul>
+                                    </li>
+                                </c:if>    
+
                             </ul>                             
                         </div> <!-- /#navbar -->
 
@@ -126,7 +149,7 @@
 
         <!-- Template main javascript -->
         <script src="js/main.js"></script>
-
+        
 
     </body>
 </html>
