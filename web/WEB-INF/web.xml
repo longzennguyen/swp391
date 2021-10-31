@@ -84,6 +84,18 @@
         <servlet-name>CustomerListSearchController</servlet-name>
         <servlet-class>controller.CustomerListSearchController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Reservation</servlet-name>
+        <servlet-class>controller.ReservationController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReservationContactController</servlet-name>
+        <servlet-class>controller.ReservationContactController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReservationFinishController</servlet-name>
+        <servlet-class>controller.ReservationFinishController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -159,6 +171,18 @@
     <servlet-mapping>
         <servlet-name>CustomerListSearchController</servlet-name>
         <url-pattern>/customerlistsearch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Reservation</servlet-name>
+        <url-pattern>/reservation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReservationContactController</servlet-name>
+        <url-pattern>/reservation/contract</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReservationFinishController</servlet-name>
+        <url-pattern>/reservation/finish</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

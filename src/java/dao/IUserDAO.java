@@ -11,6 +11,7 @@ package dao;
 
 import java.util.ArrayList;
 import entity.User;
+import java.util.List;
 
 /**
  *
@@ -207,4 +208,5 @@ public interface IUserDAO {
      * @throws Exception
      */
     public ArrayList<User> getAllCustomerPagingbyWord(int pageSize, int pageIndex, String word) throws Exception;
+        public List<User> getUserByRole(int role) throws Exception;
 }
