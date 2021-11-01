@@ -82,11 +82,11 @@
                                     <li><a href="homepage">Home</a></li>
                                     <li><a href="about.jsp">About</a></li>
                                     <li class="has-child"><a href="servicelist">Services</a></li>
-                                    <li><a href="#">Reservation</a></li>
-                                    <li><a href="bloglist">Blog</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/reservation">Reservation</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/bloglist">Blog</a></li>
 
                                     <li>
-                                        <a href="login">Login</a>
+                                        <a href="${pageContext.request.contextPath}/login">Login</a>
                                     </li>  
                                 </c:if>
 
@@ -94,8 +94,8 @@
                                     <li><a href="homepage">Home</a></li>
                                     <li><a href="about.jsp">About</a></li>
                                     <li class="has-child"><a href="servicelist">Services</a></li>
-                                    <li><a href="#">Reservation</a></li>
-                                    <li><a href="bloglist">Blog</a></li>                                  
+                                    <li><a  href="${pageContext.request.contextPath}/reservation">Reservation</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/bloglist">Blog</a></li>                                  
                                     <li class="has-child"><a href="#">Hello, ${user.name}</a>                                       
                                         <ul class="submenu">
                                             <li class="submenu-item"><a href="userprofile?id=${user.user_id}">Profile</a></li>

@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import entity.User;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -787,5 +788,55 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
             closeConnection(conn);
         }
         return users;
+    }
+
+    @Override
+    public List<User> getUserByRole(int role) throws Exception {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT *\n"
+                + "FROM ([Users]\n"
+                + "      JOIN [Role] ON [Users].role_id = [Role].role_id\n"
+                + "      JOIN StatusData ON [Users].status_id = StatusData.status_id) \n"
+                + "	  WHERE [Role].role_id = ?\n" +
+        "ORDER BY [users_id] ASC";
+        System.out.println(sql);
+        ArrayList<User> users = new ArrayList<>();
+
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, role);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("users_id");
+                String userName = rs.getString("first_name") + " " + rs.getString("last_name");
+                String phone = rs.getString("phone");
+                String gender;
+                if (rs.getString("gender").equals("1")) {
+                    gender = "Male";
+                } else {
+                    gender = "Female";
+                }
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                String roleName = rs.getString("role_name");
+                String status = rs.getString("status_name");
+                User user = new User(id, userName, gender, email, phone, address, roleName, status);
+                users.add(user);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(conn);
+        }
+        return users;
+
     }
 }
