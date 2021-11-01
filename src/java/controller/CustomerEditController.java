@@ -1,32 +1,22 @@
 /*
- * Copyright (C) 2021, FPT University<br>
- * SWP391<br>
- * ChildrenCareProject<br>
- *
- * Record of change:<br>
- * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-28    1.0        DucNT           First Version<br>
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
-import dao.impl.UserDAOImpl;
-import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * doGet:<br>
- * - Get data of user in the database then display in jsp <br>
  *
- * @author DucNT
+ * @author ROG STRIX
  */
-public class CustomerDetailController extends HttpServlet {
+public class CustomerEditController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +35,10 @@ public class CustomerDetailController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CustomerDetailController</title>");            
+            out.println("<title>Servlet CustomerEditController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CustomerDetailController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CustomerEditController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,9 +48,6 @@ public class CustomerDetailController extends HttpServlet {
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * Get data of <code>User</code> in the database then display in jsp
-     * 
-     * 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -69,16 +56,7 @@ public class CustomerDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserDAOImpl userDAO = new UserDAOImpl();        
-        int id = Integer.parseInt(request.getParameter("id"));
-        try {
-            // get all User detail by ID from database
-            User user = userDAO.getUserDetailImg(id);
-            request.setAttribute("data", user);
-            request.getRequestDispatcher("customerdetail.jsp").forward(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Service List</title>
         <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
               rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="text-center">
                                         <a href="#" class="btn btn-primary">Buy</a>
-                                        <a href="#" class="btn btn-primary">Feedback</a>
+                                        <a href="feedback.jsp" class="btn btn-primary">Feedback</a>
                                     </div>
                                 </div> <!-- /.cause -->
                             </div>  

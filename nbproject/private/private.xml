@@ -6,12 +6,15 @@
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/customerlist.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ServiceController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/UserDAOImpl.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/feedback.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/customerdetail.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/FeedbackDetailController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/UserSearchController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/header.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IFeedbackDAO.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/servicedetail.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ServiceDetailController.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/CustomerEditController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/homepage.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/feedbackdetail.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/UserController.java</file>
@@ -20,8 +23,11 @@
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/LoginController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/homepageheader.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/feedbacklist.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/css/font-awesome.min.css</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/BlogDetailController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/servicelist.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/UserProfileController.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ServiceSearchController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IUserDAO.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ResetPasswordController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/BlogDAOImpl.java</file>
@@ -30,9 +36,12 @@
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/useredit.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/BlogList.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/RegisterAccountController.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/UserAddController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/FeedbackDAOImpl.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/HomepageController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/FeedbackListController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/usersearch.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/ChangePasswordController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/BlogDetail.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/homepagefooter.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/User.java</file>

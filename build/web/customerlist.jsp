@@ -42,19 +42,17 @@
 
         <div class="content" style="margin-top: 50px;margin-bottom: 400px; padding-left: 30px; padding-right: 30px">
             <h1 class="text-center" style="margin-left: 20px">Customer List</h1>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+
+<!--            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
-                    <li><a href="#">jQuery</a></li>
-                    <li><a href="#">Bootstrap</a></li>
-                    <li><a href="#">Angular</a></li>
+                    <li><a href="#">Sort by Name</a></li>
+                    <li><a href="#">Sort by Status</a></li>
+                    <li><a href="#">Sory by ...</a></li>
                 </ul>
-            </div>
+            </div>-->
+
             <form class="form-inline my-2 my-lg-0" style="float: right; padding-bottom: 20px;" action="customerlist?page=1&word=${word}"> 
                 <input class="form-control mr-sm-2" type="search" placeholder="${word}" aria-label="Search" name="word">
                 <input class="btn  my-2 my-sm-0" type="submit" value="Search">

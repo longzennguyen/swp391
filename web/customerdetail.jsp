@@ -38,6 +38,7 @@
             <div class="text-center">
                 <h2 >Customer Profile</h2>
             </div>
+            <form method="POST" action="customeredit">
             <div class="container rounded bg-white mt-5 mb-5">
                 <div class="row">
                     <div class="col-md-6 border-right">
@@ -79,14 +80,16 @@
                     </div>
                 </div>
             </div>
-
+            <div class="text-center" style="margin-top: 50px">
+                <input class="btn btn-primary" type="submit" id="submit" value="Submit"> 
+            </div>                  
+            </form>                
             <div class="text-center" style="margin-top: 50px">
                 <a href="customerlist?page=1&word=" class="btn btn-primary">Back to Customer list</a>
                 <button class="btn btn-primary" onclick = "Run()" id="edit">Edit this Customer Information</button>                
-            </div> 
-            <div class="text-center" style="margin-top: 50px">
-                <input class="btn btn-primary" type="submit" id="submit" value="Submit"> 
             </div>
+                            
+                            
         
         </div>
 
