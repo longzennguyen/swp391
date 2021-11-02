@@ -4,11 +4,8 @@
  */
 package controller;
 
-import dao.IReservationDAO;
-import dao.impl.ReservationDaoImpl;
 import entity.dto.ReservationDto;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,11 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 
  *
  * @author duy.hoangdinh
  */
-public class ReservationController extends HttpServlet {
+@WebServlet(name = "RemoveController", urlPatterns = {"/reservation/delete"})
+public class RemoveController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,34 +31,19 @@ public class ReservationController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String keyword = request.getParameter("keyword");
-        List<ReservationDto> result = new ArrayList<>();
-        List<ReservationDto> dat = (List<ReservationDto>) request.getSession().getAttribute("reservation");
-        IReservationDAO dao = new ReservationDaoImpl();
-        List<ReservationDto> list = dao.getByID(1);
-        //khong co du lieu
-        if (dat == null || dat.isEmpty()) {
-            request.getSession().setAttribute("reservation", list);
-            dat = list;
-        }
-        if (keyword == null) {
-            result.addAll(dat);
-
-        } else {
-            //search service title
-            for (ReservationDto x : dat) {
-                if ((x.getId() + "").contains(keyword)) {
-                    result.add(x);
-                } else {
-                    if (x.getServiceTitle().contains(keyword)) {
-                        result.add(x);
-                    }
-                }
+        try {
+            List<ReservationDto> dat = (List<ReservationDto>) request.getSession().getAttribute("reservation");
+            String id = request.getParameter("id");
+            //xoa reservation co id truyen ve tu jsp
+            if (dat != null && !dat.isEmpty()) {
+                dat.removeIf(x -> x.id == Integer.parseInt(id));
             }
+            request.getSession().setAttribute("reservation", dat);
+            response.sendRedirect("../reservation");
+        } catch (Exception e) {
+            response.sendRedirect("../");
         }
-        request.setAttribute("keyword", keyword);
-        request.setAttribute("data", result);
-        request.getRequestDispatcher("/reservation/detail.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

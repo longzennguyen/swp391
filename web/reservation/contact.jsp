@@ -98,6 +98,7 @@
                     <br>
                     <div style="margin-left: 10px;color: black;width: 100%">
                         <form action="${pageContext.request.contextPath}/reservation/finish" method="POST">
+                            <input type="hidden" name="redirect" value="true"/>
                             <table style="width: 100%">
                                 <thead>
                                     <tr>

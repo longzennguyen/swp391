@@ -116,7 +116,7 @@
                         <br><br>
                         <button class="btn btn-primary" style="border-radius: 4px;font-size: 18px;padding: 10px 39px;">CHECK OUT</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class="btn btn-info" style="padding: 10px 25px;font-size: 18px">MORE SERVICE</a>
+                        <a href="${pageContext.request.contextPath}/servicelist" class="btn btn-info" style="padding: 10px 25px;font-size: 18px">MORE SERVICE</a>
                         </label>
                     </div>
             </form>

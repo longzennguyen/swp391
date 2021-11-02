@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author huan.buivan
+ * @author duy.hoangdinh
  */
 public class ReservationFinishController extends HttpServlet {
 
@@ -37,14 +37,16 @@ public class ReservationFinishController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response, int type)
             throws ServletException, IOException {
         List<ReservationDto> dat = (List<ReservationDto>) request.getSession().getAttribute("reservation");
+        //khong co du lieu
         if (dat == null || dat.isEmpty()) {
             response.sendRedirect("../reservation");
             return;
         }
         double total = 0;
+        // lay toong tien
         for (ReservationDto x : dat) {
             total += (x.getServicePrice() * x.getQuantity());
         }
@@ -62,6 +64,7 @@ public class ReservationFinishController extends HttpServlet {
             Logger.getLogger(ReservationFinishController.class.getName()).log(Level.SEVERE, null, ex);
         }
         String note = request.getParameter("note");
+        //note bang null hoac empty thi set note  = N/A
         if (note == null || note.trim().equals("")) {
             note = "N/A";
         }
@@ -74,6 +77,10 @@ public class ReservationFinishController extends HttpServlet {
         request.setAttribute("total", total);
         ReservationDaoImpl dao = new ReservationDaoImpl();
         dao.insert(dat);
+        String redirect = request.getParameter("redirect");
+        if(redirect == null && type == 1){
+        request.setAttribute("finish", "OK");
+        }
         request.getRequestDispatcher("finish.jsp").forward(request, response);
     }
 
@@ -89,7 +96,7 @@ public class ReservationFinishController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        processRequest(request, response, 0);
     }
 
     /**
@@ -103,7 +110,7 @@ public class ReservationFinishController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        processRequest(request, response, 1);
     }
 
     /**

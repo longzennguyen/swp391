@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author huan.buivan
+ * @author duy.hoangdinh
  */
 public class ReservationContactController extends HttpServlet {
 
@@ -32,11 +32,19 @@ public class ReservationContactController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                User loggedin = (User) request.getSession().getAttribute("user");
+                //usr chuaw login
+                if(loggedin == null){
+                    response.sendRedirect("../login");
+                    return;
+                }
         List<ReservationDto> dat = (List<ReservationDto>) request.getSession().getAttribute("reservation");
+        //khong co du lieu
         if (dat == null || dat.isEmpty()) {
             response.sendRedirect("../reservation");
             return;
         }
+        //lay ID tu jsp
         for (ReservationDto x : dat) {
             if (request.getParameter("QUANTITY-" + x.getId()) == null) {
                 continue;
@@ -44,7 +52,7 @@ public class ReservationContactController extends HttpServlet {
             int newQuantity = NumberExtraction.paramToInteger(request, "QUANTITY-" + x.getId());
             x.setQuantity(newQuantity);
         }
-        User loggedin = (User) request.getSession().getAttribute("user");
+
         System.out.println(loggedin.getName());
         request.setAttribute("logginedUser", loggedin);
         request.setAttribute("data", dat);

@@ -82,11 +82,12 @@ public class ReservationDaoImpl extends DBContext implements IReservationDAO {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         try {
             String sql = "INSERT INTO [dbo].[ReservationInformation](reservation_id,created_at,updated_at,status_id,nurse_id,doctor_id)"
-                    + " VALUES(?,?,?,?,?,?,?)";
+                    + " VALUES(?,?,?,?,?,?)";
             Connection con = getConnection();
             PreparedStatement stm = con.prepareStatement(sql);
             int index = 0;
             java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+            int id = count() + 1;
             stm.setInt(++index, count() + 1);
             stm.setDate(++index, date);
             stm.setDate(++index, date);
@@ -94,6 +95,7 @@ public class ReservationDaoImpl extends DBContext implements IReservationDAO {
             stm.setInt(++index, 1);
             stm.setInt(++index, 1);
             stm.executeUpdate();
+            dto.forEach(x -> x.setId(id));
             insertReservationData(dto);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ReservationDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,11 +105,11 @@ public class ReservationDaoImpl extends DBContext implements IReservationDAO {
         return 0;
     }
 
-    public int insertReservationData(List<ReservationDto> dto) {
+    public int[] insertReservationData(List<ReservationDto> dto) {
         Connection con = null;
         PreparedStatement stm = null;
         try {
-            String sql = "INSERT INTO [dbo].[reservation_data](reservation_id,service_id,quantity,) VALUES(?,?,?)";
+            String sql = "INSERT INTO [dbo].[reservation_data](reservation_id,service_id,quantity) VALUES(?,?,?)";
             con = getConnection();
             stm = con.prepareStatement(sql);
             for (ReservationDto x : dto) {
@@ -116,7 +118,7 @@ public class ReservationDaoImpl extends DBContext implements IReservationDAO {
                 stm.setInt(3, x.getQuantity());
                 stm.addBatch();
             }
-            return stm.executeUpdate();
+            return stm.executeBatch();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ReservationDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -129,7 +131,7 @@ public class ReservationDaoImpl extends DBContext implements IReservationDAO {
                 Logger.getLogger(ReservationDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return 0;
+        return new int[]{0};
     }
 
     private int count() {
