@@ -232,7 +232,7 @@ public class ServiceDAOImpl extends DBContext implements IServiceDAO {
 //    public static void main(String[] args) {
 //        ServiceDAOImpl dao = new ServiceDAOImpl();
 //        try {
-//            ArrayList<Service> services = dao.getAllServicePagingbyWord("o", 5, 1);
+//            ArrayList<Service> services = dao.getTopServices();
 //            for (Service service : services) {
 //                System.out.println(service.getTitle());
 //            }

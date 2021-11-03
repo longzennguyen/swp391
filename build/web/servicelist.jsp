@@ -11,25 +11,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Service List</title>
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
-              rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
-              rel="stylesheet">
-        <!-- //Web-Fonts -->
-        <!-- Bootsrap -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-
-        <!-- Font awesome -->
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+        <!-- Custom Theme files -->      
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <!--js-->
+        <script src="js/jquery-2.1.1.min.js"></script> 
+        <!--icons-css-->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css" type="text/css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-
-        <!-- Owl carousel -->
-        <link rel="stylesheet" href="css/owl.carousel.css">
-
-        <!-- Template main Css -->
-        <link rel="stylesheet" href="css/style.css">
-
-        <!-- Modernizr -->
-        <script src="js/modernizr.js"></script>
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--Google Fonts-->
+        <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <%@include file="homepageheader.jsp"%>
@@ -86,51 +80,57 @@
             </div> <!-- /.our-causes -->
         </div>
 
-            <div class="container">
-                <ul class="pagination">
-                    <c:if test="${page != 1}">
-                        <li class="icon">
-                            <a href="servicelist?page=${page-1}">Previous</a>
-                        </li>
-                    </c:if>
-                    <c:forEach var="i" begin="1" end="${numberPage}">
-                        <c:choose>
-                            <c:when test="${page eq i}">
-                                <li class="page-item active"><a class="page-link">
-                                        ${i} <span class="sr-only">(current)</span></a>
-                                </li>
-                            </c:when>
-                            <c:otherwise>
-                                <li class="page-item">
-                                    <a href="servicelist?page=${i}">${i}</a>
-                                </li>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:forEach>
-                    <!-- If page != Last display Next -->            
-                    <c:if test="${page lt numberPage}">
-                        <li class="icon">
-                            <a  href="servicelist?page=${page+1}">Next</a>
-                        </li>
-                    </c:if>
-                </ul>
-            </div>
+        <div class="container" style="margin-bottom: 50px; padding-bottom: 80px">
+            <ul class="pagination" style="font-family: 'Work Sans', sans-serif;">
+                <c:if test="${page != 1}">
+                    <li class="icon">
+                        <a href="servicelist?page=${page-1}"><span class="fa fa-angle-left"></span>Previous</a>
+                    </li>
+                </c:if>
+                <c:forEach var="i" begin="1" end="${numberPage}">
+                    <c:choose>
+                        <c:when test="${page eq i}">
+                            <li class="page-item active"><a class="page-link">
+                                    ${i} <span class="sr-only">(current)</span></a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="page-item">
+                                <a href="servicelist?page=${i}">${i}</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <!-- If page != Last display Next -->            
+                <c:if test="${page lt numberPage}">
+                    <li class="icon">
+                        <a  href="servicelist?page=${page+1}"> Next<span class="fa fa-angle-right"></span></a>
+                    </li>
+                </c:if>
+            </ul>           
+        </div>
 
-            <%@include file="homepagefooter.jsp"%>
 
-            <!-- jQuery -->
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            <script>
-                window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\script>');
-            </script>
+        <%@include file="homepagefooter.jsp"%>
 
-            <!-- Bootsrap javascript file -->
-            <script src="js/bootstrap.min.js"></script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\script>');
+        </script>
 
-            <!-- owl carouseljavascript file -->
-            <script src="js/owl.carousel.min.js"></script>
+        <!-- Bootsrap javascript file -->
+        <script src="js/bootstrap.min.js"></script>
 
-            <!-- Template main javascript -->
-            <script src="js/main.js"></script>
+        <!-- owl carouseljavascript file -->
+        <script src="js/owl.carousel.min.js"></script>
+
+        <!-- Template main javascript -->
+        <script src="js/main.js"></script>
+        <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/scripts.js"></script>
+        <!--//scrolling js-->
+        <script src="js/bootstrap.js"></script>
+        <!-- mother grid end here-->
     </body>
 </html>

@@ -3,7 +3,6 @@
     Created on : Nov 3, 2021, 10:59:38 AM
     Author     : ROG STRIX
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
@@ -13,8 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-       
+              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />     
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
         <!-- Custom Theme files -->
@@ -36,9 +34,9 @@
                     <h1>Login</h1>
                 </div>
                 <div class="login-block">
-                    <form>
-                        <input type="text" name="email" placeholder="Email" required="">
-                        <input type="password" name="password" class="lock" placeholder="Password">
+                    <form action="login" method="POST"> 
+                        <input type="text" name="uid" placeholder="Email" required="">
+                        <input type="password" name="pwd" class="lock" placeholder="Password">
                         <div class="forgot-top-grids">
                             <div class="forgot-grid">
                                 <ul>

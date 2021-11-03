@@ -60,7 +60,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     /**
@@ -84,7 +84,7 @@ public class LoginController extends HttpServlet {
                 System.out.println("Do Post Login3");
                 String loginfail = "Tên đăng nhập hoặc mật khẩu không chính xác, vui lòng kiểm tra lại!";
                 request.setAttribute("loginfail1", loginfail);
-                System.out.println("url : " + request.getContextPath() + "/index.jsp");
+                System.out.println("url : " + request.getContextPath() + "/login.jsp");
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
                 System.out.println("Attri bute>>>> " + request.getAttribute("loginfail1"));
             } 
