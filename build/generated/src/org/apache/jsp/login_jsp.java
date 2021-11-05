@@ -43,7 +43,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\n");
       out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE HTML>\n");
       out.write("<html>\n");
       out.write("\n");
@@ -52,10 +51,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n");
       out.write("        <meta name=\"keywords\" content=\"Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, \n");
-      out.write("              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design\" />\n");
-      out.write("        <script\n");
-      out.write("        type=\"application/x-javascript\"> addEventListener(\"load\", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>\n");
+      out.write("              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design\" />     \n");
       out.write("        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->\n");
+      out.write("        <link href=\"css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\">\n");
       out.write("        <!-- Custom Theme files -->\n");
       out.write("        <link href=\"css/newstyle.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />\n");
       out.write("        <!--js-->\n");
@@ -75,9 +73,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <h1>Login</h1>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"login-block\">\n");
-      out.write("                    <form>\n");
-      out.write("                        <input type=\"text\" name=\"email\" placeholder=\"Email\" required=\"\">\n");
-      out.write("                        <input type=\"password\" name=\"password\" class=\"lock\" placeholder=\"Password\">\n");
+      out.write("                    <form action=\"login\" method=\"POST\"> \n");
+      out.write("                        <input type=\"text\" name=\"uid\" placeholder=\"Email\" required=\"\">\n");
+      out.write("                        <input type=\"password\" name=\"pwd\" class=\"lock\" placeholder=\"Password\">\n");
       out.write("                        <div class=\"forgot-top-grids\">\n");
       out.write("                            <div class=\"forgot-grid\">\n");
       out.write("                                <ul>\n");
@@ -93,15 +91,15 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"clearfix\"> </div>\n");
       out.write("                        </div>\n");
       out.write("                        <input type=\"submit\" name=\"Sign In\" value=\"Login\">\n");
-      out.write("                        <h3>Not a member?<a href=\"signup.html\"> Sign up now</a></h3>\n");
+      out.write("                        <h3>Not a member?<a href=\"signup.jsp\"> Sign up now</a></h3>\n");
       out.write("\n");
       out.write("                    </form>\n");
-      out.write("                    <h5><a href=\"index.html\">Go Back to Home</a></h5>\n");
+      out.write("                    <h5><a href=\"homepage\">Go Back to Home</a></h5>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
+      out.write("        \n");
       out.write("        <!--inner block end here-->\n");
-      out.write("\n");
       out.write("        <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\n");
       out.write("            <div class=\"modal-dialog\">\n");
       out.write("                <!-- Modal content-->\n");

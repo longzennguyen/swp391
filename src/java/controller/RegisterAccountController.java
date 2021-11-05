@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-26    1.0        LongNVSE04068          First Version<br>
  */
 package controller;
 
@@ -21,10 +25,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Process action , check email existed, register new user
- *
- * @author longzennguyen
+/**				
+ * The class contains method find select,insert users to database				
+ * Users table all data will be normalized 	
+ * The method wil return User Object to check user existed when register , insert new User to Users table		
+ *				
+ * @author longnv				
  */
 @WebServlet(name = "RegisterAccount", urlPatterns = {"/RegisterAccount"})
 public class RegisterAccountController extends HttpServlet {

@@ -10,6 +10,7 @@
 package entity;
 
 /**
+ * class have properties of feedback table in database
  *
  * @author longzennguyen
  */

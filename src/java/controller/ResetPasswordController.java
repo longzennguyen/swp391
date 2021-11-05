@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-30    1.0        LongNVSE04068          First Version<br>
  */
 package controller;
 
@@ -18,10 +22,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Controller to process reset password
- *
- * @author longzennguyen
+/**				
+ * The class contains method insert users in database to check login success				
+ * Users table all data will be normalized 	
+ * The method will update password to user with email inputed		
+ *				
+ * @author longnv				
  */
 @WebServlet(name = "ResetPass", urlPatterns = {"/ResetPass"})
 public class ResetPasswordController extends HttpServlet {
@@ -77,7 +83,7 @@ public class ResetPasswordController extends HttpServlet {
                 }
                 response.setContentType("text/html");
 
-                //// System.out.println("yah1");
+                //show error
                 PrintWriter pw = response.getWriter();
                 // System.out.println("yah2");
                 pw.println("<script type=\"text/javascript\">");
@@ -89,6 +95,7 @@ public class ResetPasswordController extends HttpServlet {
                 rd.include(request, response);
             } else {
                 System.out.println("Code invalid");
+                //set attribute
                 request.setAttribute("code_reset", code);
                 request.setAttribute("emailr", email);
                 request.setAttribute("error_code", "Mã code không đúng hoặc mật khẩu không khớp,vui lòng kiểm tra lại!");
