@@ -11,74 +11,150 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
-        <link rel="stylesheet" href="css/userprofile.css">
+        <title>Admin User Detail</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+        <!-- Custom Theme files -->
+        <link href="css/newstyle.css" rel="stylesheet" type="text/css" media="all"/>
+
+        <!--js-->
+        <script src="js/jquery-2.1.1.min.js"></script> 
+        <!--icons-css-->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css" type="text/css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--Google Fonts-->
+        <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <%@include file="header.jsp"%>
+        <div class="page-container">	
+            <div class="left-content">
+                <div class="mother-grid-inner">
+                    <!--header start here-->
+                    <%@include file="header.jsp"%>
+                    <!--inner block start here-->
+                    <div class="inner-block "">
+                        <div class="blank">
+                            <div class="content text-center" style="">
+                                <h2 style="color: #1290f8">User Profile</h2>
+                            </div>
+                            <div class="col-md-4 text-center" >
+                                <div class="card">
+                                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center" style="margin: 10px">
+                                        <img src="${data.img}" alt="Profile" class="rounded-circle" style="width: 150px;margin-top: 30px">
+                                        <h2 style="margin-top: 30px; color: #1290f8" >${data.name}</h2>
+                                        <h3 style="padding-bottom: 20px; margin-top: -30px">${data.role}</h3>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="content">
-            <div class="container rounded bg-white mt-5 mb-5">
-                <div class="row">
-                    <div class="col-md-3 border-right">
-                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                            <img class="rounded-circle mt-5" style="width: 150px" src="${data.img}">
-                            <span class="font-weight-bold" style="margin-top: 20px">${data.name}</span>
-                            <span class="text-black-50">${data.role}</span>
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-body pt-3">
+                                        <!-- Bordered Tabs -->
+                                        <ul class="nav nav-tabs nav-tabs-bordered">                                           
+                                            <li class="nav-item">
+                                                <button class="nav-link active" data-toggle="tab" data-target="#profile-overview"
+                                                        style="background: none; border: none; padding: 10px;">Overview</button>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <button class="nav-link" data-toggle="tab" data-target="#profile-edit"
+                                                        style="background: none; border: none;padding: 10px">Edit Profile</button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content pt-2">
+                                            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                                <h3 class="card-title">About</h3>
+                                                <p class="small fst-italic" style="margin-top: 10px; font-style: italic">Sunt est soluta temporibus accusantium neque nam 
+                                                    maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor.
+                                                    Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. 
+                                                    Fuga sequi sed ea saepe at unde.</p>
+                                                <h3 class="card-title" style="margin-top: 20px">Profile detail</h3>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Full name: </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-8" style="margin-top: 20px">
+                                                        <h4>${data.name}</h4>                                                   
+                                                    </div>                                                                                                
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Mobile Number:  </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.phone}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Email:  </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.email}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Address:  </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.address}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Date of Birth:  </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.dob}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Gender:   </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.gender}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane profile-edit pt-3" id="profile-edit">
+
+                                                <!-- Profile Edit Form -->
+                                                <form>                                                     
+                                                    <div class="text-center">
+                                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                    </div>
+                                                </form><!-- End Profile Edit Form -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="mt-5 text-center col-md-10" style="margin-top: 20px; padding-bottom:50px">
+                                <a href="userlist"><button class="btn btn-primary profile-button" type="button">Back to List</button></a>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="col-md-5 border-right">
-                        <div class="p-3 py-5">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="text-right">User Profile Detail</h4>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-6" style="margin-top: 20px"><label class="labels">Full Name: </label><h5>${data.name}</h5></div>
-                                <!-- <div class="col-md-6"><label class="labels">Last Name: </label><h5>Duc</h5></div> -->
-                            </div>
-                            <div class="usercontent row mt-3">
-                                <div class="col-md-12" style="margin-top: 20px">
-                                    <label class="labels" style="text-decoration: none">Mobile Number: </label>
-                                    <h5>${data.phone}</h5>
-                                </div>
-                                <div class="col-md-12" style="margin-top: 20px">
-                                    <label class="labels" style="text-decoration: none">Email: </label>
-                                    <h5>${data.email}</h5>
-                                </div>
-                                <div class="col-md-12" style="margin-top: 20px">
-                                    <label class="labels" style="text-decoration: none">Address: </label>
-                                    <h5>${data.address}</h5>
-                                </div>                            
-                                <div class="col-md-12" style="margin-top: 20px">
-                                    <label class="labels" style="text-decoration: none">Birthday: </label>
-                                    <h5>${data.dob}</h5>
-                                </div>
-                                <div class="col-md-12" style="margin-top: 20px">
-                                    <label class="labels" style="text-decoration: none">Role: </label>
-                                    <h5>${data.role}</h5>
-                                </div>                                                         
-                                <div class="col-md-12" style="margin-top: 20px">
-                                    <label class="labels" style="text-decoration: none">Gender: </label>
-                                    <h5>${data.gender}</h5>
-                                </div>                             
-                                <div class="col-md-12" style="margin-top: 20px">
-                                    <label class="labels" style="text-decoration: none">Status: </label>
-                                    <h5>${data.status}</h5>
-                                </div>                             
-                            </div>                                                                    
-                        </div>                  
-                    </div>
-                    <div class="mt-5 text-center col-md-10">
-                        <a href="userlist"><button class="btn btn-primary profile-button" type="button">Back to List</button></a>
                     </div>
                 </div>
             </div>
+            <!--slider menu-->
+            <%@include file="adminsidebar.jsp"%>
+            <div class="clearfix"> </div>
         </div>
 
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/scripts.js"></script>
+        <!--//scrolling js-->
+        <script src="js/bootstrap.js"></script>
+        <!-- mother grid end here-->
     </body>
 </html>

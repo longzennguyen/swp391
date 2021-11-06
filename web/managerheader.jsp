@@ -48,7 +48,7 @@
                                 <div class="profile_img">	
                                     <!--                                                <span class="prfil-img"><img src="img/hinh1.png" alt="" s> </span> -->
                                     <div class="user-name" >
-                                        <p style="color: #1290f8">Malorum</p>
+                                        <p style="color: #1290f8">${user.name}</p>
                                         <span>Manager</span>
                                     </div>
                                     <i class="fa fa-angle-down lnr" style="color: #1290f8"></i>

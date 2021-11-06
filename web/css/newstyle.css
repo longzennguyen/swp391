@@ -4720,3 +4720,7 @@ ul.dropdown-menu {
     padding: 4px 7px 7px 7px;
 }
 }
+
+.nav-item .my-button:hover{
+    color: #00aced;
+}

@@ -73,7 +73,7 @@
                         <form action="">
                             <label>Enter your email address</label>
                             <input placeholder="Email" class="form-control" type="text" name="email123123" required>
-                            <input type="submit" name="service" value="Send verification code" style="margin-top: 20px; background-color: deepskyblue;">
+                            <input type="submit" name="service" value="Send verification code" style="margin-top: 20px; background-color: deepskyblue; border: none">
                         </form>
                     </div>
 

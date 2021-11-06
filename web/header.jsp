@@ -10,38 +10,103 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
-        <link rel="stylesheet" href="css/admin.css">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+        <!-- Custom Theme files -->
+        <link href="css/newstyle.css" rel="stylesheet" type="text/css" media="all"/>
+        <!--js-->
+        <script src="js/jquery-2.1.1.min.js"></script> 
+        <!--icons-css-->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css" type="text/css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--Google Fonts-->
+        <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div class="sidebar">
-            <a class="active" href="admin.jsp">Children Care</a>
-            <a href="#general">General</a>
-            <a href="userlist">User List</a>
-<!--            <a href="useradd">Add New User</a>-->
-            <a href="#systemsetting">System Settings Management</a>
-            <a href="#addsystem">Add New System Settings</a>
-        </div>
-
-        <nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color: #373B88;">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>      
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Administrator
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="userprofile?id=1">Profile</a>
-<!--                            <a class="dropdown-item" href="#">Settings</a>-->
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="logout">Logout</a>
-                        </div>
-                    </li>
-                </ul>
+        <div class="header-main">
+            <div class="header-left">
+                <div class="logo-name">
+                    <a href="#"> <h1 style="color: #0f98ce;">ChildrenCare</h1> 
+                    </a> 								
+                </div>
+                <!--search-box-->
+                <!--                            <div class="search-box" style="margin-left: 50px">
+                                                <form>
+                                                    <input type="text" placeholder="Search...">	
+                                                    <input type="submit" value="">					
+                                                </form>
+                                            </div>//end-search-box-->
+                <div class="clearfix"> </div>
             </div>
-        </nav>
+            <div class="header-right">                            
+                <div class="profile_details">		
+                    <ul>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <div class="profile_img">	
+                                    <!--                                                <span class="prfil-img"><img src="img/hinh1.png" alt="" s> </span> -->
+                                    <div class="user-name" >
+                                        <p style="color: #1290f8">${user.name}</p>
+                                        <span>Administrator</span>
+                                    </div>
+                                    <i class="fa fa-angle-down lnr" style="color: #1290f8"></i>
+                                    <i class="fa fa-angle-up lnr" style="color: #1290f8"></i>
+                                    <div class="clearfix"></div>	
+                                </div>	
+                            </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+                                <li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+                                <li> <a href="logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>				
+            </div>
+            <div class="clearfix"> </div>	
+        </div>
+        <!-- script-for sticky-nav -->
+        <script>
+            $(document).ready(function () {
+                var navoffeset = $(".header-main").offset().top;
+                $(window).scroll(function () {
+                    var scrollpos = $(window).scrollTop();
+                    if (scrollpos >= navoffeset) {
+                        $(".header-main").addClass("fixed");
+                    } else {
+                        $(".header-main").removeClass("fixed");
+                    }
+                });
+
+            });
+        </script>
+        <!-- /script-for sticky-nav -->
+        <script>
+            var toggle = true;
+
+            $(".sidebar-icon").click(function () {
+                if (toggle)
+                {
+                    $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                    $("#menu span").css({"position": "absolute"});
+                } else
+                {
+                    $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                    setTimeout(function () {
+                        $("#menu span").css({"position": "relative"});
+                    }, 400);
+                }
+                toggle = !toggle;
+            });
+        </script>
+        <!--scrolling js-->
+        <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/scripts.js"></script>
+        <!--//scrolling js-->
+        <script src="js/bootstrap.js"></script>
+        <!-- mother grid end here-->
     </body>
 </html>
