@@ -1,13 +1,18 @@
 /*
- * To change this license header; choose License Headers in Project Properties.
- * To change this template file; choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-27    1.0        LongNVSE04068          First Version<br>
  */
 package entity;
 
-/**
- *
- * @author longzennguyen
+/**				
+ * class have properties of Posts object in database	
+ *				
+ * @author longnv				
  */
 public class Blogs {
 

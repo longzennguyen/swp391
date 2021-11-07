@@ -1,3 +1,12 @@
+/*
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-15    1.0        LongNVSE04068          First Version<br>
+ */
 package dao;
 
 import java.sql.Connection;

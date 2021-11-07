@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-27    1.0        LongNVSE04068          First Version<br>
  */
 package controller;
 
@@ -16,9 +20,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author ROG STRIX
+/**				
+ * The class contains method find select users in database to check login success				
+ * Users table all data will be normalized 	
+ * The method wil return User Object to check user existed when login		
+ *				
+ * @author longnv				
  */
 public class LoginController extends HttpServlet {
 
@@ -60,7 +67,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     /**
@@ -75,44 +82,52 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String uid = request.getParameter("uid");
-            String pwd = request.getParameter("pwd");
+            //get parameter in <br>Login</br>
+            String uid = request.getParameter("uid").trim();
+            String pwd = request.getParameter("pwd").trim();
             UserDAOImpl userDAO = new UserDAOImpl();
+            //check user existed
             User user = userDAO.getUserByEmailAndPwd(uid, pwd);
             request.setAttribute("user", user);
             if (user == null) {
+                //not existed
                 System.out.println("Do Post Login3");
                 String loginfail = "Tên đăng nhập hoặc mật khẩu không chính xác, vui lòng kiểm tra lại!";
                 request.setAttribute("loginfail1", loginfail);
-                System.out.println("url : " + request.getContextPath() + "/index.jsp");
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                System.out.println("url : " + request.getContextPath() + "/login.jsp");
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
                 System.out.println("Attri bute>>>> " + request.getAttribute("loginfail1"));
             } 
             else if (user.getRole_id() == 5) {
+                //existed and role id = 5
                 System.out.println("Name of user: " + user.getName());
                 request.setAttribute("Name_of_User", user.getName());
                 System.out.println("Username att: " + request.getAttribute("Name_of_User"));
                 //save user information
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("userId", user.getUser_id());
-                request.getRequestDispatcher("homepage").forward(request, response);
+                request.getRequestDispatcher("homepage.jsp").forward(request, response);
             } 
             else if (user.getRole_id() == 2) {
+                //existed and role id = 2
                 response.sendRedirect(request.getContextPath() + "/Manager.jsp");
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("userId", user.getUser_id());
             } 
             else if (user.getRole_id() == 1) {
+                //existed and role id = 1
                 response.sendRedirect(request.getContextPath() + "/admin.jsp");
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("userId", user.getUser_id());
             } 
             else if (user.getRole_id() == 3) {
+                //existed and role id = 3
                 response.sendRedirect(request.getContextPath() + "/staff.jsp");
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("userId", user.getUser_id());
             }
             else if (user.getRole_id() == 4) {
+                //existed and role id = 4
                 response.sendRedirect(request.getContextPath() + "/staff.jsp");
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("userId", user.getUser_id());

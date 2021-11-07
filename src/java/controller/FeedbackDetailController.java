@@ -1,7 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*			
+ * Copyright(C) 2005, Morses Club of London Scottish Bank.			
+ * T.NET:			
+ *  Transport and Information Network			
+ *			
+ * Record of change:			
+ * DATE            Version             AUTHOR           DESCRIPTION			
+ * 2021-10-27      1.0                 LongNVSE04068    Feedback Detail Controller		
  */
 package controller;
 
@@ -16,10 +20,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author ROG STRIX
- */
+/**				
+ * The class contains method find select feedback detail in database				
+ * feedback table all data will be normalized 	
+ * The method wil returns Feedback Object to	show in <br>FeedbackDetail</br>			
+ *				
+ * @author longnv				
+ */			
 public class FeedbackDetailController extends HttpServlet {
 
     /**
@@ -63,8 +70,11 @@ public class FeedbackDetailController extends HttpServlet {
         try {
             Feedback feedback = new Feedback();
             FeedbackDAOImpl feedbackDAO = new FeedbackDAOImpl();
+            //get feedback by id in database
             feedback = feedbackDAO.findById(Integer.parseInt(request.getParameter("id")));
+            //set feedback object to attribute
             request.setAttribute("data", feedback);
+            //forward
             request.getRequestDispatcher("feedbackdetail.jsp").forward(request, response);
         } catch (Exception ex) {
             Logger.getLogger(FeedbackDetailController.class.getName()).log(Level.SEVERE, null, ex);

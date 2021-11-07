@@ -18,6 +18,7 @@
             <a class="active" href="admin.jsp">Children Care</a>
             <a href="#general">General</a>
             <a href="userlist">User List</a>
+            <a href="feedbacklist">Feedback List</a>
 <!--            <a href="useradd">Add New User</a>-->
             <a href="#systemsetting">System Settings Management</a>
             <a href="#addsystem">Add New System Settings</a>

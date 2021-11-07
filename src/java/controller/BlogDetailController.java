@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-10    1.0        LongNV          First Version<br>
  */
 package controller;
 
@@ -16,10 +20,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author ROG STRIX
- */
+/**				
+ * The class contains method find select blog detail in database				
+ * Post table all data will be normalized 	
+ * The method wil return Post Object to	show in <br>BlogDetail</br>			
+ *				
+ * @author longnv				
+ */				
 public class BlogDetailController extends HttpServlet {
 
     /**
@@ -63,8 +70,11 @@ public class BlogDetailController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         BlogDAOImpl blogDAO = new BlogDAOImpl();
         try {
+            //get blog by id
             Blogs blog = blogDAO.getBlogByID(id);
+            //set attribute
             request.setAttribute("data", blog);
+            //forward
             request.getRequestDispatcher("BlogDetail.jsp").forward(request, response);
         } catch (Exception ex) {
             Logger.getLogger(ServiceDetailController.class.getName()).log(Level.SEVERE, null, ex);

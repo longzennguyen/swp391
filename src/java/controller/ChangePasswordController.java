@@ -1,7 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*			
+ * Copyright(C) 2005, Morses Club of London Scottish Bank.			
+ * T.NET:			
+ *  Transport and Information Network			
+ *			
+ * Record of change:			
+ * DATE            Version             AUTHOR           DESCRIPTION			
+ * 2021-10-27      1.0                 LongNVSE04068    change password
  */
 package controller;
 
@@ -23,7 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Process change password, check user existed
+ * Process change password, check user existed in <br>changPass.jsp</br>
  *
  * @author longzennguyen
  */
@@ -98,7 +102,7 @@ public class ChangePasswordController extends HttpServlet {
                             System.out.println("yah4");
                             pw.println("</script>");
                             System.out.println("yah5");
-                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                             rd.include(request, response);
                         }
                     }
@@ -114,7 +118,7 @@ public class ChangePasswordController extends HttpServlet {
                 }
             }
         } else if (service.equals("close")) {
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
             rd.include(request, response);
         }
     }

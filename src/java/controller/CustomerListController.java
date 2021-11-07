@@ -1,14 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-28    1.0        DucNT           First Version<br>
  */
 package controller;
 
 import dao.impl.UserDAOImpl;
 import entity.User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,15 +21,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * processRequest:<br>
+ * - Get data of list <code>User</code> in the database then display in jsp <br>
+ * - Get the word and search <code>User</code> in database by word then display in jsp <br>
+ * doGet <br>
+ * - Handles the HTTP <code>GET</code> method <br>
+ * doPost  <br>
+ * - Handles the HTTP <code>POST</code> method  <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class CustomerListController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
+     * 
+     * - Get data of list <code>User</code> in the database then display in jsp <br>
+     * - Get the word and search <code>User</code> in database by word then display in jsp <br>
      *
+     * 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs

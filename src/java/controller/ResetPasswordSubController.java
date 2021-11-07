@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-30    1.0        LongNVSE04068          First Version<br>
  */
 package controller;
 
@@ -33,10 +37,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import entity.User;
 
-/**
- * Sub controller to process reset password
- *
- * @author longzennguyen
+/**				
+ * The class contains method find select,update users in database to register , connect smtp to send email				
+ * Users table all data will be normalized 	
+ * The method wil update password of users object	
+ *				
+ * @author longnv				
  */
 @WebServlet(name = "ResetPassword", urlPatterns = {"/ResetPassword"})
 public class ResetPasswordSubController extends HttpServlet {
@@ -45,7 +51,11 @@ public class ResetPasswordSubController extends HttpServlet {
     private Connection con;
     private PreparedStatement st;
 
-    //Executed query
+    /**
+     * update password
+     * @param userid
+     * @param newPass 
+     */
     public void resetPassword(long userid, String newPass) {
         String sql = "update users set password='" + newPass + "' where users_id=" + userid;
         ResultSet rs = null;
@@ -62,7 +72,7 @@ public class ResetPasswordSubController extends HttpServlet {
     /**
      * genarate code with length is 5 character number
      *
-     * @return code
+     * @return code with length = 5
      */
     protected String genCode() {
         Random ran = new Random();
@@ -77,7 +87,7 @@ public class ResetPasswordSubController extends HttpServlet {
      * Config smtp and send code to email input
      *
      * @param emailto
-     * @return
+     * @return code after send email
      * @throws AddressException
      * @throws MessagingException
      */
@@ -86,12 +96,14 @@ public class ResetPasswordSubController extends HttpServlet {
         String to = emailto;
         String from = "longnvse04068@gmail.com";
         String host = "smtp.gmail.com";//smtp.gmail.com
+        //set smtp properties
         Properties properties = System.getProperties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "465");
         properties.put("mail.smtp.ssl.enable", "true");
         properties.put("mail.smtp.auth", "true");
         final String password = "zeny@1234";
+        //convert string to char array
         char[] ch = new char[password.length()];
         for (int i = 0; i < password.length(); i++) {
             ch[i] = password.charAt(i);
@@ -104,6 +116,7 @@ public class ResetPasswordSubController extends HttpServlet {
         Session session = Session.getInstance(properties, auth);
         Message msg = new MimeMessage(session);
         final String subject = "Validation Code";
+        //add header
         msg.setFrom(new InternetAddress(from));
         msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
         msg.addHeader("format", "flowed");
@@ -117,7 +130,6 @@ public class ResetPasswordSubController extends HttpServlet {
 //            code += ran.nextInt(9);
 //        }
         msg.setText("Your code is " + code);
-
         msg.setSentDate(new Date());
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
         System.out.println("code: " + code);
@@ -146,19 +158,20 @@ public class ResetPasswordSubController extends HttpServlet {
             resetPassword(Long.valueOf(userid), newPass);
             response.setContentType("text/html");
 
-            //// System.out.println("yah1");
+            //show message
             PrintWriter pw = response.getWriter();
             // System.out.println("yah2");
             pw.println("<script type=\"text/javascript\">");
             //System.out.println("yah3");
-            pw.println("alert('Đổi mật khẩu thành công!');"); //show alert
+            pw.println("alert('Change password successful!');"); //show alert
             System.out.println("yah4");
             pw.println("</script>");
             System.out.println("yah5");
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
             System.out.println("yah6");
             rd.include(request, response);
         } else if (service.equals("sendmail")) {
+            //send email
             System.out.println("ahahahaa");
 //            try {
             String email = request.getParameter("email123123");
@@ -193,11 +206,11 @@ public class ResetPasswordSubController extends HttpServlet {
                     // System.out.println("yah2");
                     pw.println("<script type=\"text/javascript\">");
                     //System.out.println("yah3");
-                    pw.println("alert('Email không tồn tại, Vui lòng kiểm tra lại!');"); //show alert
+                    pw.println("alert('Email not existed!');"); //show alert
                     System.out.println("yah4");
                     pw.println("</script>");
                     System.out.println("yah5");
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                     System.out.println("navigate to new password page");
                     rd.include(request, response);
                 } else {
@@ -213,7 +226,7 @@ public class ResetPasswordSubController extends HttpServlet {
                     // System.out.println("yah2");
                     pw.println("<script type=\"text/javascript\">");
                     //System.out.println("yah3");
-                    pw.println("alert('Mã xác thực đã được gửi về mail.Vui lòng kiểm tra mail!');"); //show alert
+                    pw.println("alert('Please check email to get check code');"); //show alert
                     System.out.println("yah4");
                     pw.println("</script>");
 //                    request.getRequestDispatcher("/NewPassword.jsp").forward(request, response);
@@ -230,10 +243,10 @@ public class ResetPasswordSubController extends HttpServlet {
                 // System.out.println("yah2");
                 pw.println("<script type=\"text/javascript\">");
                 //System.out.println("yah3");
-                pw.println("alert('Loi gui mail!');"); //show alert
+                pw.println("alert('Can't send email!');"); //show alert
                 System.out.println("yah4");
                 pw.println("</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                 rd.include(request, response);
                 Logger.getLogger(ResetPasswordSubController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -271,7 +284,7 @@ public class ResetPasswordSubController extends HttpServlet {
 //            pw.println("alert('Thay đổi mật khẩu thành công!');"); //show alert
 //            System.out.println("yah4");
 //            pw.println("</script>");
-//            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+//            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 //            rd.include(request, response);
 //        }
 

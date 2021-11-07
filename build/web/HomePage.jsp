@@ -10,32 +10,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
-              rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
-              rel="stylesheet">
+        <title>Home Page</title>
         <!-- //Web-Fonts -->
         <!-- Bootsrap -->
         <link rel="stylesheet" href="css/bootstrap.css">
-
         <!-- Font awesome -->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css" type="text/css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <!-- Owl carousel -->
         <link rel="stylesheet" href="css/owl.carousel.css">
-
         <!-- Template main Css -->
         <link rel="stylesheet" href="css/style.css">
-
         <!-- Modernizr -->
-        <script src="js/modernizr.js"></script>
+        <script src="js/jquery-2.1.1.min.js"></script> 
+        <!--Google Fonts-->
+        <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
     </head>
     <body>
 
         <%@include file="homepageheader.jsp"%>
-
-
         <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -191,27 +187,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
-            window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\script>');
+            window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\script>');
         </script>
 
         <!-- Bootsrap javascript file -->
@@ -222,5 +200,9 @@
 
         <!-- Template main javascript -->
         <script src="js/main.js"></script>
+        <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/scripts.js"></script>
+        <!--//scrolling js-->
+        <script src="js/bootstrap.js"></script>
     </body>
 </html>

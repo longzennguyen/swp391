@@ -85,6 +85,11 @@
         <servlet-class>controller.CustomerListSearchController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CustomerEditController</servlet-name>
+        <servlet-class>controller.CustomerEditController</servlet-class>
+        
+    </servlet>
+    <servlet>
         <servlet-name>Reservation</servlet-name>
         <servlet-class>controller.ReservationController</servlet-class>
     </servlet>
@@ -171,6 +176,11 @@
     <servlet-mapping>
         <servlet-name>CustomerListSearchController</servlet-name>
         <url-pattern>/customerlistsearch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerEditController</servlet-name>
+        <url-pattern>/customeredit</url-pattern>
+        
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Reservation</servlet-name>

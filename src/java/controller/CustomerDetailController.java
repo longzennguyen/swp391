@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-28    1.0        DucNT           First Version<br>
  */
 package controller;
 
@@ -17,8 +21,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * doGet:<br>
+ * - Get data of user in the database then display in jsp <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class CustomerDetailController extends HttpServlet {
 
@@ -52,6 +58,9 @@ public class CustomerDetailController extends HttpServlet {
     /**
      * Handles the HTTP <code>GET</code> method.
      *
+     * Get data of <code>User</code> in the database then display in jsp
+     * 
+     * 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
