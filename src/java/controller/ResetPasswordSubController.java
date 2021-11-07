@@ -167,7 +167,7 @@ public class ResetPasswordSubController extends HttpServlet {
             System.out.println("yah4");
             pw.println("</script>");
             System.out.println("yah5");
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
             System.out.println("yah6");
             rd.include(request, response);
         } else if (service.equals("sendmail")) {
@@ -210,7 +210,7 @@ public class ResetPasswordSubController extends HttpServlet {
                     System.out.println("yah4");
                     pw.println("</script>");
                     System.out.println("yah5");
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                     System.out.println("navigate to new password page");
                     rd.include(request, response);
                 } else {
@@ -246,7 +246,7 @@ public class ResetPasswordSubController extends HttpServlet {
                 pw.println("alert('Can't send email!');"); //show alert
                 System.out.println("yah4");
                 pw.println("</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                 rd.include(request, response);
                 Logger.getLogger(ResetPasswordSubController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -284,7 +284,7 @@ public class ResetPasswordSubController extends HttpServlet {
 //            pw.println("alert('Thay đổi mật khẩu thành công!');"); //show alert
 //            System.out.println("yah4");
 //            pw.println("</script>");
-//            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+//            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 //            rd.include(request, response);
 //        }
 

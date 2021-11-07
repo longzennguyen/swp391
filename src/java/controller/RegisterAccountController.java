@@ -25,12 +25,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**				
- * The class contains method find select,insert users to database				
- * Users table all data will be normalized 	
- * The method wil return User Object to check user existed when register , insert new User to Users table		
- *				
- * @author longnv				
+/**
+ * The class contains method find select,insert users to database Users table
+ * all data will be normalized The method wil return User Object to check user
+ * existed when register , insert new User to Users table
+ *
+ * @author longnv
  */
 @WebServlet(name = "RegisterAccount", urlPatterns = {"/RegisterAccount"})
 public class RegisterAccountController extends HttpServlet {
@@ -54,14 +54,50 @@ public class RegisterAccountController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             //get parameter
-            String email = request.getParameter("username");
-            String password = request.getParameter("password");
-            String fname = request.getParameter("first_name");
-            String lname = request.getParameter("last_name");
-            String dob = request.getParameter("date");
-            String gender = request.getParameter("gender");
-            String address = request.getParameter("address");
-            String phoneNum = request.getParameter("phone");
+            String email = request.getParameter("username").trim().toLowerCase();
+            boolean checkEmailValid = true;
+           if(email.contains("@") && (email.length() > (email.indexOf('@')+1)))
+               checkEmailValid =true;
+           else
+               checkEmailValid =false;
+            System.out.println("check email result : "+checkEmailValid);
+            if (null == email || email.length() == 0 || checkEmailValid == false) {
+                request.setAttribute("error_Email", "Email invalid!");
+                RequestDispatcher rd = request.getRequestDispatcher("/signup.jsp");
+                rd.include(request, response);
+            }
+            String password = request.getParameter("password").trim();
+            if (null == password || password.length() < 8) {
+                request.setAttribute("error_Password", "Password invalid!");
+                RequestDispatcher rd = request.getRequestDispatcher("/signup.jsp");
+                rd.include(request, response);
+            }
+            String fname = request.getParameter("first_name").trim();
+            if (null == fname || fname.length() == 0) {
+                request.setAttribute("error_FName", "Fist name can't be empty!");
+                RequestDispatcher rd = request.getRequestDispatcher("/signup.jsp");
+                rd.include(request, response);
+            }
+            String lname = request.getParameter("last_name").trim();
+            if (null == lname || lname.length() == 0) {
+                request.setAttribute("error_LName", "Last name can't be empty!");
+                RequestDispatcher rd = request.getRequestDispatcher("/signup.jsp");
+                rd.include(request, response);
+            }
+            String dob = request.getParameter("date").trim();
+            String gender = request.getParameter("gender").trim();
+            String address = request.getParameter("address").trim();
+            if (null == address || address.length() == 0) {
+                request.setAttribute("error_Address", "Address can't be empty!");
+                RequestDispatcher rd = request.getRequestDispatcher("/signup.jsp");
+                rd.include(request, response);
+            }
+            String phoneNum = request.getParameter("phone").trim();
+            if (null == phoneNum || phoneNum.length() == 0) {
+                request.setAttribute("error_Phone", "Phone number invalid!");
+                RequestDispatcher rd = request.getRequestDispatcher("/signup.jsp");
+                rd.include(request, response);
+            }
             String date2 = null;
             try {
                 SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-mm-dd");
@@ -102,7 +138,13 @@ public class RegisterAccountController extends HttpServlet {
                         System.out.println("Insert success");
                         con.close();
                     } catch (Exception e) {
-                        System.out.println("Not found user or error to insert");
+                        PrintWriter pw = response.getWriter();
+                        // System.out.println("yah2");
+                        pw.println("<script type=\"text/javascript\">");
+                        //System.out.println("yah3");
+                        pw.println("alert('Can't create account, Please try againt!!');"); //show alert
+                        System.out.println("yah4");
+                        pw.println("</script>");
                     }
                     // System.out.println("yah");
                     response.setContentType("text/html");
@@ -112,11 +154,11 @@ public class RegisterAccountController extends HttpServlet {
                     // System.out.println("yah2");
                     pw.println("<script type=\"text/javascript\">");
                     //System.out.println("yah3");
-                    pw.println("alert('Tạo tài khoản thành công!');"); //show alert
+                    pw.println("alert('Successful!!');"); //show alert
                     System.out.println("yah4");
                     pw.println("</script>");
                     System.out.println("yah5");
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                     System.out.println("yah6");
                     rd.include(request, response);
                 } else {
@@ -126,9 +168,9 @@ public class RegisterAccountController extends HttpServlet {
                     response.setContentType("text/html");
                     PrintWriter pw = response.getWriter();
                     pw.println("<script type=\"text/javascript\">");
-                    pw.println("alert('Email đã tồn tại , vui lòng kiểm tra lại!');");
+                    pw.println("alert('Email existed!');");
                     pw.println("</script>");
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                     rd.include(request, response);
                 }
             }

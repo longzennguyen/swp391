@@ -83,8 +83,8 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         try {
             //get parameter in <br>Login</br>
-            String uid = request.getParameter("uid");
-            String pwd = request.getParameter("pwd");
+            String uid = request.getParameter("uid").trim();
+            String pwd = request.getParameter("pwd").trim();
             UserDAOImpl userDAO = new UserDAOImpl();
             //check user existed
             User user = userDAO.getUserByEmailAndPwd(uid, pwd);
@@ -95,7 +95,7 @@ public class LoginController extends HttpServlet {
                 String loginfail = "Tên đăng nhập hoặc mật khẩu không chính xác, vui lòng kiểm tra lại!";
                 request.setAttribute("loginfail1", loginfail);
                 System.out.println("url : " + request.getContextPath() + "/login.jsp");
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
                 System.out.println("Attri bute>>>> " + request.getAttribute("loginfail1"));
             } 
             else if (user.getRole_id() == 5) {
@@ -106,7 +106,7 @@ public class LoginController extends HttpServlet {
                 //save user information
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("userId", user.getUser_id());
-                request.getRequestDispatcher("homepage").forward(request, response);
+                request.getRequestDispatcher("homepage.jsp").forward(request, response);
             } 
             else if (user.getRole_id() == 2) {
                 //existed and role id = 2

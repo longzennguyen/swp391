@@ -56,12 +56,12 @@ public class ResetPasswordController extends HttpServlet {
 //        request.getSession().getAttribute(service)
         if (service.equals("reset_p")) {
             //update pass
-            String code = request.getParameter("codere");
-            String codeInput = request.getParameter("code");
-            String pass = request.getParameter("passwordr");
-            String repass = request.getParameter("repasswordr");
+            String code = request.getParameter("codere").trim();
+            String codeInput = request.getParameter("code").trim();
+            String pass = request.getParameter("passwordr").trim();
+            String repass = request.getParameter("repasswordr").trim();
             System.out.println("p1: " + pass + " \t p2: " + repass);
-            String email = request.getParameter("emailr1");
+            String email = request.getParameter("emailr1").trim();
             System.out.println("email just get: " + email);
             if (code.equals(codeInput) && pass.equals(repass)) {
                 System.out.println("code valid");
@@ -88,22 +88,22 @@ public class ResetPasswordController extends HttpServlet {
                 // System.out.println("yah2");
                 pw.println("<script type=\"text/javascript\">");
                 //System.out.println("yah3");
-                pw.println("alert('Thay đổi mật khẩu thành công!');"); //show alert
+                pw.println("alert('Change password successful!');"); //show alert
                 System.out.println("yah4");
                 pw.println("</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                 rd.include(request, response);
             } else {
                 System.out.println("Code invalid");
                 //set attribute
                 request.setAttribute("code_reset", code);
                 request.setAttribute("emailr", email);
-                request.setAttribute("error_code", "Mã code không đúng hoặc mật khẩu không khớp,vui lòng kiểm tra lại!");
+                request.setAttribute("error_code", "Your code incorrect!!");
                 RequestDispatcher rd = request.getRequestDispatcher("/NewPassword.jsp");
                 rd.include(request, response);
             }
         } else if (service.equals("close")) {
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
             rd.include(request, response);
         }
     }
