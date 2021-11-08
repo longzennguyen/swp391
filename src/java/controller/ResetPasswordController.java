@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-30    1.0        LongNVSE04068          First Version<br>
  */
 package controller;
 
@@ -18,10 +22,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Controller to process reset password
- *
- * @author longzennguyen
+/**				
+ * The class contains method insert users in database to check login success				
+ * Users table all data will be normalized 	
+ * The method will update password to user with email inputed		
+ *				
+ * @author longnv				
  */
 @WebServlet(name = "ResetPass", urlPatterns = {"/ResetPass"})
 public class ResetPasswordController extends HttpServlet {
@@ -50,12 +56,12 @@ public class ResetPasswordController extends HttpServlet {
 //        request.getSession().getAttribute(service)
         if (service.equals("reset_p")) {
             //update pass
-            String code = request.getParameter("codere");
-            String codeInput = request.getParameter("code");
-            String pass = request.getParameter("passwordr");
-            String repass = request.getParameter("repasswordr");
+            String code = request.getParameter("codere").trim();
+            String codeInput = request.getParameter("code").trim();
+            String pass = request.getParameter("passwordr").trim();
+            String repass = request.getParameter("repasswordr").trim();
             System.out.println("p1: " + pass + " \t p2: " + repass);
-            String email = request.getParameter("emailr1");
+            String email = request.getParameter("emailr1").trim();
             System.out.println("email just get: " + email);
             if (code.equals(codeInput) && pass.equals(repass)) {
                 System.out.println("code valid");
@@ -77,26 +83,27 @@ public class ResetPasswordController extends HttpServlet {
                 }
                 response.setContentType("text/html");
 
-                //// System.out.println("yah1");
+                //show error
                 PrintWriter pw = response.getWriter();
                 // System.out.println("yah2");
                 pw.println("<script type=\"text/javascript\">");
                 //System.out.println("yah3");
-                pw.println("alert('Thay đổi mật khẩu thành công!');"); //show alert
+                pw.println("alert('Change password successful!');"); //show alert
                 System.out.println("yah4");
                 pw.println("</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                 rd.include(request, response);
             } else {
                 System.out.println("Code invalid");
+                //set attribute
                 request.setAttribute("code_reset", code);
                 request.setAttribute("emailr", email);
-                request.setAttribute("error_code", "Mã code không đúng hoặc mật khẩu không khớp,vui lòng kiểm tra lại!");
+                request.setAttribute("error_code", "Your code incorrect!!");
                 RequestDispatcher rd = request.getRequestDispatcher("/NewPassword.jsp");
                 rd.include(request, response);
             }
         } else if (service.equals("close")) {
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
             rd.include(request, response);
         }
     }

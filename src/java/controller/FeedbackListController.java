@@ -5,7 +5,7 @@
  *
  * Record of change:<br>
  * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-10    1.0        LongNV          First Version<br>
+ * 2021-10-27    1.0        LongNVSE04068          First Version<br>
  */
 package controller;
 
@@ -21,9 +21,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author ROG STRIX
+/**				
+ * The class contains method find select feedbacklist in database				
+ * Feedback table all data will be normalized 	
+ * The method wil return List feedback Object to	show in <br>FeedbackList</br>			
+ *				
+ * @author longnv				
  */
 public class FeedbackListController extends HttpServlet {
 
@@ -67,7 +70,7 @@ public class FeedbackListController extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            
+            //set page size
             int pageSize = 3;
             // get page current
             int page;
@@ -80,6 +83,7 @@ public class FeedbackListController extends HttpServlet {
                 page = 1;
             }
             FeedbackDAOImpl feedbackDAO = new FeedbackDAOImpl();
+            //get list feedback
             ArrayList<Feedback> feedbackList = feedbackDAO.getAllFeedbackPaging(pageSize, page);
             if (!feedbackList.isEmpty()) {
                 // get number page
@@ -87,6 +91,7 @@ public class FeedbackListController extends HttpServlet {
                 request.setAttribute("numberPage", numberPage);
                 request.setAttribute("page", page);
             }
+            //set attribute
             request.setAttribute("feedbackList", feedbackList);
             request.getRequestDispatcher("feedbacklist.jsp").forward(request, response);
         } catch (Exception ex) {

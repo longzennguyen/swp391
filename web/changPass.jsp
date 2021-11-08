@@ -40,7 +40,7 @@
                                 <input hidden="true" name="emailr1" value="${emailr}">
                                 <label class="col-2 col-form-label">Email</label>
                                 <div class="col-10">
-                                    <input placeholder="Email" class="form-control" type="email" name="email" required>
+                                    <input minlength="8" maxlength="50" placeholder="Email" class="form-control" type="email" name="email" required>
                                 </div>
                                 <!--<div class="row">-->
 
@@ -55,7 +55,7 @@
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Mật khẩu mới</label>
                                 <div class="col-10">
-                                    <input placeholder="Mật khẩu mới" class="form-control" type="password" name="passwordr" id="passwordr" onkeyup="validatePasswordr()">
+                                    <input minlength="8" maxlength="20" placeholder="Mật khẩu mới" class="form-control" type="password" name="passwordr" id="passwordr" onkeyup="validatePasswordr()">
                                 </div>
                             </div>
                             <div class="form-group row">

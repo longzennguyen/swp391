@@ -10,8 +10,9 @@
 package entity;
 
 /**
+ * class have properties of Users table in database
  *
- * @author ROG STRIX
+ * @author longnv
  */
 public class User {
 

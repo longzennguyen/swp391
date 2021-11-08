@@ -20,9 +20,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author longzennguyen
+/**				
+ * The class contains method find select blog list in database				
+ * Post table all data will be normalized 	
+ * The method wil return Post Object to	show in <br>BlogList</br>			
+ *				
+ * @author longnv				
  */
 
 public class BlogListController extends HttpServlet {
@@ -40,6 +43,7 @@ public class BlogListController extends HttpServlet {
             throws ServletException, IOException {
         try {
             response.setContentType("text/html;charset=UTF-8");
+            //set page size
             int pageSize = 4;
             // get page current
             int page;
@@ -54,14 +58,17 @@ public class BlogListController extends HttpServlet {
             
             BlogDAOImpl blogDAO = new BlogDAOImpl();
             ArrayList<Blogs> blogList;
+            ///get list blogs
             blogList = blogDAO.getBlogsPaging(pageSize, page);
             if (!blogList.isEmpty()) {
                 // get number page
                 int numberPage = blogDAO.getNumberOfPages(pageSize);
+                //set attribute
                 request.setAttribute("numberPage", numberPage);
                 request.setAttribute("page", page);
             }
             request.setAttribute("blogList", blogList);
+            //forward
             request.getRequestDispatcher("/BlogList.jsp").forward(request, response);
             
         } catch (Exception ex) {

@@ -35,8 +35,9 @@
                 </div>
                 <div class="login-block">
                     <form action="login" method="POST"> 
-                        <input type="text" name="uid" placeholder="Email" required="">
-                        <input type="password" name="pwd" class="lock" placeholder="Password">
+                        <p style="color: red"><%=request.getAttribute("loginfail1") == null ? "" : request.getAttribute("loginfail1")%></p>
+                        <input minlength="8" maxlength="200" type="text" name="uid" placeholder="Email" required="">
+                        <input minlength="8" maxlength="20" type="password" name="pwd" class="lock" placeholder="Password">
                         <div class="forgot-top-grids">
                             <div class="forgot-grid">
                                 <ul>
@@ -52,37 +53,42 @@
                             <div class="clearfix"> </div>
                         </div>
                         <input type="submit" name="Sign In" value="Login">
-                        <h3>Not a member?<a href="signup.jsp"> Sign up now</a></h3>
+                         <h3><a href="changPass.jsp">Change password</a><p style="color: yellowgreen">Or</p>Not a member?<a href="signup.jsp"> Sign up now</a></h3>
 
                     </form>
                     <h5><a href="homepage">Go Back to Home</a></h5>
                 </div>
             </div>
         </div>
-        
+
         <!--inner block end here-->
         <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Reset password</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form action="">
-                            <label>Enter your email address</label>
-                            <input placeholder="Email" class="form-control" type="text" name="email123123" required>
-                            <input type="submit" name="service" value="Send verification code" style="margin-top: 20px; background-color: deepskyblue; border: none">
-                        </form>
+            <form action="ResetPassword" method="POST">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Reset password</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <label>Enter your email address</label>
+                                <input  placeholder="Email" minlength="3" maxlength="50" class="form-control" type="text" name="email123123" required>
+                                <!--input type="submit" name="service" value="sendmail" style="margin-top: 20px; background-color: deepskyblue;"-->
+                                <button class="col-sm-4 " type="submit" style="margin-top: 20px; background-color: deepskyblue;" name="service" value="sendmail">
+                                    Send Code
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
                 </div>
-
-            </div>
+            </form>
         </div>
         <!--scrolling js-->
         <script src="js/jquery.nicescroll.js"></script>
