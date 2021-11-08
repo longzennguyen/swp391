@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 /**				
  * The class contains method find select blog detail in database				
  * Post table all data will be normalized 	
- * The method wil return Post Object to	show in <br>BlogDetail</br>			
+ * The method will return Post Object to	show in <br>BlogDetail</br>			
  *				
  * @author longnv				
  */				
