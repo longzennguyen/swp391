@@ -94,7 +94,7 @@ public class CustomerListController extends HttpServlet {
             }
         }
         request.setAttribute("customerList", customerList);
-        request.getRequestDispatcher("customerlist.jsp").forward(request, response);
+        request.getRequestDispatcher("customerlist.jsp").forward(request, response);        
 
     }
 
