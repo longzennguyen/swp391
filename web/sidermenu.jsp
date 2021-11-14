@@ -46,8 +46,8 @@
                                                     <li id="menu-arquivos" ><a href="icons.html">Icons</a></li>
                                                 </ul>
                                             </li>-->
-                    <li><a href="customerlist?page=1&word="><i class="fa fa-users"></i><span>Customers</span></a></li>
-                    <li><a href="#"><i class="fa fa-heart"></i><span>Services</span></a></li>
+                    <li><a href="${pageContext.request.contextPath}/customerlist?page=1&word="><i class="fa fa-users"></i><span>Customers</span></a></li>
+                    <li><a href="${pageContext.request.contextPath}/manager/service"><i class="fa fa-heart"></i><span>Services</span></a></li>
                     <li><a href="feedbacklist"><i class="fa fa-star-half-o"></i><span>Feedbacks</span></a></li>
                     <li><a href="#"><i class="fa fa-list-alt"></i><span>Posts</span></a></li>
                     <!--                        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>

@@ -37,7 +37,7 @@ public class DBContext {
     /**
      * DBContext host
      */
-    final private String HOST = "Duke";
+    final private String HOST = "localhost";
     /**
      * DBContext port
      */

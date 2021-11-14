@@ -1,18 +1,19 @@
 /*
- * Copyright (C) 2021, FPT University<br>
- * SWP391<br>
- * ChildrenCareProject<br>
- *
- * Record of change:<br>
- * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-15    1.0        DucNT           First Version<br>
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-package controller;
+package controller.manager;
 
+import dao.IServiceDAO;
 import dao.impl.ServiceDAOImpl;
 import entity.Service;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -22,9 +23,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ROG STRIX
+ * @author Admin
  */
-public class ServiceSearchController extends HttpServlet {
+public class ServicelistController extends HttpServlet {
+
+    private static final int PAGE_SIZE = 5;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,36 +40,26 @@ public class ServiceSearchController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        IServiceDAO serviceDao = new ServiceDAOImpl();
+        int index = getPageIndex(request);
+        System.out.println(index);
+        String keyword = request.getParameter("keyword");
+        String sort = request.getParameter("sort");
+        sort = (sort == null) ? "" : sort;
+                    System.out.println(sort);
+        keyword = (keyword == null ? "" : keyword);
         try {
-            String word = request.getParameter("word");
-            int pageSize = 3;
-            // get page current
-            int page;
-            try {
-                page = Integer.parseInt(request.getParameter("page"));
-            } catch (NumberFormatException ex) {
-                page = 1;
-            }
-            if (page <= 0) {
-                page = 1;
-            }
-            
-            ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
-            ArrayList<Service> serviceList;
-            serviceList = serviceDAO.getAllServicePagingbyWord(word,"", pageSize, page);
-            if (!serviceList.isEmpty()) {
-                // get number page
-                int numberPage = serviceDAO.getNumberOfPagesSearch(pageSize, word);
-                request.setAttribute("numberPage", numberPage);
-                request.setAttribute("page", page);
-                request.setAttribute("word", word);
-            }
-            request.setAttribute("serviceList", serviceList);
-            request.getRequestDispatcher("servicesearch.jsp").forward(request, response);
-
+            List<entity.Service> data = serviceDao.getAllServicePagingbyWord(keyword,sort, PAGE_SIZE, index);
+            int totalDat = serviceDao.getNumberOfPagesSearch(PAGE_SIZE, keyword);
+            request.setAttribute("totalPage", totalDat);
+            request.setAttribute("data", data);
+            request.setAttribute("index", index);
         } catch (Exception ex) {
-            Logger.getLogger(ServiceSearchController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServicelistController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        request.setAttribute("keyword", keyword);
+        request.setAttribute("sort", sort);
+        request.getRequestDispatcher("ServiceList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -107,5 +100,15 @@ public class ServiceSearchController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private Integer getPageIndex(HttpServletRequest request) {
+        int index = 1;
+        try {
+            index = Integer.parseInt(request.getParameter("index"));
+        } catch (Exception e) {
+
+        }
+        return index;
+    }
 
 }

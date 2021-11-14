@@ -66,7 +66,7 @@ public interface IServiceDAO {
      * @return a list <code>User</code> object
      * @throws Exception
      */
-    public ArrayList<Service> getAllServicePagingbyWord(String word, int pageSize, int pageIndex) throws Exception;
+    public ArrayList<Service> getAllServicePagingbyWord(String word ,String sort, int pageSize, int pageIndex) throws Exception;
 
     /**
      * Get number of pages in pagination
@@ -88,4 +88,6 @@ public interface IServiceDAO {
      * @throws Exception
      */
     public Service getServiceDetail(int id) throws Exception;
+    
+    public Service update(Service service);
 }
