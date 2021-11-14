@@ -42,23 +42,15 @@
             </ol>
 
             <div class="carousel-inner" role="listbox">
-
                 <div class="item active">
-
                     <img src="img/home-slider-4.jpg" alt="" style="width: 1920px;height: 580px">
-
                     <div class="container">
-
                         <div class="carousel-caption">
-
                             <h2 class="carousel-title bounceInDown animated slow">Believe in our Service</h2>
                             <h4 class="carousel-subtitle bounceInUp animated slow ">We won't let you down</h4>
                             <a href="servicelist" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" >View Service</a>
-
                         </div> <!-- /.carousel-caption -->
-
                     </div>
-
                 </div> <!-- /.item -->
 
 

@@ -36,7 +36,7 @@
                     <!--inner block start here-->
 
                     <div class="inner-block">
-                        <div class="blank">
+                        <div class="blank">                            
                             <div class="content text-center" style="">
                                 <h2 style="color: #1290f8">Customers List</h2>
                             </div>                             
