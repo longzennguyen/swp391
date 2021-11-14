@@ -44,7 +44,7 @@ public class BlogListController extends HttpServlet {
         try {
             response.setContentType("text/html;charset=UTF-8");
             //set page size
-            int pageSize = 4;
+            int pageSize = 8;
             // get page current
             int page;
             try {

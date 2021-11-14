@@ -106,7 +106,8 @@ public class LoginController extends HttpServlet {
                 //save user information
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("userId", user.getUser_id());
-                request.getRequestDispatcher("homepage.jsp").forward(request, response);
+                response.sendRedirect("homepage");
+                //request.getRequestDispatcher("homepage").forward(request, response);
             } 
             else if (user.getRole_id() == 2) {
                 //existed and role id = 2

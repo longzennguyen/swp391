@@ -202,24 +202,37 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
      *
      *
      * @param id
-     * @param role_id
-     * @param status_id
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param email
+     * @param phone
+     * @param dob
      */
     @Override
-    public void editUserByID(int id, int role_id, int status_id) {
+    public void editUserByID(int id, String firstName, String lastName, String address, String email, String phone, String dob) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         Connection conn = null;
         PreparedStatement ps = null;
 
         String sql = "update [Users]\n"
-                + "set [Users].role_id = ?, [Users].status_id = ?\n"
+                + "set [Users].first_name = ?,\n"
+                + "[Users].last_name = ?,\n"
+                + "[Users].[address] = ?,\n"
+                + "[Users].phone = ?,\n"
+                + "[Users].email = ?,\n"
+                + "[Users].dob = ? \n"
                 + "where [Users].users_id = ? ";
         try {
             conn = getConnection();
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, role_id);
-            ps.setInt(2, status_id);
-            ps.setInt(3, id);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ps.setString(3, address);
+            ps.setString(4, phone);
+            ps.setString(5, email);
+            ps.setString(6, dob);
+            ps.setInt(7, id);
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -695,7 +708,6 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
 //        }
 //        
 //    }
-
     @Override
     public User getCustomerByID(int id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -779,7 +791,7 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
                 user.setRole_id(rs.getInt("role_id"));
                 users.add(user);
             }
-            
+
         } catch (ClassNotFoundException | SQLException ex) {
             throw ex;
         } finally {
@@ -801,8 +813,8 @@ public class UserDAOImpl extends DBContext implements IUserDAO {
                 + "FROM ([Users]\n"
                 + "      JOIN [Role] ON [Users].role_id = [Role].role_id\n"
                 + "      JOIN StatusData ON [Users].status_id = StatusData.status_id) \n"
-                + "	  WHERE [Role].role_id = ?\n" +
-        "ORDER BY [users_id] ASC";
+                + "	  WHERE [Role].role_id = ?\n"
+                + "ORDER BY [users_id] ASC";
         System.out.println(sql);
         ArrayList<User> users = new ArrayList<>();
 

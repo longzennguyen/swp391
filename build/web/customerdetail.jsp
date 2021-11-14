@@ -9,142 +9,142 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
-              rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
-              rel="stylesheet">
-        <!-- //Web-Fonts -->
-        <!-- Bootsrap -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-
-        <!-- Font awesome -->
+        <title>Customer Detail</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+        <!-- Custom Theme files -->
+        <link href="css/newstyle.css" rel="stylesheet" type="text/css" media="all"/>
+        <!--js-->
+        <script src="js/jquery-2.1.1.min.js"></script> 
+        <!--icons-css-->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css" type="text/css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-
-        <!-- Owl carousel -->
-        <link rel="stylesheet" href="css/owl.carousel.css">
-
-        <!-- Template main Css -->
-        <link rel="stylesheet" href="css/style.css">
-
-        <!-- Modernizr -->
-        <script src="js/modernizr.js"></script>
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--Google Fonts-->
+        <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
     </head>
-    <body onload="onLoad()">
-        <%@include file="homepageheader.jsp"%>
+    <body>
+        <div class="page-container">	
+            <div class="left-content">
+                <div class="mother-grid-inner">
+                    <!--header start here-->
+                    <%@include file="managerheader.jsp"%>
+                    <!--inner block start here-->
+                    <div class="inner-block">
+                        <div class="blank">
+                            <div class="content text-center" style="">
+                                <h2 style="color: #1290f8">User Profile</h2>
+                            </div>
+                            <div class="col-md-4 text-center" >
+                                <div class="card">
+                                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center" style="margin: 10px">
+                                        <img src="${data.img}" alt="Profile" class="rounded-circle" style="width: 150px;margin-top: 30px">
+                                        <h2 style="margin-top: 30px; color: #1290f8" >${data.name}</h2>
+                                        <h3 style="padding-bottom: 20px; margin-top: -30px">${data.role}</h3>
+                                    </div>
+                                </div>
+                            </div>
 
-    <center>
-        <div style="padding: 20px; margin-bottom: 50px">
-            <div class="text-center">
-                <h2 >Customer Profile</h2>
-            </div>
-            <form method="POST" action="customeredit">
-            <div class="container rounded bg-white mt-5 mb-5">
-                <div class="row">
-                    <div class="col-md-6 border-right">
-                        <div class="p-3 py-5">
-                            <div class="row mt-3">
-                                <div class="col-md-12" style="margin-top: 20px;"><label class="labels">Full Name</label>
-                                    <input type="text" id = "Input" class="form-control text-center" placeholder="${data.name}"  readonly>
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-body pt-3">
+                                        <!-- Bordered Tabs -->
+                                        <ul class="nav nav-tabs nav-tabs-bordered">                                           
+                                            <li class="nav-item">
+                                                <button class="nav-link" data-toggle="tab" data-target="#profile-overview"
+                                                        style="background: none; border: none; padding: 10px;">Overview</button>
+                                            </li>
+                                            <li class="nav-item">
+
+                                                <button class="nav-link"
+                                                        style="background: none; border: none;padding: 10px">
+                                                    <a href="customeredit?id=${data.user_id}">Edit Profile</a>
+                                                </button>
+
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content pt-2">
+                                            <div class="profile-overview" id="profile-overview" >
+                                                <h3 class="card-title">About</h3>
+                                                <p class="small fst-italic" style="margin-top: 10px; font-style: italic">Sunt est soluta temporibus accusantium neque nam 
+                                                    maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor.
+                                                    Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. 
+                                                    Fuga sequi sed ea saepe at unde.</p>
+                                                <h3 class="card-title" style="margin-top: 20px">Profile detail</h3>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Full name: </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-8" style="margin-top: 20px">
+                                                        <h4>${data.name}</h4>                                                   
+                                                    </div>                                                                                                
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Mobile Number:  </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.phone}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Email:  </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.email}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Address:  </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.address}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Date of Birth:  </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.dob}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="margin-top: 20px">
+                                                        <label class="labels" style="text-decoration: none; color: #115c9b">Gender:   </label>                                                   
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 20px">
+                                                        <h4>${data.gender}</h4>                                                   
+                                                    </div>                                                 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-12" style="margin-top: 20px;"><label class="labels">Mobile Number</label>
-                                    <input type="text" id = "Input" class="form-control text-center" placeholder="${data.phone}"  readonly>
-                                </div>
-                                <div class="col-md-12" style="margin-top: 20px;"><label class="labels">Email</label>
-                                    <input type="text" id = "Input" class="form-control text-center" placeholder="${data.email}"  readonly>
-                                </div>
-                                <div class="col-md-12" style="margin-top: 20px;"><label class="labels">Address</label>
-                                    <input type="text" id = "Input" class="form-control text-center" placeholder="${data.address}"  readonly>
-                                </div>
-                                <div class="col-md-12" style="margin-top: 20px;"><label class="labels">Birthday</label>
-                                    <input type="text" id = "Input" class="form-control text-center" placeholder="${data.dob}" readonly>
-                                </div>                                
 
                             </div>
+                            <div class="mt-5 text-center col-md-10" style="margin-top: 20px; padding-bottom:50px">
+                                <a href="customerlist?page=1&word="><button class="btn btn-primary profile-button" type="button">Back to List</button></a>
+                            </div>
+
                         </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="p-3 py-5" >
-                            <div class="col-md-12" style="margin-top: 20px;"><label class="labels">User ID: </label>
-                                <input type="text" class="form-control text-center" name="user_id" placeholder="${data.user_id}" disabled="">
-                            </div>
-
-                            <div class="col-md-12" style="margin-top: 20px;"><label class="labels">Role: </label>
-                                <input type="text" class="form-control text-center" placeholder="${data.role}" disabled="">
-                            </div>
-                            <div class="col-md-12" style="margin-top: 20px;"><label class="labels"> Status: </label>
-                                <input type="text" class="form-control text-center Input"  placeholder="${data.status}" disabled="">
-                            </div>                             
-                        </div>
-                    </div>
+                    <!--inner block end here-->
                 </div>
             </div>
-            <div class="text-center" style="margin-top: 50px">
-                <input class="btn btn-primary" type="submit" id="submit" value="Submit"> 
-            </div>                  
-            </form>                
-            <div class="text-center" style="margin-top: 50px">
-                <a href="customerlist?page=1&word=" class="btn btn-primary">Back to Customer list</a>
-                <button class="btn btn-primary" onclick = "Run()" id="edit">Edit this Customer Information</button>                
-            </div>
-                            
-                            
-        
+            <!--slider menu-->
+            <%@include file="sidermenu.jsp"%> 
+            <div class="clearfix"> </div>
         </div>
 
-    </center>
+        <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/scripts.js"></script>
+        <!--//scrolling js-->
+        <script src="js/bootstrap.js"></script>
 
-
-
-
-
-
-
-    <%@include file="homepagefooter.jsp"%>
-    <!--  Scripts
-================================================== -->
-
-    <!-- jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-                    window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\script>');
-    </script>
-
-    <!-- Bootsrap javascript file -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- owl carouseljavascript file -->
-    <script src="js/owl.carousel.min.js"></script>
-
-    <!-- Template main javascript -->
-    <script src="js/main.js"></script>
-
-
-    <script>
-                    $(document).ready(function () {
-                        $("#edit").click(function () {
-                            $('input').attr('readonly', false);
-                        });
-                    });
-    </script>
-
-    <script>
-        function Run() {
-            var x = document.getElementById("submit");
-            if (x.style.display === "none") {
-                x.style.display = "inline-block";
-                x.className = "text-center btn btn-primary";
-            } 
-        }
-    </script>
-    
-    <script>
-        function onLoad() {
-            var x = document.getElementById("submit");
-            x.style.display = "none";
-        }
-    </script>
-
-</body>
+    </body>
 </html>

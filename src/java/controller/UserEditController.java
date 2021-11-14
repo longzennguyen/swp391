@@ -13,6 +13,9 @@ import dao.impl.UserDAOImpl;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -47,7 +50,7 @@ public class UserEditController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserEditController</title>");            
+            out.println("<title>Servlet UserEditController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet UserEditController at " + request.getContextPath() + "</h1>");
@@ -68,16 +71,17 @@ public class UserEditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserDAOImpl userDAO = new UserDAOImpl();        
+        UserDAOImpl userDAO = new UserDAOImpl();
         int id = Integer.parseInt(request.getParameter("id"));
         try {
-            // get User detail from database for display
+            // get all User detail by ID from database
             User user = userDAO.getUserDetailImg(id);
             request.setAttribute("data", user);
             request.getRequestDispatcher("useredit.jsp").forward(request, response);
         } catch (Exception ex) {
             Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     /**
@@ -91,16 +95,25 @@ public class UserEditController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("user_id"));
-        int role_id = Integer.parseInt(request.getParameter("role_id"));
-        int status_id = Integer.parseInt(request.getParameter("status_id"));
-        UserDAOImpl userDAO = new UserDAOImpl();
         try {
-            // edit User information in the database and return to list
-            userDAO.editUserByID(id, role_id, status_id);
-            response.sendRedirect("userlist");
-        } catch (IOException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            String first_name = request.getParameter("firstName").trim();
+            String last_name = request.getParameter("lastName").trim();
+            int user_id = Integer.parseInt(request.getParameter("userID").trim());
+            String phone = request.getParameter("phone").trim();
+            String email = request.getParameter("email").trim();
+            String date1 = request.getParameter("dob");
+            String old_pattern = "yyyy-MM-dd";
+            String new_pattern = "MM-dd-yyyy";
+            SimpleDateFormat oldSDF = new SimpleDateFormat(old_pattern);
+            SimpleDateFormat newSDF = new SimpleDateFormat(new_pattern);
+            Date date = oldSDF.parse(date1);
+            String dob = newSDF.format(date);
+            String address = request.getParameter("address").trim();           
+            UserDAOImpl userDAO = new UserDAOImpl();           
+            userDAO.editUserByID(user_id, first_name, last_name, address, email, phone, dob);                                  
+            response.sendRedirect("userprofile?id=" + user_id);
+        } catch (ParseException ex) {
+            Logger.getLogger(UserEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

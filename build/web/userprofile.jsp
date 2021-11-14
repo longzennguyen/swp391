@@ -55,17 +55,20 @@
                                         <!-- Bordered Tabs -->
                                         <ul class="nav nav-tabs nav-tabs-bordered">                                           
                                             <li class="nav-item">
-                                                <button class="nav-link active" data-toggle="tab" data-target="#profile-overview"
+                                                <button class="nav-link" data-toggle="tab" data-target="#profile-overview"
                                                         style="background: none; border: none; padding: 10px;">Overview</button>
                                             </li>
-
                                             <li class="nav-item">
-                                                <button class="nav-link" data-toggle="tab" data-target="#profile-edit"
-                                                        style="background: none; border: none;padding: 10px">Edit Profile</button>
+
+                                                <button class="nav-link"
+                                                        style="background: none; border: none;padding: 10px">
+                                                    <a href="useredit?id=${data.user_id}">Edit Profile</a>
+                                                </button>
+
                                             </li>
                                         </ul>
                                         <div class="tab-content pt-2">
-                                            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                            <div class="profile-overview" id="profile-overview" >
                                                 <h3 class="card-title">About</h3>
                                                 <p class="small fst-italic" style="margin-top: 10px; font-style: italic">Sunt est soluta temporibus accusantium neque nam 
                                                     maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor.
@@ -122,17 +125,6 @@
                                                     </div>                                                 
                                                 </div>
                                             </div>
-
-                                            <div class="tab-pane profile-edit pt-3" id="profile-edit">
-
-                                                <!-- Profile Edit Form -->
-                                                <form>                                                     
-                                                    <div class="text-center">
-                                                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                                                    </div>
-                                                </form><!-- End Profile Edit Form -->
-
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +146,14 @@
         <script src="js/jquery.nicescroll.js"></script>
         <script src="js/scripts.js"></script>
         <!--//scrolling js-->
-        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <!-- mother grid end here-->
+        <script>
+            $(".nav .nav-link").on("load", function () {
+                $(".nav").find(".active").removeClass("active");
+                $(this).addClass("active");
+            });
+        </script>
+
     </body>
 </html>

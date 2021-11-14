@@ -1,17 +1,17 @@
 <%-- 
-    Document   : userprofile
-    Created on : Sep 24, 2021, 9:26:05 AM
+    Document   : customeredit
+    Created on : Nov 14, 2021, 8:56:21 PM
     Author     : ROG STRIX
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin User Detail</title>
+        <title>Customer Detail</title>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
         <!-- Custom Theme files -->
         <link href="css/newstyle.css" rel="stylesheet" type="text/css" media="all"/>
@@ -32,12 +32,12 @@
             <div class="left-content">
                 <div class="mother-grid-inner">
                     <!--header start here-->
-                    <%@include file="header.jsp"%>
+                    <%@include file="managerheader.jsp"%>
                     <!--inner block start here-->
-                    <div class="inner-block "">
+                    <div class="inner-block">
                         <div class="blank">
                             <div class="content text-center" style="">
-                                <h2 style="color: #1290f8">User Profile Edit</h2>
+                                <h2 style="color: #1290f8">Customer Profile Edit</h2>
                             </div>
                             <div class="col-md-4 text-center" >
                                 <div class="card">
@@ -55,14 +55,17 @@
                                             <div class="profile-edit pt-3" id="profile-edit" style="margin-top: 20px">
                                                 <!-- Profile Edit Form -->
                                                 <h3 class="card-title">Profile Edit</h3>
-
-                                                <form action="useredit" method="POST">
-                                                    <div class="row mb-3" style="margin-top: 20px">
-                                                        <label for="userID" class="col-md-4 col-lg-3 col-form-label">User ID</label>
-                                                        <div class="col-md-8 col-lg-9">
-                                                            <input name="userID" type="text" class="form-control" value="${data.user_id}" readonly="true" required>
+                                                <form action="customeredit" method="POST">
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-4 col-lg-3 col-form-label" style="margin-top: 20px">
+                                                            <label class="labels" style="text-decoration: none">User ID: </label>                                                   
                                                         </div>
+                                                        <div class="col-md-8 col-lg-9" style="margin-top: 20px">
+                                                            <input name="userID" type="text" class="form-control"  value="${data.user_id}" readonly>
+                                                            
+                                                        </div> 
                                                     </div>
+
                                                     <div class="row mb-3" style="margin-top: 20px">
                                                         <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                                                         <div class="col-md-8 col-lg-9">
@@ -109,10 +112,20 @@
                                                             <input name="dob" type="date" class="form-control" value="${data.dob}" >
                                                         </div>
                                                     </div>
+                                                    <div class="row mb-3" >
+                                                        <div class="col-md-4 col-lg-3 col-form-label" style="margin-top: 20px">
+                                                            <label class="labels" style="text-decoration: none">Customer Status </label>                                                   
+                                                        </div>
+                                                        <div class="col-md-8" style="margin-top: 20px">
+                                                            <h4>${data.status}</h4>                                                   
+                                                        </div> 
+                                                    </div>    
 
                                                     <div class="text-center"style="margin-top: 20px">
+                                                        <a href="customerlist?page=1&word="><button class="btn btn-primary profile-button" type="button">Back to List</button></a>
                                                         <button type="submit" class="btn btn-primary">Save Changes</button>
                                                     </div>
+
                                                 </form><!-- End Profile Edit Form -->
 
                                                 <!-- End Profile Edit Form -->
@@ -123,16 +136,14 @@
                                 </div>
 
                             </div>
-                            <div class="mt-5 text-center col-md-10" style="margin-top: 20px; padding-bottom:50px">
-                                <a href="userlist"><button class="btn btn-primary profile-button" type="button">Back to List</button></a>
-                            </div>
+
 
                         </div>
                     </div>
                 </div>
             </div>
             <!--slider menu-->
-            <%@include file="adminsidebar.jsp"%>
+            <%@include file="sidermenu.jsp"%>
             <div class="clearfix"> </div>
         </div>
 

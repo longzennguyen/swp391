@@ -45,8 +45,16 @@
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search name, email, phone" aria-label="Search" name="word">
                                 <input class="btn  my-2 my-sm-0" type="submit" value="Search">
                             </form>
-
-                            <table class="table" style="margin-top: 10px">
+                            <div class="dropdown" style="float: left; margin-left: 50px">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Sort by Name</a></li>
+                                    <li><a href="#">Sort by Status</a></li>
+                                    <li><a href="#">Sory by ...</a></li>
+                                </ul>
+                            </div>
+                            <table class="table" style="margin-top: 10px" id="myTable">
                                 <thead>
                                     <tr>
                                         <th scope="col">User ID</th>
@@ -130,6 +138,6 @@
         <script src="js/scripts.js"></script>
         <!--//scrolling js-->
         <script src="js/bootstrap.js"></script>
-        <!-- mother grid end here-->
+
     </body>
 </html>

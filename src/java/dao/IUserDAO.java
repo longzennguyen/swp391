@@ -52,10 +52,14 @@ public interface IUserDAO {
     *
     * 
     * @param id
-    * @param role_id
-    * @param status_id
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param email
+     * @param phone
+     * @param dob
     */    
-    public void editUserByID(int id, int role_id, int status_id);
+    public void editUserByID(int id, String firstName, String lastName, String address, String email, String phone, String dob);
     
     /**
     * Get number of pages in pagination  

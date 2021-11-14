@@ -9,8 +9,15 @@
  */
 package controller;
 
+import dao.impl.UserDAOImpl;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -60,7 +67,16 @@ public class CustomerEditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        UserDAOImpl userDAO = new UserDAOImpl();
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            // get all User detail by ID from database
+            User user = userDAO.getUserDetailImg(id);
+            request.setAttribute("data", user);
+            request.getRequestDispatcher("customeredit.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(CustomerEditController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -74,7 +90,26 @@ public class CustomerEditController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            String first_name = request.getParameter("firstName").trim();
+            String last_name = request.getParameter("lastName").trim();
+            int user_id = Integer.parseInt(request.getParameter("userID").trim());
+            String phone = request.getParameter("phone").trim();
+            String email = request.getParameter("email").trim();
+            String date1 = request.getParameter("dob");
+            String old_pattern = "yyyy-MM-dd";
+            String new_pattern = "MM-dd-yyyy";
+            SimpleDateFormat oldSDF = new SimpleDateFormat(old_pattern);
+            SimpleDateFormat newSDF = new SimpleDateFormat(new_pattern);
+            Date date = oldSDF.parse(date1);
+            String dob = newSDF.format(date);
+            String address = request.getParameter("address").trim();
+            UserDAOImpl userDAO = new UserDAOImpl();
+            userDAO.editUserByID(user_id, first_name, last_name, address, email, phone, dob);                                  
+            response.sendRedirect("customerdetail?id=" + user_id);
+        } catch (ParseException ex) {
+            Logger.getLogger(CustomerEditController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

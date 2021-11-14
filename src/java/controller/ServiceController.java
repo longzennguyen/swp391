@@ -63,7 +63,7 @@ public class ServiceController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            int pageSize = 3;
+            int pageSize = 6;
             // get page current
             int page;
             try {
