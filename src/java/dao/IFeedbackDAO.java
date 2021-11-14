@@ -54,4 +54,11 @@ public interface IFeedbackDAO {
      * @throws java.lang.Exception
      */
     public ArrayList<Feedback> getAllFeedbackPaging(int pageSize, int pageIndex) throws Exception;
+    
+    /**
+     * add new feedback
+     *
+     * @throws java.lang.Exception
+     */
+    public void addFeedback(int id, String content, String star) throws Exception;
 }

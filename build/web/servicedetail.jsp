@@ -121,7 +121,7 @@
                 <br/>
                 <div class="text-center">
                     <a href="#" class="btn btn-primary">Buy Now</a>
-                    <a href="#" class="btn btn-primary">Feedback</a>
+                    <a href="feedback" class="btn btn-primary">Feedback</a>
                 </div>        
 
 

@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="text-center">
                                         <a href="#" class="btn btn-primary">Buy</a>
-                                        <a href="feedback.jsp" class="btn btn-primary">Feedback</a>
+                                        <a href="feedback" class="btn btn-primary">Feedback</a>
                                     </div>
                                 </div> <!-- /.cause -->
                             </div>  

@@ -176,4 +176,43 @@ public class FeedbackDAOImpl extends DBContext implements IFeedbackDAO {
         return listFeedbacks;
     }
 
+    @Override
+    public void addFeedback(int id, String content, String star) throws Exception {
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+        String sql = "INSERT INTO [dbo].[Feedback]\n"
+                + "           ([feedback_id]\n"
+                + "           ,[created_by]\n"
+                + "           ,[created_at]\n"
+                + "           ,[updated_at]\n"
+                + "           ,[reservation_id]\n"
+                + "           ,[content]\n"
+                + "           ,[star_no])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,5\n"
+                + "           ,''\n"
+                + "           ,''\n"
+                + "           ,5\n"
+                + "           ,?\n"
+                + "           ,?)";
+        try {
+            conn = getConnection();
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.setString(2, content);
+            statement.setString(3, star);
+            rs = statement.executeQuery();
+           
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(statement);
+            closeConnection(conn);
+        }
+    }
+
 }

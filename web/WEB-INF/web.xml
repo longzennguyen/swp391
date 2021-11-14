@@ -87,7 +87,6 @@
     <servlet>
         <servlet-name>CustomerEditController</servlet-name>
         <servlet-class>controller.CustomerEditController</servlet-class>
-        
     </servlet>
     <servlet>
         <servlet-name>Reservation</servlet-name>
@@ -100,6 +99,14 @@
     <servlet>
         <servlet-name>ReservationFinishController</servlet-name>
         <servlet-class>controller.ReservationFinishController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardController</servlet-name>
+        <servlet-class>controller.DashboardController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FeedbackController</servlet-name>
+        <servlet-class>controller.FeedbackController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
@@ -180,7 +187,6 @@
     <servlet-mapping>
         <servlet-name>CustomerEditController</servlet-name>
         <url-pattern>/customeredit</url-pattern>
-        
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Reservation</servlet-name>
@@ -193,6 +199,14 @@
     <servlet-mapping>
         <servlet-name>ReservationFinishController</servlet-name>
         <url-pattern>/reservation/finish</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardController</servlet-name>
+        <url-pattern>/admindashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FeedbackController</servlet-name>
+        <url-pattern>/feedback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
