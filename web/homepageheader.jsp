@@ -81,7 +81,7 @@
                                 <c:if test="${empty user}">
                                     <li><a href="homepage">Home</a></li>
                                     <li><a href="about.jsp">About</a></li>
-                                    <li class="has-child"><a href="${pageContext.request.contextPath}/manager/service">Services</a></li>
+                                    <li class="has-child"><a href="servicelist">Services</a></li>
                                     <li><a href="${pageContext.request.contextPath}/reservation">Reservation</a></li>
                                     <li><a href="${pageContext.request.contextPath}/bloglist">Blog</a></li>
 

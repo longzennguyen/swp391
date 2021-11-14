@@ -73,6 +73,13 @@
                 transition: width 0.4s ease-in-out;
             }
         </style>
+        <c:if test="${finish == 'OK'}">
+            ,<script type="text/javascript">
+                alert("FINSIH PAYMENT");
+                var url = '${pageContext.request.contextPath}';
+                window.location.href = url + '/homepage';
+            </script>
+        </c:if>
     </head>
     <body>
         <jsp:include page="../homepageheader.jsp" >
@@ -85,7 +92,7 @@
                 <br>
                 <br>
                 <div style="margin-left: 10px;color: black;width: 100%">
-                    <form>
+                    <form method="POST">
                         <table style="width: 100%">
                             <thead>
                                 <tr>

@@ -43,11 +43,6 @@ public class Service {
     /**
      * Constructor
     */
-    
-    private int featured;
-    
-    private int status;
-
     public Service() {
     }
     /**
@@ -163,22 +158,6 @@ public class Service {
      */
     public void setCategory_id(int category_id) {
         this.category_id = category_id;
-    }
-
-    public int getFeatured() {
-        return featured;
-    }
-
-    public void setFeatured(int featured) {
-        this.featured = featured;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
     
     

@@ -53,7 +53,7 @@
                             <div class="clearfix"> </div>
                         </div>
                         <input type="submit" name="Sign In" value="Login">
-                        <h3>Not a member?<a href="signup.jsp"> Sign up now</a></h3>
+                         <h3><a href="changPass.jsp">Change password</a><p style="color: yellowgreen">Or</p>Not a member?<a href="signup.jsp"> Sign up now</a></h3>
 
                     </form>
                     <h5><a href="homepage">Go Back to Home</a></h5>

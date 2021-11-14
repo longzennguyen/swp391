@@ -17,9 +17,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * This class implements from class interface IServiceDAO <br>
@@ -186,7 +183,7 @@ public class ServiceDAOImpl extends DBContext implements IServiceDAO {
     }
 
     @Override
-    public ArrayList<Service> getAllServicePagingbyWord(String word, String sort, int pageSize, int pageIndex) throws Exception {
+    public ArrayList<Service> getAllServicePagingbyWord(String word, int pageSize, int pageIndex) throws Exception {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         Connection conn = null;
         PreparedStatement ps = null;
@@ -199,13 +196,7 @@ public class ServiceDAOImpl extends DBContext implements IServiceDAO {
                 + "title like ?\n"
                 + ")as dbNumber \n"
                 + "where\n"
-                + "Number between ? and ?\n";
-        if (sort.equals("pricedesc")) {
-            sql += "ORDER BY original_price DESC";
-        } else if (sort.equals("priceasc")) {
-            sql += "ORDER BY original_price ASC";
-        }
-        System.out.println(sql);
+                + "Number between ? and ?";
         ArrayList<Service> services = new ArrayList<>();
 
         try {
@@ -226,8 +217,6 @@ public class ServiceDAOImpl extends DBContext implements IServiceDAO {
                 double price = rs.getInt("original_price");
                 String description = rs.getString("summary");
                 Service service = new Service(id, img, title, description, price, category_id);
-                service.setFeatured(rs.getByte("featured"));
-                service.setStatus(rs.getInt("status_id"));
                 services.add(service);
             }
             rs.close();
@@ -307,8 +296,6 @@ public class ServiceDAOImpl extends DBContext implements IServiceDAO {
                 double price = rs.getInt("original_price");
                 String description = rs.getString("summary");
                 service = new Service(service_id, img, title, description, price, category_id);
-                service.setFeatured(rs.getByte("featured"));
-                service.setStatus(rs.getInt("status_id"));
             }
             rs.close();
         } catch (SQLException e) {
@@ -317,46 +304,6 @@ public class ServiceDAOImpl extends DBContext implements IServiceDAO {
             closeResultSet(rs);
             closePreparedStatement(ps);
             closeConnection(conn);
-        }
-        return service;
-    }
-
-    @Override
-    public Service update(Service service) {
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
-        String sql = "UPDATE Service"
-                + " SET title = ?,"
-                + "category_id = ?,"
-                + "original_price = ?,"
-                + "featured = ?,"
-                + "status_id = ?"
-                + " WHERE service_id = ?";
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = getConnection();
-            ps = conn.prepareStatement(sql);
-            int index = 0;
-            ps.setString(++index, service.getTitle());
-            ps.setInt(++index, service.getService_id());
-            ps.setInt(++index, (int) service.getPrice());
-            ps.setByte(++index, (byte) service.getFeatured());
-            ps.setInt(++index, service.getStatus());
-            ps.setInt(++index, service.getService_id());
-            ps.executeUpdate();
-        } catch (SQLException e) {
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ServiceDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                closePreparedStatement(ps);
-                closeConnection(conn);
-            } catch (Exception ex) {
-                Logger.getLogger(ServiceDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
         return service;
     }

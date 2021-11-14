@@ -53,7 +53,7 @@ public class ServiceSearchController extends HttpServlet {
             
             ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
             ArrayList<Service> serviceList;
-            serviceList = serviceDAO.getAllServicePagingbyWord(word,"", pageSize, page);
+            serviceList = serviceDAO.getAllServicePagingbyWord(word, pageSize, page);
             if (!serviceList.isEmpty()) {
                 // get number page
                 int numberPage = serviceDAO.getNumberOfPagesSearch(pageSize, word);

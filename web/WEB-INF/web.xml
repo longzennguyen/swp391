@@ -87,6 +87,7 @@
     <servlet>
         <servlet-name>CustomerEditController</servlet-name>
         <servlet-class>controller.CustomerEditController</servlet-class>
+        
     </servlet>
     <servlet>
         <servlet-name>Reservation</servlet-name>
@@ -99,18 +100,6 @@
     <servlet>
         <servlet-name>ReservationFinishController</servlet-name>
         <servlet-class>controller.ReservationFinishController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddServiceToCartController</servlet-name>
-        <servlet-class>controller.AddServiceToCartController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ServicelistController</servlet-name>
-        <servlet-class>controller.manager.ServicelistController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EditServiceController</servlet-name>
-        <servlet-class>controller.manager.EditServiceController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
@@ -191,6 +180,7 @@
     <servlet-mapping>
         <servlet-name>CustomerEditController</servlet-name>
         <url-pattern>/customeredit</url-pattern>
+        
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Reservation</servlet-name>
@@ -203,18 +193,6 @@
     <servlet-mapping>
         <servlet-name>ReservationFinishController</servlet-name>
         <url-pattern>/reservation/finish</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddServiceToCartController</servlet-name>
-        <url-pattern>/service/add-to-cart</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ServicelistController</servlet-name>
-        <url-pattern>/manager/service</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditServiceController</servlet-name>
-        <url-pattern>/manager/service/edit</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

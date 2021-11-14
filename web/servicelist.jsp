@@ -60,7 +60,7 @@
                                         ${i.description}
                                     </div>
                                     <div class="text-center">
-                                        <a  href="${pageContext.request.contextPath}/service/add-to-cart?id=${i.service_id}" class="btn btn-primary">Buy</a>
+                                        <a href="#" class="btn btn-primary">Buy</a>
                                         <a href="feedback.jsp" class="btn btn-primary">Feedback</a>
                                     </div>
                                 </div> <!-- /.cause -->
