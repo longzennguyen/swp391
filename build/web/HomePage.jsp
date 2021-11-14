@@ -90,7 +90,7 @@
                     </div>
 
                 </div> <!-- /.item -->
-                
+
                 <div class="item ">
 
                     <img src="img/home-slider-1.jpg" alt="" style="width: 1920px;height: 580px">
@@ -127,8 +127,100 @@
 
 
 
-        <div class="section-home about-us">
+        <div class="section-home about-us fadeIn animated">
+
             <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <div class="about-us-col">
+
+                            <div class="col-icon-wrapper">
+                                <img src="img/icons/our-mission-icon.png" alt="">
+                            </div>
+                            <h3 class="col-title">our mission</h3>
+                            <div class="col-details">
+
+                                <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <div class="about-us-col">
+
+                            <div class="col-icon-wrapper">
+                                <img src="img/icons/make-donation-icon.png" alt="">
+                            </div>
+                            <h3 class="col-title">Donate Us</h3>
+                            <div class="col-details">
+
+                                <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <div class="about-us-col">
+
+                            <div class="col-icon-wrapper">
+                                <img src="img/icons/help-icon.png" alt="">
+                            </div>
+                            <h3 class="col-title">Help & support</h3>
+                            <div class="col-details">
+
+                                <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <div class="about-us-col">
+
+                            <div class="col-icon-wrapper">
+                                <img src="img/icons/programs-icon.png" alt="">
+                            </div>
+                            <h3 class="col-title">our programs</h3>
+                            <div class="col-details">
+
+                                <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
+
+                            </div>  
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.about-us -->
+
+    </div>
+
+
+
+    <div class="section-home about-us">
+        <div class="container">
+            <div class="row">
                 <h2 class="title-style-1">Our Popular Services <span class="title-under"></span></h2>
                 <div class="row">
                     <c:forEach var="i" items="${serviceListTop}">
@@ -158,6 +250,82 @@
                 </div>
             </div> <!-- /.our-services --> 
         </div>
+
+        <div class="section-home home-reasons">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="reasons-col animate-onscroll fadeIn">
+
+                            <img src="img/reasons/we-fight-togother.jpg" alt="">
+
+                            <div class="reasons-titles">
+
+                                <h3 class="reasons-title">We fight together</h3>
+                                <h5 class="reason-subtitle">We are humans</h5>
+
+                            </div>
+
+                            <div class="on-hover hidden-xs">
+
+                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
+
+
+                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
+
+                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="reasons-col animate-onscroll fadeIn">
+
+                            <img src="img/reasons/we-care-about.jpg" alt="">
+
+                            <div class="reasons-titles">
+
+                                <h3 class="reasons-title">WE care about your kids</h3>
+                                <h5 class="reason-subtitle">We are doctors</h5>
+
+                            </div>
+
+                            <div class="on-hover hidden-xs">
+
+                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
+
+
+                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
+
+                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div> <!-- /.home-reasons -->
+
+
+
 
         <div class="section-home about-us">
             <div class="container">
@@ -189,31 +357,34 @@
                 </div>
             </div> <!-- /.our-services --> 
         </div>
-
-
-        <%@include file="homepagefooter.jsp"%>
-
+    </div>
 
 
 
 
+    <%@include file="homepagefooter.jsp"%>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\script>');
-        </script>
 
-        <!-- Bootsrap javascript file -->
-        <script src="js/bootstrap.min.js"></script>
 
-        <!-- owl carouseljavascript file -->
-        <script src="js/owl.carousel.min.js"></script>
 
-        <!-- Template main javascript -->
-        <script src="js/main.js"></script>
-        <script src="js/jquery.nicescroll.js"></script>
-        <script src="js/scripts.js"></script>
-        <!--//scrolling js-->
-        <script src="js/bootstrap.js"></script>
-    </body>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\script>');
+    </script>
+
+    <!-- Bootsrap javascript file -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- owl carouseljavascript file -->
+    <script src="js/owl.carousel.min.js"></script>
+
+    <!-- Template main javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/scripts.js"></script>
+    <!--//scrolling js-->
+    <script src="js/bootstrap.js"></script>
+</body>
 </html>
