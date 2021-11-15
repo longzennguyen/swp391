@@ -58,6 +58,9 @@ public interface IFeedbackDAO {
     /**
      * add new feedback
      *
+     * @param id
+     * @param content
+     * @param star
      * @throws java.lang.Exception
      */
     public void addFeedback(int id, String content, String star) throws Exception;

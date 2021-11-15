@@ -133,7 +133,7 @@
                                         <!-- News & Updates Traffic -->
                                         <div class="card">                                           
                                             <div class="card-body pb-0">
-                                                <h5 class="card-title">News &amp; Blogs</h5>
+                                                <h1 class="card-title">News &amp; Blogs</h1>
                                                 <c:forEach var="o" items="${blogListTop}">
                                                     <div class="news" style="margin-top: 10px">
                                                     <div class="post-item clearfix">                                                       

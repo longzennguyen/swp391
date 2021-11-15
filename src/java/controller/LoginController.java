@@ -117,7 +117,7 @@ public class LoginController extends HttpServlet {
             } 
             else if (user.getRole_id() == 1) {
                 //existed and role id = 1
-                response.sendRedirect(request.getContextPath() + "/admin.jsp");
+                response.sendRedirect(request.getContextPath() + "/admindashboard");
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("userId", user.getUser_id());
             } 

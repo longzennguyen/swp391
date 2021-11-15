@@ -31,7 +31,7 @@
                 </a> </div>		  
             <div class="menu">
                 <ul id="menu" >
-                    <li id="menu-home" ><a href="admin.jsp"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+                    <li id="menu-home" ><a href="admindashboard"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
                     <!--                        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
                                                 <ul>
                                                     <li><a href="grids.html">Grids</a></li>

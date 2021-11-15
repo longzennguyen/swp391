@@ -3,20 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/Slider.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/customerlist.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/UserDAOImpl.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/feedback.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/FeedbackDetailController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/servicedetail.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/header.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/Role.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IFeedbackDAO.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/FeedbackDAOImpl.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/SliderDAOImpl.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/Status.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/homepage.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/login.jsp</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/CustomerDetailController.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/CustomerListController.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/userlist.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/LoginController.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/ISliderDAO.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IStatusDAO.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/Service.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/DashboardController.java</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/servicelist.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/controller/FeedbackController.java</file>
-            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/css/feedback.css</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IUserDAO.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/useredit.jsp</file>
             <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/Feedback.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/servicesearch.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/customeredit.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/Blogs.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/IServiceDAO.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/sidermenu.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/FeedbackDAOImpl.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/adminsidebar.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/web/admin.jsp</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/entity/User.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/ServiceDAOImpl.java</file>
+            <file>file:/C:/D/Tai%20lieu%20hoc%20tap/SWP391/swp391/src/java/dao/impl/RoleDAOImpl.java</file>
         </group>
     </open-files>
 </project-private>

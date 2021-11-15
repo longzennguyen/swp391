@@ -10,7 +10,8 @@
 package entity;
 
 /**
- * class have properties of Users table in database
+ * This class represents the <code>Users</code> table in database
+ * 
  *
  * @author DucNT
  */

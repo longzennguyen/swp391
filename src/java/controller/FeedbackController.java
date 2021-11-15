@@ -83,10 +83,10 @@ public class FeedbackController extends HttpServlet {
             listFeedbacks = fdao.getAllFeedback();
             int id = listFeedbacks.size() + 1;
             fdao.addFeedback(id, content, star);
-            PrintWriter out = response.getWriter();
-            out.println(id);
-            out.println(star);
-            out.println(content);
+//            PrintWriter out = response.getWriter();
+//            out.println(id);
+//            out.println(star);
+//            out.println(content);
         } catch (Exception ex) {
             Logger.getLogger(FeedbackController.class.getName()).log(Level.SEVERE, null, ex);
         }
