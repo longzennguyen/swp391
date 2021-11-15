@@ -30,6 +30,17 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DucNT
  */
+/**
+ * doGet:<br>
+ * - Get data of <code>User</code> in the database then display in jsp <br>
+ * doPost: <br>
+ * - Handles the HTTP <code>POST</code> method <br>
+ * processRequest: <br>
+ * - Get top <code>Service</code> then display in home page<br>
+ * - Get top <code>Blog</code> then display in home page<br>
+ *
+ * @author DucNT
+ */
 public class HomepageController extends HttpServlet {
 
     /**

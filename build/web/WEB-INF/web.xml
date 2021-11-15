@@ -108,6 +108,14 @@
         <servlet-name>FeedbackController</servlet-name>
         <servlet-class>controller.FeedbackController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SliderController</servlet-name>
+        <servlet-class>controller.SliderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SliderDetailController</servlet-name>
+        <servlet-class>controller.SliderDetailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -207,6 +215,14 @@
     <servlet-mapping>
         <servlet-name>FeedbackController</servlet-name>
         <url-pattern>/feedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SliderController</servlet-name>
+        <url-pattern>/sliderlist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SliderDetailController</servlet-name>
+        <url-pattern>/sliderdetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

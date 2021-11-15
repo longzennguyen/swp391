@@ -36,7 +36,7 @@
                     <li><a href="#"><i class="fa fa-heart"></i><span>Services</span></a></li>
                     <li><a href="feedbacklist"><i class="fa fa-star-half-o"></i><span>Feedbacks</span></a></li>
                     <li><a href="#"><i class="fa fa-list-alt"></i><span>Posts</span></a></li>
-                    
+                    <li><a href="sliderlist"><i class="fa fa-folder"></i><span>Sliders</span></a></li>
                 </ul>
             </div>
         </div>

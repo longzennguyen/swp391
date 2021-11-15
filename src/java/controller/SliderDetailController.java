@@ -1,23 +1,14 @@
 /*
- * Copyright (C) 2021, FPT University<br>
- * SWP391<br>
- * ChildrenCareProject<br>
- *
- * Record of change:<br>
- * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-28    1.0        DucNT           First Version<br>
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
-import dao.impl.BlogDAOImpl;
-import dao.impl.ServiceDAOImpl;
-import dao.impl.UserDAOImpl;
-import entity.Blogs;
-import entity.Service;
-import entity.User;
+import dao.impl.SliderDAOImpl;
+import entity.Slider;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -26,19 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * processRequest:<br>
- * - Processes requests for both HTTP <code>GET</code> and <code>POST</code>
- * methods <br>
- * doGet <br>
- * - Get top 4 <code>Service</code> from database then display <br>
- * - Get top 4 new <code>Blogs</code> from database then display <br>
- * - Get 5 new <code>User</code> from database then display <br>
- * doPost  <br>
- * - Handles the HTTP <code>POST</code> method  <br>
  *
- * @author DucNT
+ * @author ROG STRIX
  */
-public class DashboardController extends HttpServlet {
+public class SliderDetailController extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -56,10 +39,10 @@ public class DashboardController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DashboardController</title>");
+            out.println("<title>Servlet SliderDetailController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DashboardController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SliderDetailController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -78,23 +61,13 @@ public class DashboardController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
-            ArrayList<Service> serviceListTop;
-            serviceListTop = serviceDAO.getTopServices();
-            
-            BlogDAOImpl blogDAO = new BlogDAOImpl();
-            ArrayList<Blogs> blogListTop;
-            blogListTop = blogDAO.getTopBlogs();
-            
-            UserDAOImpl userDAO = new UserDAOImpl();
-            ArrayList<User> customerList = userDAO.getAllUserPaging(4, 3);
-            
-            request.setAttribute("serviceListTop", serviceListTop);
-            request.setAttribute("blogListTop", blogListTop);
-            request.setAttribute("customerList", customerList);
-            request.getRequestDispatcher("admin.jsp").forward(request, response);
+            SliderDAOImpl sliderDAO = new SliderDAOImpl();
+            int id = Integer.parseInt(request.getParameter("id"));
+            Slider slider = sliderDAO.getSliderByID(id);
+            request.setAttribute("data", slider);
+            request.getRequestDispatcher("sliderdetail.jsp").forward(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SliderDetailController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

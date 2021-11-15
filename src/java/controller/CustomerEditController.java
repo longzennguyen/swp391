@@ -24,8 +24,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * doGet:<br>
+ * - Get data of <code>User</code> class in the database then display in jsp <br>
+ * doPost: <br>
+ * - Get parameter and set attribute then add data to <code>User</code> class <br>
+ * processRequest: <br>
+ * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+ * methods. <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class CustomerEditController extends HttpServlet {
 

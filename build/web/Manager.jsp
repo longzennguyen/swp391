@@ -102,7 +102,7 @@
                                             <td></td>
                                             <td>Sider List</td>
                                             <td></td>
-                                            <td><button><a href="#">Detail</a></button></td>
+                                            <td><button><a href="sliderlist">Detail</a></button></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>                    

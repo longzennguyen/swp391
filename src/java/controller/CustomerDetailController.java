@@ -22,7 +22,12 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * doGet:<br>
- * - Get data of user in the database then display in jsp <br>
+ * - Get data of <code>User</code> in the database then display in jsp <br>
+ * doPost: <br>
+ * - Handles the HTTP <code>POST</code> method <br>
+ * processRequest: <br>
+ * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+ * methods. <br>
  *
  * @author DucNT
  */

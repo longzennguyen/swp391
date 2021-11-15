@@ -1,20 +1,12 @@
 /*
- * Copyright (C) 2021, FPT University<br>
- * SWP391<br>
- * ChildrenCareProject<br>
- *
- * Record of change:<br>
- * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-28    1.0        DucNT           First Version<br>
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
-import dao.impl.BlogDAOImpl;
-import dao.impl.ServiceDAOImpl;
-import dao.impl.UserDAOImpl;
-import entity.Blogs;
-import entity.Service;
-import entity.User;
+import dao.impl.SliderDAOImpl;
+import entity.Slider;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -26,19 +18,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * processRequest:<br>
- * - Processes requests for both HTTP <code>GET</code> and <code>POST</code>
- * methods <br>
- * doGet <br>
- * - Get top 4 <code>Service</code> from database then display <br>
- * - Get top 4 new <code>Blogs</code> from database then display <br>
- * - Get 5 new <code>User</code> from database then display <br>
- * doPost  <br>
- * - Handles the HTTP <code>POST</code> method  <br>
  *
- * @author DucNT
+ * @author ROG STRIX
  */
-public class DashboardController extends HttpServlet {
+public class SliderController extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -56,10 +40,10 @@ public class DashboardController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DashboardController</title>");
+            out.println("<title>Servlet SliderController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DashboardController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SliderController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -78,24 +62,30 @@ public class DashboardController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            ServiceDAOImpl serviceDAO = new ServiceDAOImpl();
-            ArrayList<Service> serviceListTop;
-            serviceListTop = serviceDAO.getTopServices();
-            
-            BlogDAOImpl blogDAO = new BlogDAOImpl();
-            ArrayList<Blogs> blogListTop;
-            blogListTop = blogDAO.getTopBlogs();
-            
-            UserDAOImpl userDAO = new UserDAOImpl();
-            ArrayList<User> customerList = userDAO.getAllUserPaging(4, 3);
-            
-            request.setAttribute("serviceListTop", serviceListTop);
-            request.setAttribute("blogListTop", blogListTop);
-            request.setAttribute("customerList", customerList);
-            request.getRequestDispatcher("admin.jsp").forward(request, response);
+            int pageSize = 4;
+            // get page current
+            int page;
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+            } catch (NumberFormatException ex) {
+                page = 1;
+            }
+            if (page <= 0) {
+                page = 1;
+            }
+            SliderDAOImpl sliderDAO = new SliderDAOImpl();
+            ArrayList<Slider> sliderList = sliderDAO.getAllSliders(pageSize, page);
+            if (!sliderList.isEmpty()) {
+                // get number page
+                int numberPage = sliderDAO.getNumberOfPages(pageSize);
+                request.setAttribute("numberPage", numberPage);
+                request.setAttribute("page", page);
+            }
+            request.setAttribute("sliderList", sliderList);
         } catch (Exception ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SliderController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        request.getRequestDispatcher("sliderlist.jsp").forward(request, response);  
     }
 
     /**
