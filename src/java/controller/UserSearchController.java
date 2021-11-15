@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-21    1.0        DucNT           First Version<br>
  */
 package controller;
 
@@ -17,8 +21,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author ROG STRIX
+ * processRequest:<br>
+ * - Get search "word" from user input <br>
+ * - Find list of <code>User</code> by search word <br>
+ * - Get paginated of searched list of <code>User</code> <br>
+ * doGet <br>
+ * - Get <code>User</code> profile from database <br>
+ * doPost  <br>
+ * Handles the HTTP <code>POST</code> method.<br>
+ * @author DucNT
  */
 public class UserSearchController extends HttpServlet {
 

@@ -13,8 +13,10 @@ import entity.Service;
 import java.util.ArrayList;
 
 /**
+ * This class contains methods to help us manipulate <code>Service</code> objects in the
+ * database.
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public interface IServiceDAO {
 

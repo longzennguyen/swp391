@@ -1,13 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-21    1.0        DucNT            First Version<br>
  */
 package dao.impl;
 
 import dao.DBContext;
 import dao.ISliderDAO;
-import entity.Service;
 import entity.Slider;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,8 +19,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
+ * This class implements from class interface ISliderDAO <br>
+ * This class contains method to query select data from the table <code>Slider</code>.<br>
+ * There are get all <code>Slider</code>, get <code>Slider</code> detail <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class SliderDAOImpl extends DBContext implements ISliderDAO {
 

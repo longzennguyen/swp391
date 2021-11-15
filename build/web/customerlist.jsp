@@ -45,7 +45,7 @@
                                     <input class="form-control mr-sm-2" type="search" placeholder="${word}" aria-label="Search" name="word">
                                     <input class="btn  my-2 my-sm-0" type="submit" value="Search">
                                 </form>
-                                <div class="dropdown" style="float: left; margin-left: 50px">
+<!--                                <div class="dropdown" style="float: left; margin-left: 50px">
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter
                                         <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
@@ -53,7 +53,7 @@
                                         <li><a href="#">Sort by Status</a></li>
                                         <li><a href="#">Sory by ...</a></li>
                                     </ul>
-                                </div>
+                                </div>-->
                             </div>
                             <table class="table " style="margin-top: 40px">
                                 <thead>

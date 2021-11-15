@@ -197,6 +197,7 @@ public interface IUserDAO {
     *
     * 
     * @param pageSize
+    * @param word
     * @return 
     * @throws java.lang.Exception
     */    
@@ -212,5 +213,13 @@ public interface IUserDAO {
      * @throws Exception
      */
     public ArrayList<User> getAllCustomerPagingbyWord(int pageSize, int pageIndex, String word) throws Exception;
+    
+    /**
+     * Get all User in the database and paging by role
+     *
+     * @param role
+     * @return a list <code>User</code> object
+     * @throws Exception
+     */
     public List<User> getUserByRole(int role) throws Exception;
 }

@@ -12,7 +12,7 @@ package entity;
 /**
  * class have properties of Users table in database
  *
- * @author longnv
+ * @author DucNT
  */
 public class User {
 

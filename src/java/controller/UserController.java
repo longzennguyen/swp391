@@ -22,12 +22,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * doGet:<br>
- * - Get all User and paging <br>
- * doPost <br>
- * - Get all user by search Word <br>
+ * processRequest:<br>
+ * - Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods <br>
+ * doGet <br>
+ * - Get all <code>User</code> and paging <br>
+ * doPost  <br>
+ * - Handles the HTTP <code>POST</code> method  <br>
  *
- * @author longzennguyen
+ * @author DucNT
  */
 public class UserController extends HttpServlet {
 

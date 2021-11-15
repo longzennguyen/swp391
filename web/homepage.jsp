@@ -90,6 +90,24 @@
                     </div>
 
                 </div> <!-- /.item -->
+                
+                <div class="item ">
+
+                    <img src="img/home-slider-2.jpg" alt="" style="width: 1920px;height: 580px">
+
+                    <div class="container">
+
+                        <div class="carousel-caption">
+
+                            <h2 class="carousel-title bounceInDown animated slow" >Wanna know about us?</h2>
+                            <h4 class="carousel-subtitle bounceInUp animated slow">You can view our information</h4>
+                            <a href="about.jsp" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow">View Now</a>
+
+                        </div> <!-- /.carousel-caption -->
+
+                    </div>
+
+                </div> <!-- /.item -->
 
             </div>
 

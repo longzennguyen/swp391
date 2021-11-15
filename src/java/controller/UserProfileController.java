@@ -21,10 +21,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * doGet:<br>
- * - Get User profile from database <br>
- * 
- * @author longzennguyen
+ * processRequest:<br>
+ * - Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods <br>
+ * doGet <br>
+ * - Get <code>User</code> profile from database <br>
+ * doPost  <br>
+ * Handles the HTTP <code>POST</code> method.<br>
+ * @author DucNT
  */
 public class UserProfileController extends HttpServlet {
 

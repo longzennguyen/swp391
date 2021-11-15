@@ -24,10 +24,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * doGet:<br>
- * - Get User profile from database <br>
- * doPost <br>
- * - Edit user profile by role and status <br>
+ * processRequest:<br>
+ * - Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods <br>
+ * doGet <br>
+ * - Get <code>User</code> profile from database <br>
+ * doPost  <br>
+ * - Edit <code>User</code> profile <br>
  *
  * @author DucNT
  */

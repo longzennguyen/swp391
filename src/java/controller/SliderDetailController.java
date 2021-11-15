@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, FPT University<br>
+ * SWP391<br>
+ * ChildrenCareProject<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-28    1.0        DucNT           First Version<br>
  */
 package controller;
 
@@ -17,8 +21,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * processRequest:<br>
+ * - Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods <br>
+ * doGet <br>
+ * - Get detail of <code>Slider</code> in the database <br>
+ * doPost  <br>
+ * - Handles the HTTP <code>POST</code> method  <br>
  *
- * @author ROG STRIX
+ * @author DucNT
  */
 public class SliderDetailController extends HttpServlet {
 

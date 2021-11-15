@@ -62,7 +62,7 @@
                                                         </div>
                                                         <div class="col-md-8 col-lg-9" style="margin-top: 20px">
                                                             <input name="userID" type="text" class="form-control"  value="${data.user_id}" readonly>
-                                                            
+
                                                         </div> 
                                                     </div>
 
@@ -70,7 +70,7 @@
                                                         <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                                                         <div class="col-md-8 col-lg-9">
                                                             <input name="firstName" type="text" class="form-control"
-                                                                   pattern="[A-Za-z]{1,25}"
+                                                                   pattern="^[a-zA-Z\s]*{1,25}$"
                                                                    title="Contain letter only"
                                                                    value="${data.name}" required>
                                                         </div>
@@ -78,7 +78,11 @@
                                                     <div class="row mb-3" style="margin-top: 20px">
                                                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                                                         <div class="col-md-8 col-lg-9">
-                                                            <input name="lastName" minlength="1" maxlength="25" type="text" class="form-control"  value="${data.name}" required>
+                                                            <input name="lastName" minlength="1" maxlength="25" type="text" 
+                                                                   class="form-control"  
+                                                                   pattern="^[a-zA-Z\s]*{1,25}$"
+                                                                   title="Contain letter only"
+                                                                   value="${data.name}" required>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3" style="margin-top: 20px">
